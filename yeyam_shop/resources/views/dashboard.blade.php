@@ -20,14 +20,14 @@
                     </thead>
                     <tbody>
                     @php($i=1)
-                    @foreach($users as $user)
+
                     <tr>
                         <th scope="row">{{$i++}}</th>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->created_at->diffForHumans()}}</td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>test</td>
                     </tr>
-                    @endforeach
+
                     </tbody>
                 </table>
             </div>
