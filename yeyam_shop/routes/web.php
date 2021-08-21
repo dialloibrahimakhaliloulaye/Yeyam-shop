@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\AdminProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('admin/dashboard', fu
 
 //Admin all routes
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
+Route::get('/admin/profile', [AdminProfileController::class, 'AdminProfile'])->name('admin.profile');
 
 
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
