@@ -1,42 +1,32 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-        <h3>Hi...{{Auth::user()->name}}</h3>
-    </x-slot>
-
-    <div class="py-12">
+@extends('frontend.main_master')
+@section('content')
+    <div class="body-content">
         <div class="container">
             <div class="row">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Created at</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @php($i=1)
+                <div class="col-md-2"><br>
+                    <img class="card-img-top" style="border-radius: 50%" src="{{ (!empty($editData->profile_photo_path)) ?
+                            url('upload/admin_images/'.$editData->profile_photo_path) : url('upload/no_image.jpg') }}"
+                         height="100%" width="100%" alt=""><br><br>
+                    <ul class="list-group list-group-flush">
+                        <a href="" class="btn btn-primary btn-sm btn-block">Home</a>
+                        <a href="" class="btn btn-primary btn-sm btn-block">Profile update</a>
+                        <a href="" class="btn btn-primary btn-sm btn-block">Change password</a>
+                        <a href="" class="btn btn-danger btn-sm btn-block">Logout</a>
+                    </ul>
+                </div>
+                <div class="col-md-2">
 
-                    <tr>
-                        <th scope="row">{{$i++}}</th>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                    </tr>
-
-                    </tbody>
-                </table>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <h3 class="text-center">
+                            <span class="text-danger">Hi...</span>
+                            <strong>{{Auth::user()->name}}</strong>
+                            Welcome to Yéyam-shop
+                        </h3>
+                    </div>
+                </div>
             </div>
         </div>
-
-       {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>--}}
     </div>
-</x-app-layout>
+@endsection
