@@ -34,7 +34,7 @@ class IndexController extends Controller
         $data=User::find(Auth::user()->id);
         $data->name=$request->name;
         $data->email=$request->email;
-        $data->email=$request->phone;
+        $data->phone=$request->phone;
 
         if ($request->file('profile_photo_path')){
             $file=$request->file('profile_photo_path');

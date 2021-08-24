@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">User image <span></span></label>
-                                    <input type="file" name="profile_photo_path" class="form-control" ">
+                                    <input type="file" name="profile_photo_path" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-danger" type="submit">Update</button>
