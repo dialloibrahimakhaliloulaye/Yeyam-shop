@@ -21,19 +21,21 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
+                                        <th>Category Icon</th>
                                         <th>Category name</th>
-                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($category as $item)
                                         <tr>
+                                            <td><span><i class="fas fa-microchip"></i></span></td>
                                             <td>{{$item->category_name}}</td>
-                                            <td><img src="{{asset($item->category_image)}}" alt="" style="width: 70px; height: 40px;"></td>
                                             <td>
-                                                <a href="{{route('category.edit', $item->id)}}" class="btn btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                <a href="{{route('category.delete', $item->id)}}" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                <a href="{{route('category.edit', $item->id)}}" class="btn btn-info"
+                                                   title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{route('category.delete', $item->id)}}" class="btn btn-danger"
+                                                   id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -55,7 +57,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="post" action="{{route('category.store')}}" enctype="multipart/form-data">@csrf
+                                <form method="post" action="{{route('category.store')}}" >@csrf
                                     <div class="form-group">
                                         <h5>Category name<span class="text-danger">*</span></h5>
                                         <div class="controls">
@@ -64,11 +66,10 @@
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
-
                                     <div class="form-group">
                                         <h5>Category image<span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="file" name="category_image" class="form-control" > </div>
+                                            <input type="text" name="category_image" class="form-control" > </div>
                                         @error('category_image')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
