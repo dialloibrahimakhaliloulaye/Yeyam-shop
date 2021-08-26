@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -56,10 +57,19 @@ Route::post('/user/password/update', [IndexController::class, 'UserPasswordUpdat
 
 
 //Admin Brand all routes
-Route::prefix('brand')->group(function (){
+Route::prefix('brand')->group(function(){
     Route::get('/view', [BrandController::class, 'BrandView'])->name('all.brand');
     Route::post('/store', [BrandController::class, 'BrandStore'])->name('brand.store');
     Route::get('/edit/{id}', [BrandController::class, 'BrandEdit'])->name('brand.edit');
     Route::post('/update', [BrandController::class, 'BrandUpdate'])->name('brand.update');
     Route::get('/delete/{id}', [BrandController::class, 'BrandDelete'])->name('brand.delete');
+});
+
+//Admin Category all routes
+Route::prefix('category')->group(function(){
+    Route::get('/view', [CategoryController::class, 'CategoryView'])->name('all.category');
+    Route::post('/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
+    Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
+    Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
+    Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
 });
