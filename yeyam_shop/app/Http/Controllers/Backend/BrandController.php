@@ -38,4 +38,45 @@ class BrandController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    public function BrandEdit($id)
+    {
+        $brand=Brand::findOrfail($id);
+        return view('backend.brand.brand_edit', compact('brand'));
+    }
+
+    public function BrandUpdate(Request $request)
+    {
+        $brand_id=$request->id;
+        $old_image=$request->old_image;
+        if ($request->file('brand_image')){
+            @unlink($old_image);
+            $images=$request->file('brand_image');
+            $name_gen=hexdec(uniqid()).'.'.$images->getClientOriginalExtension();
+            Image::make($images)->resize(300,300)->save('upload/brand/'.$name_gen);
+            $save_url='upload/brand/'.$name_gen;
+
+            Brand::FindOrfail($brand_id)->update([
+                'brand_name'=>$request->brand_name,
+                'brand_slug'=>strtolower(str_replace(' ', '-', $request->brand_name)),
+                'brand_image'=>$save_url,
+            ]);
+            $notification=array(
+                'message'=>'Brand updated successfully',
+                'alert-type'=>'info'
+            );
+            return redirect()->route('all.brand')->with($notification);
+        }
+        else{
+            Brand::FindOrfail($brand_id)->update([
+                'brand_name'=>$request->brand_name,
+                'brand_slug'=>strtolower(str_replace(' ', '-', $request->brand_name)),
+            ]);
+            $notification=array(
+                'message'=>'Brand updated successfully',
+                'alert-type'=>'info'
+            );
+            return redirect()->route('all.brand')->with($notification);
+        }
+    }
 }
