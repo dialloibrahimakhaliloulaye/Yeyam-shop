@@ -25,10 +25,10 @@
                             Change password
                         </h3>
                         <div class="card-body">
-                            <form action="{{route('user.profile.store')}}" method="post" >@csrf
+                            <form action="{{route('user.password.update')}}" method="post" >@csrf
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">Current Password <span></span></label>
-                                    <input type="password" name="oldpassword" id="current_password" class="form-control" >
+                                    <input type="password" name="oldPassword" id="current_password" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">New Password <span></span></label>
