@@ -60,12 +60,18 @@
                                             <h5>Brand name<span class="text-danger">*</span></h5>
                                             <div class="controls">
                                                 <input type="text" name="brand_name" class="form-control" > </div>
+                                            @error('brand_name')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group">
                                             <h5>Brand image<span class="text-danger">*</span></h5>
                                             <div class="controls">
                                                 <input type="file" name="brand_image" class="form-control" > </div>
+                                            @error('brand_image')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
                                         </div>
                                         <div class="text-xs-right">
                                             <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add">
