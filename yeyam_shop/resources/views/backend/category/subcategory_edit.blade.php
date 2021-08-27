@@ -19,13 +19,14 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="post" action="{{route('subcategory.store')}}" >@csrf
+                                <form method="post" action="{{route('subcategory.update')}}" >@csrf
 
+                                    <input type="hidden" name="id" value="">
                                     <div class="form-group">
                                         <h5>Category select <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="category_id" class="form-control">
-                                                <option value="">Select Category</option>
+                                                <option value="">Select Catego{{$subcategory->id}}ry</option>
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}" {{$category->id==$subcategory->category_id ? 'selected':''}}>
                                                         {{$category->category_name}}</option>
