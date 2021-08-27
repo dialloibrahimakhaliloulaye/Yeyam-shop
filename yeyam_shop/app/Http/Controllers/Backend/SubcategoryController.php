@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Subsubcategory;
 use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
@@ -65,5 +66,15 @@ class SubcategoryController extends Controller
             'alert-type'=>'info'
         );
         return redirect()->back()->with($notification);
+    }
+
+
+    // --------------Sub sub-category ----------------
+
+    public function SubsubcategoryView()
+    {
+        $categories=Category::orderBy('category_name', 'ASC')->get();
+        $subsubcategory=Subsubcategory::latest()->get();
+        return view('backend.category.sub_subcategory_view', compact('subsubcategory', 'categories'));
     }
 }
