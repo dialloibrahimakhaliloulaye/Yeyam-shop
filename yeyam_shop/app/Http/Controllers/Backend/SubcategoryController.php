@@ -83,4 +83,25 @@ class SubcategoryController extends Controller
         $subcat=Subcategory::where('category_id', $category_id)->orderBy('subcategory_name', 'ASC')->get();
         return json_encode($subcat);
     }
+
+    public function SubsubcategoryStore(Request $request)
+    {
+        $request->validate([
+            'category_id'=>'required',
+            'subcategory_id'=>'required',
+            'subsubcategory_name'=>'required'
+        ]);
+
+        Subsubcategory::insert([
+            'category_id'=>$request->category_id,
+            'subcategory_id'=>$request->subcategory_id,
+            'sub-subcategory_name'=>$request->subsubcategory_name,
+            'sub-subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subsubcategory_name)),
+        ]);
+        $notification=array(
+            'message'=>'Sub-subcategory created successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }

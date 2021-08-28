@@ -33,7 +33,7 @@
                                         <tr>
                                             <td>{{$item['category']['category_name']}}</td>
                                             <td>{{$item['subcategory']['subcategory_name']}}</td>
-                                            <td>{{$item->subcategory_name}}</td>
+                                            <td>{{$item['sub-subcategory_name']}}</td>
                                             <td>
                                                 <a href="{{route('subcategory.edit', $item->id)}}" class="btn btn-info"
                                                    title="Edit"><i class="fa fa-pencil"></i></a>
@@ -60,7 +60,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="post" action="{{route('subcategory.store')}}" >@csrf
+                                <form method="post" action="{{route('subsubcategory.store')}}" >@csrf
 
                                     <div class="form-group">
                                         <h5>Category select <span class="text-danger">*</span></h5>
@@ -88,11 +88,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Subcategory name<span class="text-danger">*</span></h5>
+                                        <h5>Sub-subcategory name<span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="subcategory_name" class="form-control" >
+                                            <input type="text" name="subsubcategory_name" class="form-control" >
                                         </div>
-                                        @error('subcategory_name')
+                                        @error('subsubcategory_name')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
