@@ -57,7 +57,7 @@
                                         <h5>Sub-SubCategory <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="subsubcategory_name" class="form-control"
-                                                   value="{{ $subsubcategories['sub-subcategory_name'] }}" >
+                                                   value="{{ $subsubcategories['sub_subcategory_name'] }}" >
                                             @error('subsubcategory_name')
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror

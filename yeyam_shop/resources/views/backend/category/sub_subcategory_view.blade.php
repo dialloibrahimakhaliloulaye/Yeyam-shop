@@ -33,7 +33,7 @@
                                         <tr>
                                             <td>{{$item['category']['category_name']}}</td>
                                             <td>{{$item['subcategory']['subcategory_name']}}</td>
-                                            <td>{{$item['sub-subcategory_name']}}</td>
+                                            <td>{{$item['sub_subcategory_name']}}</td>
                                             <td>
                                                 <a href="{{route('subsubcategory.edit', $item->id)}}" class="btn btn-info"
                                                    title="Edit"><i class="fa fa-pencil"></i></a>

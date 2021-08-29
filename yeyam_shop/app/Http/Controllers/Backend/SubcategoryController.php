@@ -84,6 +84,12 @@ class SubcategoryController extends Controller
         return json_encode($subcat);
     }
 
+    public function GetSubsubcategory($subcategory_id)
+    {
+        $subsubcat=Subsubcategory::where('subcategory_id', $subcategory_id)->orderBy('sub_subcategory_name', 'ASC')->get();
+        return json_encode($subsubcat);
+    }
+
     public function SubsubcategoryStore(Request $request)
     {
         $request->validate([
@@ -95,8 +101,8 @@ class SubcategoryController extends Controller
         Subsubcategory::insert([
             'category_id'=>$request->category_id,
             'subcategory_id'=>$request->subcategory_id,
-            'sub-subcategory_name'=>$request->subsubcategory_name,
-            'sub-subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subsubcategory_name)),
+            'sub_subcategory_name'=>$request->subsubcategory_name,
+            'sub_subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subsubcategory_name)),
         ]);
         $notification=array(
             'message'=>'Sub-subcategory created successfully',
@@ -121,8 +127,8 @@ class SubcategoryController extends Controller
         Subsubcategory::findOrFail($subsubcat_id)->update([
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
-            'sub-subcategory_name' => $request->subsubcategory_name,
-            'sub-subcategory_slug' => strtolower(str_replace(' ', '-',$request->subsubcategory_name)),
+            'sub_subcategory_name' => $request->subsubcategory_name,
+            'sub_subcategory_slug' => strtolower(str_replace(' ', '-',$request->subsubcategory_name)),
         ]);
 
         $notification = array(
