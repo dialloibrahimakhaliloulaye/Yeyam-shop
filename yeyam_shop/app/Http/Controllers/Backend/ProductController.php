@@ -138,7 +138,8 @@ class ProductController extends Controller
     }
 
     /// Multiple Image Update
-    public function MultiImageUpdate(Request $request){
+    public function MultiImageUpdate(Request $request)
+    {
         $imgs = $request->multi_img;
 
         foreach ($imgs as $id => $img) {
@@ -167,7 +168,8 @@ class ProductController extends Controller
     } // end mehtod
 
     /// Product Main Thambnail Update ///
-    public function ThambnailImageUpdate(Request $request){
+    public function ThambnailImageUpdate(Request $request)
+    {
         $pro_id = $request->id;
         $oldImage = $request->old_img;
         unlink($oldImage);
@@ -190,5 +192,19 @@ class ProductController extends Controller
 
         return redirect()->back()->with($notification);
 
+    } // end method
+
+    //// Multi Image Delete ////
+    public function MultiImageDelete($id)
+    {
+        $oldimg = MultiImage::findOrFail($id);
+        unlink($oldimg->photo_name);
+        MultiImage::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Product Image Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     } // end method
 }
