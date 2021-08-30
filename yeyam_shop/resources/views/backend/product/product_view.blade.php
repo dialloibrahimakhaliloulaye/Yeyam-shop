@@ -34,7 +34,7 @@
                                             <td>{{$item->product_name}}</td>
                                             <td>{{$item->product_qty}}</td>
                                             <td>
-                                                <a href="{{route('category.edit', $item->id)}}" class="btn btn-info"
+                                                <a href="{{route('product.edit', $item->id)}}" class="btn btn-info"
                                                    title="Edit"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{route('category.delete', $item->id)}}" class="btn btn-danger"
                                                    id="delete" title="Delete"><i class="fa fa-trash"></i></a>

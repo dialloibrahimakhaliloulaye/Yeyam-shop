@@ -7,6 +7,8 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\MultiImage;
 use App\Models\Product;
+use App\Models\Subcategory;
+use App\Models\Subsubcategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -80,5 +82,18 @@ class ProductController extends Controller
     {
         $products=Product::latest()->get();
         return view('backend.product.product_view', compact('products'));
+    }
+
+    public function EditProduct($id)
+    {
+        $categories=Category::latest()->get();
+        $brands=Brand::latest()->get();
+        $subcategories=Subcategory::latest()->get();
+        $subsubcategories=Subsubcategory::latest()->get();
+
+        $products=Product::findOrFail($id);
+
+        return view('backend.product.product_edit',
+            compact('categories', 'subcategories', 'brands', 'subsubcategories', 'products'));
     }
 }
