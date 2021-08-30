@@ -15,7 +15,8 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form method="post" action="{{route('product.store')}}" enctype="multipart/form-data">@csrf
+                            <form method="post" action="{{route('product.update')}}" enctype="multipart/form-data">@csrf
+                                <input type="hidden" name="id" value="{{$products->id}}">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row"> <!-- start 1st row  -->
@@ -208,7 +209,7 @@
                                                     <h5>Main Thambnail <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="product_thambnail" class="form-control"
-                                                               required onChange="mainThambUrl(this)">
+                                                                onChange="mainThambUrl(this)">
                                                         @error('product_thambnail')
                                                         <span class="text-danger">{{ $message }}</span>
                                                         @enderror
@@ -221,7 +222,7 @@
                                                     <h5>Multiple image <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="multi_image[]" class="form-control"
-                                                               required multiple="" id="multiImg">
+                                                                multiple="" id="multiImg">
                                                         @error('multi_image')
                                                         <span class="text-danger">{{ $message }}</span>
                                                         @enderror
