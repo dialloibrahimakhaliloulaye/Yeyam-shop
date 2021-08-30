@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\MultiImage;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class ProductController extends Controller
         Image::make($images)->resize(300,300)->save('upload/products/thambnail/'.$name_gen);
         $save_url='upload/products/thambnail/'.$name_gen;
 
-        Product::insert([
+        $product_id= Product::insertGetId([
             'brand_id'=>$request->brand_id,
             'category_id'=>$request->category_id,
             'subcategory_id'=>$request->subcategory_id,
@@ -54,5 +55,24 @@ class ProductController extends Controller
             'product_thambnail'=>$save_url,
             'created_at'=>Carbon::now()
         ]);
+
+        $images=$request->file('multi_image');
+        foreach ($images as $img){
+            $make_name=hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+            Image::make($img)->resize(300,300)->save('upload/products/multi-image/'.$make_name);
+            $upload_path='upload/products/multi-image/'.$make_name;
+
+            MultiImage::insert([
+                'product_id'=>$product_id,
+                'photo_name'=>$upload_path,
+                'created_at'=>Carbon::now(),
+            ]);
+        }
+
+        $notification=array(
+            'message'=>'Product created successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }

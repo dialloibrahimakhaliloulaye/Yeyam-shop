@@ -273,11 +273,11 @@
 
                                             <div class="controls">
                                                 <fieldset>
-                                                    <input type="checkbox" name="special_offer" id="checkbox_4" value="1" required>
+                                                    <input type="checkbox" name="special_offer" id="checkbox_4" value="1" >
                                                     <label for="checkbox_4">Special offer</label>
                                                 </fieldset>
                                                 <fieldset>
-                                                    <input type="checkbox" name="special_deals" id="checkbox_5" value="1" required>
+                                                    <input type="checkbox" name="special_deals" id="checkbox_5" value="1" >
                                                     <label for="checkbox_5">Special deals</label>
                                                 </fieldset>
                                             </div>
@@ -286,7 +286,7 @@
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Product" required>
+                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Product" >
                                 </div>
                             </form>
 
