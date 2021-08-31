@@ -1,5 +1,9 @@
 @extends('frontend.main_master')
 @section('content')
+
+    @section('title')
+        Yéyam-shop / Home
+    @endsection
     <div class="body-content outer-top-xs" id="top-banner-and-menu">
         <div class="container">
             <div class="row">
