@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class IndexController extends Controller
     {
         $categories=Category::orderBy('category_name', 'ASC')->get();
         $sliders=Slider::where('status', 1)->orderBy('id', 'DESC')->limit(3)->get();
-        return view('frontend.index', compact('categories', 'sliders'));
+        $products=Product::where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();
+        return view('frontend.index', compact('categories', 'sliders', 'products'));
     }
 
     public function UserLogout()
