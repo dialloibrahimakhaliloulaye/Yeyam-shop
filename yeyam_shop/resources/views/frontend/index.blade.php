@@ -17,18 +17,23 @@
                                     <ul class="dropdown-menu mega-menu">
                                         <li class="yamm-content">
                                             <div class="row">
+
+                                                @php
+                                                    $subcategories=\App\Models\Subcategory::where('category_id', $category->id)->orderBy('subcategory_name', 'ASC')->get();
+                                                @endphp
+                                                @foreach($subcategories as $subcategory)
                                                 <div class="col-sm-12 col-md-3">
+                                                    <h2 class="title">{{$subcategory->subcategory_name}}</h2>
+                                                    @php
+                                                        $subsubcategories=\App\Models\Subsubcategory::where('subcategory_id', $subcategory->id)->orderBy('sub_subcategory_name', 'ASC')->get();
+                                                    @endphp
+                                                    @foreach($subsubcategories as $subsubcategory)
                                                     <ul class="links list-unstyled">
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Shoes </a></li>
-                                                        <li><a href="#">Jackets</a></li>
-                                                        <li><a href="#">Sunglasses</a></li>
-                                                        <li><a href="#">Sport Wear</a></li>
-                                                        <li><a href="#">Blazers</a></li>
-                                                        <li><a href="#">Shirts</a></li>
-                                                        <li><a href="#">Shorts</a></li>
+                                                        <li><a href="#">{{$subsubcategory->sub_subcategory_name}}</a></li>
                                                     </ul>
+                                                    @endforeach
                                                 </div>
+                                                @endforeach
                                                 <!-- /.col -->
 
                                                 <!-- /.col -->
