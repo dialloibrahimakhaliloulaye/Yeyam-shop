@@ -79,7 +79,7 @@ Route::middleware(['auth:admin'])->group(function(){
         Route::get('/sub-subcategory/ajax/{subcategory_id}', [SubcategoryController::class, 'GetSubsubcategory']);
         Route::post('/sub/sub/store', [SubcategoryController::class, 'SubsubcategoryStore'])->name('subsubcategory.store');
         Route::get('/sub/sub/edit/{id}', [SubCategoryController::class, 'SubsubCategoryEdit'])->name('subsubcategory.edit');
-        Route::post('/sub/update', [SubCategoryController::class, 'SubsubCategoryUpdate'])->name('subsubcategory.update');
+        Route::post('/sub/sub/update', [SubCategoryController::class, 'SubsubCategoryUpdate'])->name('subsubcategory.update');
         Route::get('/sub/sub/delete/{id}', [SubcategoryController::class, 'SubsubCategoryDelete'])->name('subsubcategory.delete');
     });
 
