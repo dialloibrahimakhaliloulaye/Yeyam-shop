@@ -329,25 +329,37 @@
                         {{--//////////// Product List View start//////////////////--}}
                         <div class="tab-pane "  id="list-container">
                             <div class="category-product">
-
+                                @foreach($products as $product)
                                 <div class="category-product-inner wow fadeInUp">
                                     <div class="products">
                                         <div class="product-list product">
                                             <div class="row product-list-row">
                                                 <div class="col col-sm-4 col-lg-4">
                                                     <div class="product-image">
-                                                        <div class="image"> <img src="{{asset('frontend/assets/images/products/p3.jpg')}}" alt=""> </div>
+                                                        <div class="image"> <img src="{{asset($product->product_thambnail)}}" alt=""> </div>
                                                     </div>
                                                     <!-- /.product-image -->
                                                 </div>
                                                 <!-- /.col -->
                                                 <div class="col col-sm-8 col-lg-8">
                                                     <div class="product-info">
-                                                        <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a></h3>
                                                         <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                                                        <div class="product-price">
+                                                            @if($product->discount_price==NULL)
+                                                                <div class="product-price">
+                                                                    <span class="price-before-discount">{{$product->discount_price}} FCFA</span>
+                                                                </div>
+                                                            @else
+                                                                <div class="product-price">
+                                                                    <span class="price"> {{$product->discount_price}} FCFA </span>
+                                                                    <span class="price-before-discount">{{$product->selling_price}} FCFA</span>
+                                                                </div>
+                                                            @endif
+
+                                                        </div>
                                                         <!-- /.product-price -->
-                                                        <div class="description m-t-10">Suspendisse posuere arcu diam, id accumsan eros pharetra ac. Nulla enim risus, facilisis bibendum gravida eget, lacinia id purus. Suspendisse posuere arcu diam, id accumsan eros pharetra ac. Nulla enim risus, facilisis bibendum gravida eget.</div>
+                                                        <div class="description m-t-10">{{$product->short_descp}}</div>
                                                         <div class="cart clearfix animate-effect">
                                                             <div class="action">
                                                                 <ul class="list-unstyled">
@@ -376,6 +388,7 @@
                                     <!-- /.products -->
                                 </div>
                                 <!-- /.category-product-inner -->
+                                @endforeach
                             </div>
                             <!-- /.category-product -->
                         </div>
