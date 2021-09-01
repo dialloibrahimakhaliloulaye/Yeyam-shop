@@ -7,7 +7,8 @@
     <div class="sidebar-widget-body outer-top-xs">
         <div class="tag-list">
             @foreach($tags as $tag)
-            <a class="item" title="Phone" href="category.html"><strong>{{$tag->product_tags }}</strong></a>
+            <a class="item" title="Phone" href="{{url('product/tag/'.$tag->product_tags)}}">
+                <strong>{{$tag->product_tags }}</strong></a>
             @endforeach
         </div>
         <!-- /.tag-list -->
