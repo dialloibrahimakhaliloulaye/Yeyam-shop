@@ -425,7 +425,7 @@
                                                                     <span class="price"> {{$product->discount_price}} FCFA </span>
                                                                     <span class="price-before-discount">{{$product->selling_price}} FCFA</span>
                                                                 </div>
-                                                        @endif
+                                                            @endif
 
                                                         <!-- /.product-price -->
 
