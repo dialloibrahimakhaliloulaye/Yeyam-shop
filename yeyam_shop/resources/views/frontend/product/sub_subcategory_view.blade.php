@@ -1,8 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
-
 @section('title')
-    Yéyam-shop / Products
+    Sub-subcategory Product
 @endsection
 
 <div class="breadcrumb">
@@ -22,10 +21,9 @@
     <div class='container'>
         <div class='row'>
             <div class='col-md-3 sidebar'>
-                <!-- ================================== TOP NAVIGATION ================================== -->
-
-                <!-- /.side-menu -->
-                <!-- ================================== TOP NAVIGATION : END ================================== -->
+                <!-- ===== == TOP NAVIGATION ======= ==== -->
+            {{--@include('frontend.common.vertical_menu')--}}
+            <!-- = ==== TOP NAVIGATION : END === ===== -->
                 <div class="sidebar-module-container">
                     <div class="sidebar-filter">
                         <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
@@ -37,28 +35,30 @@
                             <div class="sidebar-widget-body">
                                 <div class="accordion">
                                     @foreach($categories as $category)
-                                    <div class="accordion-group">
-                                        <div class="accordion-heading"> <a href="#collapse{{$category->id}}" data-toggle="collapse"
-                                                       class="accordion-toggle collapsed">{{$category->category_name}}</a> </div>
-                                        <!-- /.accordion-heading -->
-                                        <div class="accordion-body collapse" id="collapse{{$category->id}}" style="height: 0px;">
-                                            <div class="accordion-inner">
-                                                @php
-                                                    $subcategories=\App\Models\Subcategory::where('category_id', $category->id)->orderBy('subcategory_name', 'ASC')->get();
-                                                @endphp
+                                        <div class="accordion-group">
+                                            <div class="accordion-heading"> <a href="#collapse{{ $category->id }}" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                    {{ $category->category_name }} </a> </div>
+                                            <!-- /.accordion-heading -->
+                                            <div class="accordion-body collapse" id="collapse{{ $category->id }}" style="height: 0px;">
+                                                <div class="accordion-inner">
+                                                    @php
+                                                        $subcategories = App\Models\Subcategory::where('category_id',$category->id)->orderBy('subcategory_name','ASC')->get();
+                                                    @endphp
 
-                                                <ul>
                                                     @foreach($subcategories as $subcategory)
-                                                    <li><a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug ) }}">{{$subcategory->subcategory_name}}</a></li>
+                                                        <ul>
+                                                            <li><a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug ) }}">
+                                                                    {{ $subcategory->subcategory_name }}
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     @endforeach
-                                                </ul>
-
+                                                </div>
+                                                <!-- /.accordion-inner -->
                                             </div>
-                                            <!-- /.accordion-inner -->
+                                            <!-- /.accordion-body -->
                                         </div>
-                                        <!-- /.accordion-body -->
-                                    </div>
-                                    <!-- /.accordion-group -->
+                                        <!-- /.accordion-group -->
                                     @endforeach
                                 </div>
                                 <!-- /.accordion -->
@@ -123,7 +123,7 @@
                         </div>
                         <!-- /.sidebar-widget -->
                         <!-- ============================================== COLOR: END ============================================== -->
-                        <!-- ============================================== COMPARE============================================== -->
+                        <!-- == ======= COMPARE==== ==== -->
                         <div class="sidebar-widget wow fadeInUp outer-top-vs">
                             <h3 class="section-title">Compare products</h3>
                             <div class="sidebar-widget-body">
@@ -136,15 +136,18 @@
                         </div>
                         <!-- /.sidebar-widget -->
                         <!-- ============================================== COMPARE: END ============================================== -->
-                        <!-- ============================================== PRODUCT TAGS ============================================== -->
-                        @include('frontend.common.product_tags')
-                        <!-- /.sidebar-widget -->
+
+                        <!-- == ====== PRODUCT TAGS ==== ======= -->
+                    @include('frontend.common.product_tags')
+                    <!-- /.sidebar-widget -->
+                        <!-- == ====== END PRODUCT TAGS ==== ======= -->
+
                         <!----------- Testimonials------------->
-                        @include('frontend.common.testimonials')
 
-                        <!-- ============================================== Testimonials: END ============================================== -->
+                    @include('frontend.common.testimonials')
+                    <!-- == ========== Testimonials: END ======== ========= -->
 
-                        <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div>
+                        <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image"> </div>
                     </div>
                     <!-- /.sidebar-filter -->
                 </div>
@@ -152,11 +155,12 @@
             </div>
             <!-- /.sidebar -->
             <div class='col-md-9'>
-                <!-- ========================================== SECTION – HERO ========================================= -->
+
+                <!-- == ==== SECTION – HERO === ====== -->
 
                 <div id="category" class="category-carousel hidden-xs">
                     <div class="item">
-                        <div class="image"> <img src="{{asset('frontend/assets/images/banners/cat-banner-1.jpg')}}" alt="" class="img-responsive"> </div>
+                        <div class="image"> <img src="{{ asset('frontend/assets/images/banners/cat-banner-1.jpg') }}" alt="" class="img-responsive"> </div>
                         <div class="container-fluid">
                             <div class="caption vertical-top text-left">
                                 <div class="big-text"> Big Sale </div>
@@ -168,7 +172,6 @@
                         <!-- /.container-fluid -->
                     </div>
                 </div>
-
 
                 <div class="clearfix filters-container m-t-10">
                     <div class="row">
@@ -235,75 +238,77 @@
                     <!-- /.row -->
                 </div>
 
+                <!--    //////////////////// START Product Grid View  ////////////// -->
+
                 <div class="search-result-container ">
                     <div id="myTabContent" class="tab-content category-list">
-
-                        {{--//////////// Start Product Grid View //////////////////--}}
                         <div class="tab-pane active " id="grid-container">
                             <div class="category-product">
                                 <div class="row">
                                     @foreach($products as $product)
-                                    <div class="col-sm-6 col-md-4 wow fadeInUp">
-                                        <div class="products">
-                                            <div class="product">
-                                                <div class="product-image">
-                                                    <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}"><img  src="{{asset($product->product_thambnail)}}" alt=""></a> </div>
-                                                    <!-- /.image -->
+                                        <div class="col-sm-6 col-md-4 wow fadeInUp">
+                                            <div class="products">
+                                                <div class="product">
+                                                    <div class="product-image">
+                                                        <div class="image"> <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug ) }}"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
+                                                        <!-- /.image -->
 
-                                                    @php
-                                                        $amount=$product->selling_price - $product->discount_price;
-                                                        $discount=($amount/$product->selling_price) * 100;
-                                                    @endphp
-                                                    <div>
-                                                        @if($product->discount_price==NULL)
-                                                            <div class="tag new"><span>new</span></div>
-                                                        @else
-                                                            <div class="tag hot"><span>{{'- '.round($discount)}}%</span></div>
-                                                        @endif
+                                                        @php
+                                                            $amount = $product->selling_price - $product->discount_price;
+                                                            $discount = ($amount/$product->selling_price) * 100;
+                                                        @endphp
+
+                                                        <div>
+                                                            @if ($product->discount_price == NULL)
+                                                                <div class="tag new"><span>new</span></div>
+                                                            @else
+                                                                <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+                                                            @endif
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!-- /.product-image -->
+                                                    <!-- /.product-image -->
 
-                                                <div class="product-info text-left">
-                                                    <h3 class="name"><a href="detail.html">{{$product->product_name}}</a></h3>
-                                                    <div class="rating rateit-small"></div>
-                                                    <div class="description"></div>
+                                                    <div class="product-info text-left">
+                                                        <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug ) }}">
+                                                                {{ $product->product_name }} @</a></h3>
+                                                        <div class="rating rateit-small"></div>
+                                                        <div class="description"></div>
 
-                                                    @if($product->discount_price==NULL)
-                                                        <div class="product-price">
-                                                            <span class="price-before-discount">{{$product->discount_price}} FCFA</span>
-                                                        </div>
-                                                    @else
-                                                        <div class="product-price">
-                                                            <span class="price"> {{$product->discount_price}} FCFA </span>
-                                                            <span class="price-before-discount">{{$product->selling_price}} FCFA</span>
-                                                        </div>
+                                                        @if ($product->discount_price == NULL)
+                                                            <div class="product-price">
+                                                                <span class="price"> ${{ $product->selling_price }} </span>
+                                                            </div>
+
+                                                        @else
+                                                            <div class="product-price">
+                                                                <span class="price"> ${{ $product->discount_price }} </span>
+                                                                <span class="price-before-discount">$ {{ $product->selling_price }}</span>
+                                                            </div>
                                                     @endif
                                                     <!-- /.product-price -->
-
-                                                </div>
-                                                <!-- /.product-info -->
-                                                <div class="cart clearfix animate-effect">
-                                                    <div class="action">
-                                                        <ul class="list-unstyled">
-                                                            <li class="add-cart-button btn-group">
-                                                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                                            </li>
-                                                            <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                                            <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
-                                                        </ul>
                                                     </div>
-                                                    <!-- /.action -->
+                                                    <!-- /.product-info -->
+                                                    <div class="cart clearfix animate-effect">
+                                                        <div class="action">
+                                                            <ul class="list-unstyled">
+                                                                <li class="add-cart-button btn-group">
+                                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                </li>
+                                                                <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                                <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.action -->
+                                                    </div>
+                                                    <!-- /.cart -->
                                                 </div>
-                                                <!-- /.cart -->
-                                            </div>
-                                            <!-- /.product -->
+                                                <!-- /.product -->
 
+                                            </div>
+                                            <!-- /.products -->
                                         </div>
-                                        <!-- /.products -->
-                                    </div>
-                                    <!-- /.item -->
+                                        <!-- /.item -->
                                     @endforeach
                                 </div>
                                 <!-- /.row -->
@@ -313,76 +318,93 @@
                         </div>
                         <!-- /.tab-pane -->
 
-                        {{--//////////// End Product Grid View //////////////////--}}
+                        <!--            //////////////////// END Product Grid View  ////////////// -->
 
+                        <!--            //////////////////// Product List View Start ////////////// -->
 
-                        {{--//////////// Product List View start//////////////////--}}
                         <div class="tab-pane "  id="list-container">
                             <div class="category-product">
+
                                 @foreach($products as $product)
-                                <div class="category-product-inner wow fadeInUp">
-                                    <div class="products">
-                                        <div class="product-list product">
-                                            <div class="row product-list-row">
-                                                <div class="col col-sm-4 col-lg-4">
-                                                    <div class="product-image">
-                                                        <div class="image"> <img src="{{asset($product->product_thambnail)}}" alt=""> </div>
+                                    <div class="category-product-inner wow fadeInUp">
+                                        <div class="products">
+                                            <div class="product-list product">
+                                                <div class="row product-list-row">
+                                                    <div class="col col-sm-4 col-lg-4">
+                                                        <div class="product-image">
+                                                            <div class="image"> <img src="{{ asset($product->product_thambnail) }}" alt=""> </div>
+                                                        </div>
+                                                        <!-- /.product-image -->
                                                     </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-sm-8 col-lg-8">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price">
-                                                            @if($product->discount_price==NULL)
-                                                                <div class="product-price">
-                                                                    <span class="price-before-discount">{{$product->discount_price}} FCFA</span>
-                                                                </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-sm-8 col-lg-8">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug ) }}">
+                                                                    {{ $product->product_name }} </a></h3>
+                                                            <div class="rating rateit-small"></div>
+
+
+                                                            @if ($product->discount_price == NULL)
+                                                                <div class="product-price"> <span class="price"> ${{ $product->selling_price }} </span>  </div>
                                                             @else
                                                                 <div class="product-price">
-                                                                    <span class="price"> {{$product->discount_price}} FCFA </span>
-                                                                    <span class="price-before-discount">{{$product->selling_price}} FCFA</span>
+                                                                    <span class="price"> ${{ $product->discount_price }} </span>
+                                                                    <span class="price-before-discount">$ {{ $product->selling_price }}</span>
                                                                 </div>
-                                                            @endif
+                                                        @endif
 
-                                                        </div>
                                                         <!-- /.product-price -->
-                                                        <div class="description m-t-10">{{$product->short_descp}}</div>
-                                                        <div class="cart clearfix animate-effect">
-                                                            <div class="action">
-                                                                <ul class="list-unstyled">
-                                                                    <li class="add-cart-button btn-group">
-                                                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                                                        <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                                                    </li>
-                                                                    <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                                                    <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
-                                                                </ul>
+                                                            <div class="description m-t-10">
+                                                                {{ $product->short_descp }}
                                                             </div>
-                                                            <!-- /.action -->
-                                                        </div>
-                                                        <!-- /.cart -->
+                                                            <div class="cart clearfix animate-effect">
+                                                                <div class="action">
+                                                                    <ul class="list-unstyled">
+                                                                        <li class="add-cart-button btn-group">
+                                                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                        </li>
+                                                                        <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                                        <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <!-- /.action -->
+                                                            </div>
+                                                            <!-- /.cart -->
 
+                                                        </div>
+                                                        <!-- /.product-info -->
                                                     </div>
-                                                    <!-- /.product-info -->
+                                                    <!-- /.col -->
                                                 </div>
-                                                <!-- /.col -->
-                                            </div>
+
+                                            @php
+                                                $amount = $product->selling_price - $product->discount_price;
+                                                $discount = ($amount/$product->selling_price) * 100;
+                                            @endphp
+
                                             <!-- /.product-list-row -->
-                                            <div class="tag new"><span>new</span></div>
+                                                <div>
+                                                    @if ($product->discount_price == NULL)
+                                                        <div class="tag new"><span>new</span></div>
+                                                    @else
+                                                        <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+                                                    @endif
+                                                </div>
+
+                                            </div>
+                                            <!-- /.product-list -->
                                         </div>
-                                        <!-- /.product-list -->
+                                        <!-- /.products -->
                                     </div>
-                                    <!-- /.products -->
-                                </div>
-                                <!-- /.category-product-inner -->
-                                @endforeach
+                                    <!-- /.category-product-inner -->
+                            @endforeach
+
+                            <!--            //////////////////// Product List View END ////////////// -->
+
                             </div>
                             <!-- /.category-product -->
                         </div>
-                        {{--//////////// Product List View end//////////////////--}}
                         <!-- /.tab-pane #list-container -->
                     </div>
                     <!-- /.tab-content -->
@@ -390,12 +412,11 @@
                         <div class="text-right">
                             <div class="pagination-container">
                                 <ul class="list-inline list-unstyled">
-                                    {{ $products->links() }}
+                                    {{ $products->links()  }}
                                 </ul>
                                 <!-- /.list-inline -->
                             </div>
-                            <!-- /.pagination-container -->
-                        </div>
+                            <!-- /.pagination-container --> </div>
                         <!-- /.text-right -->
 
                     </div>

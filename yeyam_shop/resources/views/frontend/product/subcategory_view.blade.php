@@ -42,7 +42,7 @@
                                             <div class="accordion-body collapse" id="collapse{{ $category->id }}" style="height: 0px;">
                                                 <div class="accordion-inner">
                                                     @php
-                                                        $subcategories = App\Models\SubCategory::where('category_id',$category->id)->orderBy('subcategory_name','ASC')->get();
+                                                        $subcategories = App\Models\Subcategory::where('category_id',$category->id)->orderBy('subcategory_name','ASC')->get();
                                                     @endphp
 
                                                     @foreach($subcategories as $subcategory)
