@@ -400,9 +400,9 @@
                         </div><!-- /.row -->
                     </div><!-- /.product-tabs -->
 
-                    <!-- ============================================== UPSELL PRODUCTS ============================================== -->
+                    <!-- ============================================== RELATED PRODUCTS ============================================== -->
                     <section class="section featured-product wow fadeInUp">
-                        <h3 class="section-title">upsell products</h3>
+                        <h3 class="section-title">Related products</h3>
                         <div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 
                             @foreach($relatedProduct as $product)
