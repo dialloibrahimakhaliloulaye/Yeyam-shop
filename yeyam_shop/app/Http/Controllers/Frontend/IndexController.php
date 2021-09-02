@@ -140,6 +140,24 @@ class IndexController extends Controller
         $products = Product::where('status',1)->where('subsubcategory_id',$subsubcat_id)->orderBy('id','DESC')->paginate(6);
         $categories = Category::orderBy('category_name','ASC')->get();
         return view('frontend.product.sub_subcategory_view',compact('products','categories'));
-
     }
+
+    /// Product View With Ajax
+    public function ProductViewAjax($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $color = $product->product_color_en;
+        $product_color = explode(',', $color);
+
+        $size = $product->product_size_en;
+        $product_size = explode(',', $size);
+
+        return response()->json(array(
+            'product' => $product,
+            'color' => $product_color,
+            'size' => $product_size,
+        ));
+
+    } // end method
 }
