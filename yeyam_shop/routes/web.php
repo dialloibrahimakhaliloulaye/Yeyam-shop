@@ -128,5 +128,9 @@ Route::post('/user/password/update', [IndexController::class, 'UserPasswordUpdat
 
 //frontend products details page url
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+
 //frontend products tags
 Route::get('/product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
+
+// Frontend SubCategory wise Data
+Route::get('/subcategory/product/{subcat_id}/{slug}', [IndexController::class, 'SubCatWiseProduct']);

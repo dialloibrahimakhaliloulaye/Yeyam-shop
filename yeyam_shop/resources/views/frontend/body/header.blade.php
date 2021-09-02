@@ -165,7 +165,9 @@
 
                                                     @foreach($subcategories as $subcategory)
                                                     <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                                        <a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug ) }}">
                                                         <h2 class="title">{{$subcategory->subcategory_name}}</h2>
+                                                        </a>
                                                         @php
                                                             $subsubcategories=\App\Models\Subsubcategory::where('subcategory_id', $subcategory->id)->orderBy('sub_subcategory_name', 'ASC')->get();
                                                         @endphp
