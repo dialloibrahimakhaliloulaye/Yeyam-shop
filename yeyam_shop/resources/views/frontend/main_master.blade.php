@@ -91,7 +91,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><span id="pname"></span></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><strong><span id="pname"></span> </strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -106,11 +106,14 @@
                     </div><!-- // end col md -->
                     <div class="col-md-4">
                         <ul class="list-group">
-                            <li class="list-group-item">Product Price: <strong id="price"></strong> </li>
+                            <li class="list-group-item">Product Price: <strong class="text-danger"><span id="pprice"></span> FCFA</strong>
+                                <del id="oldprice"></del>
+                            </li>
                             <li class="list-group-item">Product Code: <strong id="pcode"></strong></li>
                             <li class="list-group-item">Category: <strong id="pcategory"></strong></li>
                             <li class="list-group-item">Brand: <strong id="pbrand"></strong></li>
-                            <li class="list-group-item">Stock</li>
+                            <li class="list-group-item">Stock: <span class="badge badge-pill badge-success" id="aviable" style="background: green; color: white;"></span>
+                                <span class="badge badge-pill badge-danger" id="stockout" style="background: red; color: white;"></span>
                         </ul>
                     </div><!-- // end col md -->
                     <div class="col-md-4">
@@ -123,7 +126,7 @@
                         <div class="form-group" id="sizeArea">
                             <label for="exampleFormControlSelect1">Choose Size</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="size">
-                                
+
                             </select>
                         </div>  <!-- // end form group -->
 
@@ -157,6 +160,25 @@
                                 $('#pcategory').text(data.product.category.category_name);
                                 $('#pbrand').text(data.product.brand.brand_name);
                                 $('#pimage').attr('src','/'+data.product.product_thambnail);
+                                // Product Price
+                                if (data.product.discount_price == null) {
+                                    $('#pprice').text('');
+                                    $('#oldprice').text('');
+                                    $('#pprice').text(data.product.selling_price);
+                                }else{
+                                    $('#pprice').text(data.product.discount_price);
+                                    $('#oldprice').text(data.product.selling_price);
+                                } // end prodcut price
+                                // Start Stock opiton
+                                if (data.product.product_qty > 0) {
+                                    $('#aviable').text('');
+                                    $('#stockout').text('');
+                                    $('#aviable').text('aviable');
+                                }else{
+                                    $('#aviable').text('');
+                                    $('#stockout').text('');
+                                    $('#stockout').text('stockout');
+                                } // end Stock Option
                                 // Color
                                 $('select[name="color"]').empty();
                                 $.each(data.color,function(key,value){

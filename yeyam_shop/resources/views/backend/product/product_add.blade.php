@@ -116,7 +116,7 @@
                                                 <div class="form-group">
                                                     <h5>Product color <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_color" class="form-control" required
+                                                        <input type="text" name="product_color" class="form-control"
                                                                value="Black,White,Blue" data-role="tagsinput">
                                                         @error('product_color')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -129,7 +129,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Tags <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_tags" class="form-control" required
+                                                        <input type="text" name="product_tags" class="form-control"
                                                                value="Lorem,Ipsum,Amet" data-role="tagsinput">
                                                         @error('product_tags')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -142,7 +142,7 @@
                                                 <div class="form-group">
                                                     <h5>Product size <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_size" class="form-control" required
+                                                        <input type="text" name="product_size" class="form-control"
                                                                value="Small,Midium,Large" data-role="tagsinput">
                                                         @error('product_size')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -158,7 +158,7 @@
                                                 <div class="form-group">
                                                     <h5>Product quantity <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_qty" class="form-control" required>
+                                                        <input type="text" name="product_qty" class="form-control" >
                                                         @error('product_qty')
                                                         <span class="text-danger">{{ $message }}</span>
                                                         @enderror
@@ -211,7 +211,7 @@
                                                     <h5>Multiple image <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="multi_image[]" class="form-control"
-                                                               required multiple="" id="multiImg">
+                                                                multiple="" id="multiImg">
                                                         @error('multi_image')
                                                         <span class="text-danger">{{ $message }}</span>
                                                         @enderror
@@ -238,7 +238,7 @@
                                                 <div class="form-group">
                                                     <h5>Long description <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <textarea id="editor1" name="long_descp" rows="10" cols="80" required>
+                                                        <textarea id="editor1" name="long_descp" rows="10" cols="80" >
 												            This is my textarea to be replaced with CKEditor.
 						                                </textarea>
                                                     </div>
