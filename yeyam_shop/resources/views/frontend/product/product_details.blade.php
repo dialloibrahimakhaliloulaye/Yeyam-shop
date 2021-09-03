@@ -188,6 +188,9 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
+                                                    @if($product->product_size == null)
+
+                                                    @else
                                                     <label class="info-title control-label">Choose  color <span></span></label>
                                                     <select class="form-control unicase-form-control selectpicker" style="display: none;" id="color">
                                                         <option selected disabled>--Choose color--</option>
@@ -195,6 +198,7 @@
                                                             <option value="{{$color}}">{{ucwords($color)}}</option>
                                                         @endforeach
                                                     </select>
+                                                    @endif
                                                 </div>
                                             </div>
 
