@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use App\Models\Wishlist;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -67,6 +70,20 @@ class CartController extends Controller
     // add to wishlist mehtod
 
     public function AddToWishlist(Request $request, $product_id){
+        if (Auth::check()) {
 
-    }
+            $exists = Wishlist::where('user_id',Auth::id())->where('product_id',$product_id)->first();
+
+            Wishlist::insert([
+                'user_id' => Auth::id(),
+                'product_id' => $product_id,
+                'created_at' => Carbon::now(),
+            ]);
+            return response()->json(['success' => 'Successfully Added On Your Wishlist']);
+        }else{
+            return response()->json(['error' => 'At First Login Your Account']);
+        }
+
+    } // end method
+
 }
