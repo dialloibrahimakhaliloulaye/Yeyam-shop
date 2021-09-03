@@ -6,15 +6,15 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-                        <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-                        <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-                        <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
+                        <li><a href="#"><i class="icon fa fa-user"></i><strong>My Account</strong></a></li>
+                        <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i><strong>Wishlist</strong></a></li>
+                        <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i><strong>My Cart</strong></a></li>
+                        <li><a href="#"><i class="icon fa fa-check"></i><strong>Checkout</strong></a></li>
                         <li>
                             @auth
-                            <a href="{{route('login')}}"><i class="icon fa fa-user"></i>User profile</a>
+                            <a href="{{route('login')}}"><i class="icon fa fa-user"></i><strong>User profile</strong></a>
                             @else
-                                <a href="{{route('login')}}"><i class="icon fa fa-lock"></i>Login / Register</a>
+                                <a href="{{route('login')}}"><i class="icon fa fa-lock"></i><strong>Login / Register</strong></a>
                             @endauth
                         </li>
                     </ul>
