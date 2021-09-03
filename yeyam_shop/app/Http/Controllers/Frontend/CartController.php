@@ -63,4 +63,10 @@ class CartController extends Controller
         Cart::remove($rowId);
         return response()->json(['success' => 'Product Remove from Cart']);
     } // end mehtod
+
+    // add to wishlist mehtod
+
+    public function AddToWishlist(Request $request, $product_id){
+
+    }
 }
