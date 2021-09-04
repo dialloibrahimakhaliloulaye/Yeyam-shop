@@ -16,7 +16,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="post" action="{{ route('state.store') }}" >@csrf
+                                <form method="post" action="{{ route('state.update',$state->id) }}">@csrf
                                     <div class="form-group">
                                         <h5>Division Select <span class="text-danger">*</span></h5>
                                         <div class="controls">
