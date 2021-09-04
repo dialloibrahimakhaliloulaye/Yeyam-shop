@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\ShipDistrict;
 use App\Models\ShipDivision;
+use App\Models\ShipState;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -113,4 +114,18 @@ class ShippingAreaController extends Controller
         );
         return redirect()->back()->with($notification);
     } // end method
+
+    //// End Ship District
+
+
+    ////////////////// Ship State //////////
+
+    public function StateView(){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistrict::orderBy('district_name','ASC')->get();
+        $state = ShipState::orderBy('id','DESC')->get();
+        return view('backend.ship.state.view_state',compact('division','district','state'));
+    }
+
+    //////////////// End Ship State ////////////
 }
