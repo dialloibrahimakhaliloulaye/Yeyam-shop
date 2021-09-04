@@ -21,18 +21,17 @@
                                         <th>Division Name </th>
                                         <th>District Name </th>
                                         <th>Action</th>
-
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($district as $item)
                                         <tr>
-                                            <td> {{ $item->division_id }}  </td>
+                                            <td> {{ $item->division->division_name }}  </td>
                                             <td> {{ $item->district_name }}  </td>
 
                                             <td width="40%">
-                                                <a href="{{ route('division.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                                                <a href="{{ route('division.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
+                                                <a href="{{ route('district.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                                                <a href="{{ route('district.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
                                                     <i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
@@ -55,7 +54,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="post" action="{{ route('division.store') }}" >@csrf
+                                <form method="post" action="{{ route('district.store') }}" >@csrf
                                     <div class="form-group">
                                         <h5>Division Select <span class="text-danger">*</span></h5>
                                         <div class="controls">
