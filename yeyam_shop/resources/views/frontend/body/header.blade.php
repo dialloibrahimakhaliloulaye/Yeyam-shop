@@ -9,7 +9,7 @@
                         <li><a href="#"><i class="icon fa fa-user"></i><strong>My Account</strong></a></li>
                         <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i><strong>Wishlist</strong></a></li>
                         <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i><strong>My Cart</strong></a></li>
-                        <li><a href="#"><i class="icon fa fa-check"></i><strong>Checkout</strong></a></li>
+                        <li><a href="{{ route('checkout') }}"><i class="icon fa fa-check"></i><strong>Checkout</strong></a></li>
                         <li>
                             @auth
                             <a href="{{route('login')}}"><i class="icon fa fa-user"></i><strong>User profile</strong></a>
