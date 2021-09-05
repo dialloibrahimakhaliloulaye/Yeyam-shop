@@ -571,7 +571,16 @@
                                         title: data.error
                                     })
                                 }
-                                // End Message 
+                                // End Message
+                            }
+                        })
+                    }
+                    function couponCalculation(){
+                        $.ajax({
+                            type: 'GET',
+                            url: "{{ url('/coupon-calculation') }}",
+                            dataType: 'json',
+                            success:function(data){
                             }
                         })
                     }
