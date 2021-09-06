@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\CartPageController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\WishlistController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -241,4 +242,8 @@ Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 
 Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
+
+Route::get('/district-get/ajax/{division_id}', [CheckoutController::class, 'DistrictGetAjax']);
+
+Route::get('/state-get/ajax/{district_id}', [CheckoutController::class, 'StateGetAjax']);
 
