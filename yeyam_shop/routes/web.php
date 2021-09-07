@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
@@ -252,4 +253,7 @@ Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->na
 
 
 Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
+
+
+Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.orders');
 
