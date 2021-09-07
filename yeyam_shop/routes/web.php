@@ -170,6 +170,12 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
 
     Route::get('/wishlist-remove/{id}', [WishlistController::class, 'RemoveWishlistProduct']);
 
+    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
+
+    Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.orders');
+
+    Route::get('/order_details/{order_id}', [AllUserController::class, 'OrderDetails']);
+
 });
 
 // My Cart Page All Routes
@@ -212,29 +218,30 @@ Route::prefix('shipping')->group(function(){
 
     Route::get('/division/delete/{id}', [ShippingAreaController::class, 'DivisionDelete'])->name('division.delete');
 
-});
+    // Ship District
+    Route::get('/district/view', [ShippingAreaController::class, 'DistrictView'])->name('manage-district');
 
-// Ship District
-Route::get('/district/view', [ShippingAreaController::class, 'DistrictView'])->name('manage-district');
+    Route::post('/district/store', [ShippingAreaController::class, 'DistrictStore'])->name('district.store');
 
-Route::post('/district/store', [ShippingAreaController::class, 'DistrictStore'])->name('district.store');
+    Route::get('/district/edit/{id}', [ShippingAreaController::class, 'DistrictEdit'])->name('district.edit');
 
-Route::get('/district/edit/{id}', [ShippingAreaController::class, 'DistrictEdit'])->name('district.edit');
+    Route::post('/district/update/{id}', [ShippingAreaController::class, 'DistrictUpdate'])->name('district.update');
 
-Route::post('/district/update/{id}', [ShippingAreaController::class, 'DistrictUpdate'])->name('district.update');
-
-Route::get('/district/delete/{id}', [ShippingAreaController::class, 'DistrictDelete'])->name('district.delete');
+    Route::get('/district/delete/{id}', [ShippingAreaController::class, 'DistrictDelete'])->name('district.delete');
 
 // Ship State
-Route::get('/state/view', [ShippingAreaController::class, 'StateView'])->name('manage-state');
+    Route::get('/state/view', [ShippingAreaController::class, 'StateView'])->name('manage-state');
 
-Route::post('/state/store', [ShippingAreaController::class, 'StateStore'])->name('state.store');
+    Route::post('/state/store', [ShippingAreaController::class, 'StateStore'])->name('state.store');
 
-Route::get('/state/edit/{id}', [ShippingAreaController::class, 'StateEdit'])->name('state.edit');
+    Route::get('/state/edit/{id}', [ShippingAreaController::class, 'StateEdit'])->name('state.edit');
 
-Route::post('/state/update/{id}', [ShippingAreaController::class, 'StateUpdate'])->name('state.update');
+    Route::post('/state/update/{id}', [ShippingAreaController::class, 'StateUpdate'])->name('state.update');
 
-Route::get('/state/delete/{id}', [ShippingAreaController::class, 'StateDelete'])->name('state.delete');
+    Route::get('/state/delete/{id}', [ShippingAreaController::class, 'StateDelete'])->name('state.delete');
+});
+
+
 
 // Frontend Coupon Option
 Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
@@ -256,4 +263,6 @@ Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('st
 
 
 Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.orders');
+
+Route::get('/order_details/{order_id}', [AllUserController::class, 'OrderDetails']);
 
