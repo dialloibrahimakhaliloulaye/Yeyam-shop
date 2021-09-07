@@ -60,20 +60,20 @@
                                         <li>
                                             @if(Session::has('coupon'))
 
-                                                <strong>SubTotal: </strong> ${{ $cartTotal }} <hr>
+                                                <strong>SubTotal: </strong> {{ $cartTotal }} FCFA<hr>
 
                                                 <strong>Coupon Name : </strong> {{ session()->get('coupon')['coupon_name'] }}
                                                 ( {{ session()->get('coupon')['coupon_discount'] }} % )
                                                 <hr>
 
-                                                <strong>Coupon Discount : </strong> ${{ session()->get('coupon')['discount_amount'] }}
+                                                <strong>Coupon Discount : </strong> {{ session()->get('coupon')['discount_amount'] }} FCFA
                                                 <hr>
 
-                                                <strong>Grand Total : </strong> ${{ session()->get('coupon')['total_amount'] }}
+                                                <strong>Grand Total : </strong> {{ session()->get('coupon')['total_amount'] }} FCFA
                                                 <hr>
                                             @else
-                                                <strong>SubTotal: </strong> ${{ $cartTotal }} <hr>
-                                                <strong>Grand Total : </strong> ${{ $cartTotal }} <hr>
+                                                <strong>SubTotal: </strong> {{ $cartTotal }} FCFA<hr>
+                                                <strong>Grand Total : </strong> {{ $cartTotal }} FCFA<hr>
                                             @endif
                                         </li>
                                     </ul>
