@@ -69,6 +69,7 @@
                                                         <option value="" selected="" disabled="">Select Division</option>
                                                         @foreach($divisions as $item)
                                                             <option value="{{ $item->id }}">{{ $item->division_name }}</option>
+
                                                         @endforeach
                                                     </select>
                                                     @error('division_id')
@@ -163,20 +164,11 @@
                                                 <strong>Grand Total : </strong> {{ session()->get('coupon')['total_amount'] }} FCFA
                                                 <hr>
 
-
                                             @else
-
                                                 <strong>SubTotal: </strong> {{ $cartTotal }} FCFA<hr>
-
                                                 <strong>Grand Total : </strong> {{ $cartTotal }} FCFA<hr>
-
-
                                             @endif
-
                                         </li>
-
-
-
                                     </ul>
                                 </div>
                             </div>
@@ -192,7 +184,6 @@
                                 <div class="panel-heading">
                                     <h4 class="unicase-checkout-title">Select Payment Method</h4>
                                 </div>
-
 
                                 <div class="row">
                                     <div class="col-md-4">
@@ -212,7 +203,6 @@
                                         <input type="radio" name="payment_method" value="cash">
                                         <img src="{{ asset('frontend/assets/images/payments/6.png') }}">
                                     </div> <!-- end col md 4 -->
-
 
                                 </div> <!-- // end row  -->
                                 <hr>
