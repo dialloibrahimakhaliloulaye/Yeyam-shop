@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubcategoryController;
@@ -291,7 +292,7 @@ Route::prefix('orders')->group(function(){
 
     Route::get('/delivered/orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
 
-    Route::get('/cancel/orders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
+    Route::get('/cancel/adminOrders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
 
     // Update Status
     Route::get('/pending/confirm/{order_id}', [OrderController::class, 'PendingToConfirm'])->name('pending-confirm');
@@ -313,3 +314,8 @@ Route::prefix('orders')->group(function(){
     Route::get('/cancel/orders', [AllUserController::class, 'CancelOrders'])->name('cancel.orders');
 });
 
+// Admin Reports Routes
+Route::prefix('reports')->group(function(){
+
+    Route::get('/view', [ReportController::class, 'ReportView'])->name('all-reports');
+});
