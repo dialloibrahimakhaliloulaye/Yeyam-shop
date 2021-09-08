@@ -255,7 +255,8 @@
                     success:function(data) {
                         var d =$('select[name="state_id"]').empty();
                         $.each(data, function(key, value){
-                            $('select[name="state_id"]').append('<option value="'+ value.id +'">' + value.state_name + '</option>');
+                            $('select[name="state_id"]').append('<option value="'+
+                                value.id +'">'+value.state_name+'</option>');
                         });
                     },
                 });
