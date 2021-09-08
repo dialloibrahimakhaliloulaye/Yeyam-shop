@@ -172,6 +172,12 @@
                 @if($order->status !== "delivered")
 
                 @else
+
+                    @php
+                        $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
+                    @endphp
+
+                    @if($order)
                     <form action="{{ route('return.order',$order->id) }}" method="post">@csrf
                     <div class="form-group">
                         <label for="label"> Order Return Reason:</label>
@@ -180,6 +186,11 @@
                     </div>
                         <button type="submit" class="btn btn-danger">Submit</button>
                     </form>
+                    @else
+
+                        <span class="badge badge-pill badge-warning" style="background: red">You Have sent return request for this product</span>
+
+                    @endif
                 @endif
                 <br><br>
             </div> <!-- // end row -->

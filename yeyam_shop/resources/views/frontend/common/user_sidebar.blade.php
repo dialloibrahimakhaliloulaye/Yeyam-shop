@@ -17,7 +17,7 @@ url('upload/user_images/'.$user->profile_photo_path):url('upload/no_image.jpg') 
 
         <a href="{{ route('my.orders') }}" class="btn btn-primary btn-sm btn-block">My Orders</a>
 
-        <a href="{{ route('my.orders') }}" class="btn btn-primary btn-sm btn-block">Return Orders</a>
+        <a href="{{ route('return.order.list') }}" class="btn btn-primary btn-sm btn-block">Return Orders</a>
 
         <a href="{{ route('my.orders') }}" class="btn btn-primary btn-sm btn-block">Cancel Orders</a>
 
