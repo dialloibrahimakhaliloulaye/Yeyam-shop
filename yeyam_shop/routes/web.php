@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SliderController;
@@ -270,4 +271,12 @@ Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->na
 Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.orders');
 
 Route::get('/order_details/{order_id}', [AllUserController::class, 'OrderDetails']);*/
+
+// Admin Order All Routes
+
+Route::prefix('orders')->group(function(){
+
+    Route::get('/pending/orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+
+});
 
