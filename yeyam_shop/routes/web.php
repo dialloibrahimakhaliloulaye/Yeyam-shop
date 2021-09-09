@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
@@ -330,4 +331,10 @@ Route::prefix('reports')->group(function(){
 Route::prefix('alluser')->group(function(){
 
     Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all-users');
+});
+
+// Admin Reports Routes
+Route::prefix('blog')->group(function(){
+
+    Route::get('/category', [BlogController::class, 'BlogCategory'])->name('blog.category');
 });
