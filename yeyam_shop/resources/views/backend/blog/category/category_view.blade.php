@@ -29,7 +29,7 @@
                                         <tr>
                                             <td>{{ $item->blog_category_name }}</td>
                                             <td>
-                                                <a href="{{ route('category.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                                                <a href="{{ route('blogcategory.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
                                                 <a href="{{ route('category.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
                                                     <i class="fa fa-trash"></i></a>
                                             </td>
@@ -55,7 +55,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="post" action="{{ route('category.store') }}" >@csrf
+                                <form method="post" action="{{ route('blogcategory.store') }}" >@csrf
                                     <div class="form-group">
                                         <h5>Blog Category <span class="text-danger">*</span></h5>
                                         <div class="controls">
