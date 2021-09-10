@@ -2,7 +2,7 @@
 @section('content')
 
 @section('title')
-    Blog Page
+    Blog Category Page
 @endsection
 
 <div class="breadcrumb">
@@ -21,17 +21,21 @@
         <div class="row">
             <div class="blog-page">
                 <div class="col-md-9">
+
                     @foreach($blogpost as $blog)
-                    <div class="blog-post  wow fadeInUp">
-                        <a href="blog-details.html"><img class="img-responsive" src="{{ asset($blog->post_image) }}" alt=""></a>
-                        <h1><a href="blog-details.html">{{ $blog->post_title }}</a></h1>
+                        <div class="blog-post  wow fadeInUp">
+                            <a href="blog-details.html"><img class="img-responsive" src="{{ asset($blog->post_image) }}" alt=""></a>
 
-                        <span class="date-time"> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()  }}</span>
+                            <h1><a href="blog-details.html"> {{ $blog->post_title }}</a></h1>
 
-                        <p>{!! Str::limit($blog->post_details, 200 ) !!}</p>
+                            <span class="date-time"> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()  }}</span>
 
-                        <a href="{{ route('post.details',$blog->id) }}" class="btn btn-upper btn-primary read-more">read more</a>
-                    </div>
+                            <p>{!! Str::limit($blog->post_details, 200 )  !!}</p>
+
+
+                            <a href="{{ route('post.details',$blog->id) }}" class="btn btn-upper btn-primary read-more">read more</a>
+
+                        </div>
                     @endforeach
 
                     <div class="clearfix blog-pagination filters-container  wow fadeInUp" style="padding:0px; background:none; box-shadow:none; margin-top:15px; border:none">
@@ -47,9 +51,9 @@
                                     <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
                                 </ul><!-- /.list-inline -->
                             </div><!-- /.pagination-container -->    </div><!-- /.text-right -->
+
                     </div><!-- /.filters-container -->				</div>
                 <div class="col-md-3 sidebar">
-
 
                     <div class="sidebar-module-container">
                         <div class="search-area outer-bottom-small">
@@ -64,7 +68,7 @@
                         <div class="home-banner outer-top-n outer-bottom-xs">
                             <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }} " alt="Image">
                         </div>
-                        <!-- ==============================================CATEGORY============================================== -->
+                        <!-- ======== ====CATEGORY======= === -->
                         <div class="sidebar-widget outer-bottom-xs wow fadeInUp">
                             <h3 class="section-title">Blog Category</h3>
                             <div class="sidebar-widget-body m-t-10">
@@ -72,18 +76,17 @@
 
                                     @foreach($blogcategory as $category)
                                         <ul class="list-group">
-                                            <a href="{{ url('blog/category/post/'.$category->id) }}">
-                                                <li class="list-group-item">{{ $category->blog_category_name }}</li>
-                                            </a>
+                                            <a href="{{ url('blog/category/post/'.$category->id) }}">{{ $category->blog_category_name }}</li></a>
+
                                         </ul>
                                     @endforeach
 
                                 </div><!-- /.accordion -->
                             </div><!-- /.sidebar-widget-body -->
                         </div><!-- /.sidebar-widget -->
-                        <!-- ============================================== CATEGORY : END ============================================== -->						<div class="sidebar-widget outer-bottom-xs wow fadeInUp">
+                        <!-- ===== ======== CATEGORY : END ==== = -->
 
-                        <!-- ============================================== PRODUCT TAGS ============================================== -->
+                        <!-- === ======== PRODUCT TAGS ==== ========== -->
                         <div class="sidebar-widget product-tag wow fadeInUp">
                             <h3 class="section-title">Product tags</h3>
                             <div class="sidebar-widget-body outer-top-xs">

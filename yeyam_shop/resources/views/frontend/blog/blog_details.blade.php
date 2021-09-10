@@ -107,8 +107,9 @@
 
                                     @foreach($blogcategory as $category)
                                         <ul class="list-group">
-                                            <li class="list-group-item">{{ $category->blog_category_name }}</li>
-
+                                            <a href="{{ url('blog/category/post/'.$category->id) }}">
+                                                <li class="list-group-item">{{ $category->blog_category_name }}</li>
+                                            </a>
                                         </ul>
                                     @endforeach
 

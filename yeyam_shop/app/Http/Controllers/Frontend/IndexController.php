@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog\BlogPost;
 use App\Models\Category;
 use App\Models\MultiImage;
 use App\Models\Product;
@@ -18,6 +19,7 @@ class IndexController extends Controller
 {
     public function Index()
     {
+        $blogpost = BlogPost::latest()->get();
         $categories=Category::orderBy('category_name', 'ASC')->get();
         $sliders=Slider::where('status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $products=Product::where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();
@@ -36,7 +38,7 @@ class IndexController extends Controller
 
         return view('frontend.index', compact('categories', 'sliders',
             'products', 'featured', 'special_offer', 'special_deals', 'skip_product_0',
-            'skip_category_0', 'skip_category_1', 'skip_product_1'));
+            'skip_category_0', 'skip_category_1', 'skip_product_1', 'blogpost'));
     }
 
     public function UserLogout()
