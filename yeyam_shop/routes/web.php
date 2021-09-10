@@ -19,6 +19,7 @@ use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 use App\Models\User;
@@ -386,3 +387,7 @@ Route::prefix('return')->group(function(){
 
     Route::get('/admin/all/request', [ReturnController::class, 'ReturnAllRequest'])->name('all.request');
 });
+
+
+/// Frontend Product Review Routes
+Route::post('/review/store', [ReviewController::class, 'ReviewStore'])->name('review.store');
