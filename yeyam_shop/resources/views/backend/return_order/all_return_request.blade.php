@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Return Orders List</h3>
+                            <h3 class="box-title">All Return Orders List</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -36,7 +36,6 @@
                                             <td> {{ $item->order_date }}  </td>
                                             <td> {{ $item->invoice_no }}  </td>
                                             <td> ${{ $item->amount }}  </td>
-
                                             <td> {{ $item->payment_method }}  </td>
                                             <td>
                                                 @if($item->return_order == 1)
@@ -48,12 +47,13 @@
                                             </td>
 
                                             <td width="25%">
-                                                <a href="{{ route('return.approve',$item->id) }}" class="btn btn-danger">Approve </a>
+                                                <span class="badge badge-success">Return Success </span>
                                             </td>
 
                                         </tr>
                                     @endforeach
                                     </tbody>
+
                                 </table>
                             </div>
                         </div>
