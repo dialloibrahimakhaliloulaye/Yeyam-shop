@@ -24,12 +24,13 @@
                     @foreach($blogpost as $blog)
                     <div class="blog-post  wow fadeInUp">
                         <a href="blog-details.html"><img class="img-responsive" src="{{ asset($blog->post_image) }}" alt=""></a>
-                        <h1><a href="blog-details.html"> @if(session()->get('language') == 'hindi') {{ $blog->post_title_hin }} @else {{ $blog->post_title_en }} @endif</a></h1>
+                        <h1><a href="blog-details.html">{{ $blog->post_title }}</a></h1>
 
                         <span class="date-time"> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()  }}</span>
 
-                        <p>@if(session()->get('language') == 'hindi') {!! Str::limit($blog->post_details_hin, 200 )  !!} @else {!! Str::limit($blog->post_details_en, 200 )  !!} @endif</p>
-                        <a href="#" class="btn btn-upper btn-primary read-more">read more</a>
+                        <p>{!! Str::limit($blog->post_details, 200 ) !!}</p>
+
+                        <a href="{{ route('post.details',$blog->id) }}" class="btn btn-upper btn-primary read-more">read more</a>
                     </div>
                     @endforeach
 
@@ -71,7 +72,7 @@
 
                                     @foreach($blogcategory as $category)
                                         <ul class="list-group">
-                                            <li class="list-group-item">@if(session()->get('language') == 'hindi') {{ $category->blog_category_name_hin }} @else {{ $category->blog_category_name_en }} @endif</li>
+                                            <li class="list-group-item">{{ $category->blog_category_name }}</li>
 
                                         </ul>
                                     @endforeach
@@ -80,7 +81,7 @@
                             </div><!-- /.sidebar-widget-body -->
                         </div><!-- /.sidebar-widget -->
                         <!-- ============================================== CATEGORY : END ============================================== -->						<div class="sidebar-widget outer-bottom-xs wow fadeInUp">
-                            
+
                         <!-- ============================================== PRODUCT TAGS ============================================== -->
                         <div class="sidebar-widget product-tag wow fadeInUp">
                             <h3 class="section-title">Product tags</h3>
