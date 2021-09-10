@@ -84,6 +84,7 @@ class BlogController extends Controller
             'post_slug' => strtolower(str_replace(' ', '-',$request->post_title)),
             'post_image' => $save_url,
             'post_details' => $request->post_details,
+            'created_at' => Carbon::now(),
         ]);
         $notification = array(
             'message' => 'Blog Post Inserted Successfully',
