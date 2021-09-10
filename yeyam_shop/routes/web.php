@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
@@ -352,3 +353,7 @@ Route::prefix('blog')->group(function(){
 
     Route::post('/post/store', [BlogController::class, 'BlogPostStore'])->name('post-store');
 });
+
+// Frontend Blog Show Routes
+
+Route::get('/blog', [HomeBlogController::class, 'AddBlogPost'])->name('home.blog');
