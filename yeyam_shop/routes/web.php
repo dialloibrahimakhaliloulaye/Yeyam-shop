@@ -368,4 +368,6 @@ Route::get('/blog/category/post/{category_id}', [HomeBlogController::class, 'Hom
 Route::prefix('setting')->group(function(){
 
     Route::get('/site', [SiteSettingController::class, 'SiteSetting'])->name('site.setting');
+
+    Route::post('/site/update', [SiteSettingController::class, 'SiteSettingUpdate'])->name('update.sitesetting');
 });
