@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -410,4 +411,9 @@ Route::prefix('review')->group(function(){
 Route::prefix('stock')->group(function(){
 
     Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');
+});
+
+// Admin User Role Routes
+Route::prefix('adminuserrole')->group(function(){
+    Route::get('/all', [AdminUserController::class, 'AllAdminRole'])->name('all.admin.user');
 });
