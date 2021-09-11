@@ -15,6 +15,7 @@
                     <div class="box">
                         <div class="box-header with-border">
                             <h3 class="box-title">Total Admin User </h3>
+                            <a href="{{ route('add.admin') }}" class="btn btn-danger" style="float: right;">Add Admin User</a>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -32,9 +33,9 @@
                                     <tbody>
                                     @foreach($adminuser as $item)
                                         <tr>
-                                            <td> <img src="{{ asset($item->profile_photo_path) }}">  </td>
+                                            <td> <img src="{{ asset($item->profile_photo_path) }}" style="width: 50px; height: 50px;">  </td>
                                             <td> {{ $item->name }}  </td>
-                                            <td> ${{ $item->email  }}  </td>
+                                            <td> {{ $item->email  }} </td>
                                             <td>  </td>
                                             <td width="25%">
                                                 <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-eye"></i> </a>
