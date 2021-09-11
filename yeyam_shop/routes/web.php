@@ -318,6 +318,9 @@ Route::prefix('orders')->group(function(){
     Route::get('/return/order/list', [AllUserController::class, 'ReturnOrderList'])->name('return.order.list');
 
     Route::get('/cancel/orders', [AllUserController::class, 'CancelOrders'])->name('cancel.orders');
+
+    /// Order Traking Route
+    Route::get('/order/tracking', [AllUserController::class, 'OrderTraking'])->name('order.tracking');
 });
 
 // Admin Reports Routes
