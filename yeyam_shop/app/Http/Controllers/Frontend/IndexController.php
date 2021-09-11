@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\MultiImage;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Subcategory;
+use App\Models\Subsubcategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -134,14 +136,17 @@ class IndexController extends Controller
     {
         $products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','DESC')->paginate(6);
         $categories = Category::orderBy('category_name','ASC')->get();
-        return view('frontend.product.subcategory_view',compact('products','categories'));
+        $breadsubcat = SubCategory::with(['category'])->where('id',$subcat_id)->get();
+
+        return view('frontend.product.subcategory_view',compact('products','categories','breadsubcat'));
     }
     // Sub-Subcategory wise data
     public function SubSubCatWiseProduct($subsubcat_id,$slug)
     {
         $products = Product::where('status',1)->where('subsubcategory_id',$subsubcat_id)->orderBy('id','DESC')->paginate(6);
         $categories = Category::orderBy('category_name','ASC')->get();
-        return view('frontend.product.sub_subcategory_view',compact('products','categories'));
+        $breadsubsubcat = SubSubCategory::with(['category','subcategory'])->where('id',$subsubcat_id)->get();
+        return view('frontend.product.sub_subcategory_view',compact('products','categories','breadsubsubcat'));
     }
 
     /// Product View With Ajax
