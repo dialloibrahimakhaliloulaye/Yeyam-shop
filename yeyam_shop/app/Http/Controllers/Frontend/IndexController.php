@@ -154,12 +154,20 @@ class IndexController extends Controller
 
         $size = $product->product_size;
         $product_size = explode(',', $size);
-
         return response()->json(array(
             'product' => $product,
             'color' => $product_color,
             'size' => $product_size,
         ));
-
     } // end method
+
+    // Product Seach
+    public function ProductSearch(Request $request)
+    {
+        $item = $request->search;
+        // echo "$item";
+        $categories = Category::orderBy('category_name', 'ASC')->get();
+        $products = Product::where('product_name', 'LIKE', "%$item%")->get();
+        return view('frontend.product.search', compact('products', 'categories'));
+    }
 }
