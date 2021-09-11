@@ -320,7 +320,7 @@ Route::prefix('orders')->group(function(){
     Route::get('/cancel/orders', [AllUserController::class, 'CancelOrders'])->name('cancel.orders');
 
     /// Order Traking Route
-    Route::get('/order/tracking', [AllUserController::class, 'OrderTraking'])->name('order.tracking');
+    Route::post('/order/tracking', [AllUserController::class, 'OrderTraking'])->name('order.tracking');
 });
 
 // Admin Reports Routes
