@@ -192,6 +192,7 @@
                                     </ul>
                                 </li>
                                 @endforeach
+                                <li> <a href="{{ route('shop.page') }}">Shop</a> </li>
 
                                 <li class="dropdown  navbar-right special-menu"> <a href="#"><b>Todays offer</b></a> </li>
                                 <li class="dropdown  navbar-right special-menu"> <a href="{{ route('home.blog') }}"><b>Blog</b></a> </li>
