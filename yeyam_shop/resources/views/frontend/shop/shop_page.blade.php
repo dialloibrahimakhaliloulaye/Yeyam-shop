@@ -19,7 +19,7 @@
 <!-- /.breadcrumb -->
 <div class="body-content outer-top-xs">
     <div class='container'>
-        <form action="{{ route('shop.filter') }}" method="post">
+        <form action="{{ route('shop.filter') }}" method="post">@csrf
         <div class='row'>
             <div class='col-md-3 sidebar'>
 
@@ -38,13 +38,21 @@
                             <div class="sidebar-widget-body">
                                 <div class="accordion">
 
+                                    @if(!empty($_GET['category']))
+                                        @php
+                                            $filterCat = explode(',',$_GET['category']);
+                                        @endphp
+                                    @endif
+
                                     @foreach($categories as $category)
                                         <div class="accordion-group">
                                             <div class="accordion-heading">
 
                                                 <label class="form-check-label">
                                                     <input type="checkbox" class="form-check-input" name="category[]"
-                                                           value="{{ $category->category_slug }}" onchange="this.form.submit()">
+                                                           value="{{ $category->category_slug }}"
+                                                           @if(!empty($filterCat) && in_array($category->category_slug,$filterCat)) checked
+                                                           @endif  onchange="this.form.submit()">
                                                     {{ $category->category_name }}
                                                 </label>
                                             </div>
@@ -53,6 +61,51 @@
                                         </div>
                                         <!-- /.accordion-group -->
                                     @endforeach
+
+                                </div>
+                                <!-- /.accordion -->
+                            </div>
+                            <!-- /.sidebar-widget-body -->
+
+                            <!-- /.sidebar-widget -->
+
+
+
+
+                            <!--  /////////// This is for Brand Filder /////////////// -->
+
+
+
+                            <div class="widget-header">
+                                <h4 class="widget-title">Brand Filter</h4>
+                            </div>
+                            <div class="sidebar-widget-body">
+                                <div class="accordion">
+
+                                    @if(!empty($_GET['brand']))
+                                        @php
+                                            $filterBrand = explode(',',$_GET['brand']);
+                                        @endphp
+                                    @endif
+
+
+
+                                    @foreach($brands as $brand)
+                                        <div class="accordion-group">
+                                            <div class="accordion-heading">
+
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" name="brand[]"
+                                                           value="{{ $brand->brand_slug }}" @if(!empty($filterBrand)
+                                                    && in_array($brand->brand_slug,$filterBrand)) checked @endif onchange="this.form.submit()">
+                                                    {{ $brand->brand_name }}
+                                                </label>
+                                            </div>
+                                            <!-- /.accordion-heading -->
+                                        </div>
+                                        <!-- /.accordion-group -->
+                                    @endforeach
+
                                 </div>
                                 <!-- /.accordion -->
                             </div>
@@ -332,7 +385,7 @@
                                                         @endif
                                                         <!-- /.product-price -->
                                                             <div class="description m-t-10">
-                                                                {{ $product->short_descp_en }} </div>
+                                                                {{ $product->short_descp }} </div>
                                                             <div class="cart clearfix animate-effect">
                                                                 <div class="action">
                                                                     <ul class="list-unstyled">
@@ -378,7 +431,7 @@
                         <!-- /.tab-pane #list-container -->
                     </div>
                     <!-- /.tab-content -->
-                    {{ $products->links('vendor.pagination.custom')  }}
+                    {{ $products->appends($_GET)->links('vendor.pagination.custom')  }}
                 </div>
                 <!-- /.search-result-container -->
             </div>
