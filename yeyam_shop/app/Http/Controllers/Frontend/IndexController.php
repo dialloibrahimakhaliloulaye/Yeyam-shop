@@ -179,6 +179,10 @@ class IndexController extends Controller
 
     ///// Advance Search Options
     public function SearchProduct(Request $request){
-        return $request;
+        $request->validate(["search" => "required"]);
+        $item = $request->search;
+        $products = Product::where('product_name','LIKE',"%$item%")->select('product_name','product_thambnail')
+            ->limit(5)->get();
+        return view('frontend.product.search_product',compact('products'));
     } // end method
 }
