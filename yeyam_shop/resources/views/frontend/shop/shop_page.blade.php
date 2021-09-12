@@ -19,6 +19,7 @@
 <!-- /.breadcrumb -->
 <div class="body-content outer-top-xs">
     <div class='container'>
+        <form action="{{ route('shop.filter') }}" method="post">
         <div class='row'>
             <div class='col-md-3 sidebar'>
 
@@ -39,26 +40,16 @@
 
                                     @foreach($categories as $category)
                                         <div class="accordion-group">
-                                            <div class="accordion-heading"> <a href="#collapse{{ $category->id }}" data-toggle="collapse" class="accordion-toggle collapsed">
-                                                    {{ $category->category_name }} </a> </div>
-                                            <!-- /.accordion-heading -->
-                                            <div class="accordion-body collapse" id="collapse{{ $category->id }}" style="height: 0px;">
-                                                <div class="accordion-inner">
+                                            <div class="accordion-heading">
 
-                                                    @php
-                                                        $subcategories = App\Models\SubCategory::where('category_id',$category->id)->orderBy('subcategory_name','ASC')->get();
-                                                    @endphp
-
-                                                    @foreach($subcategories as $subcategory)
-                                                        <ul>
-                                                            <li><a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug ) }}">
-                                                                    {{ $subcategory->subcategory_name }} </a></li>
-                                                        </ul>
-                                                    @endforeach
-                                                </div>
-                                                <!-- /.accordion-inner -->
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" name="category[]"
+                                                           value="{{ $category->category_slug }}" onchange="this.form.submit()">
+                                                    {{ $category->category_name }}
+                                                </label>
                                             </div>
-                                            <!-- /.accordion-body -->
+                                            <!-- /.accordion-heading -->
+
                                         </div>
                                         <!-- /.accordion-group -->
                                     @endforeach
@@ -433,7 +424,10 @@
             <!-- /.logo-slider-inner -->
         </div>
         <!-- /.logo-slider -->
-        <!-- ============================================== BRANDS CAROUSEL : END ============================================== --> </div>
+        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+        </form>
+
+    </div>
     <!-- /.container -->
 </div>
 <!-- /.body-content -->
