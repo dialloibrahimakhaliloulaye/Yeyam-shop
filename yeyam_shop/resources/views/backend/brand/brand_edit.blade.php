@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Edit Brand</h3>
+                            <h3 class="box-title">Editer Marque</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -23,7 +23,7 @@
                                     <input type="hidden" name="id" value="{{$brand->id}}">
                                     <input type="hidden" name="old_image" value="{{$brand->brand_image}}">
                                     <div class="form-group">
-                                        <h5>Brand name<span class="text-danger">*</span></h5>
+                                        <h5>Nom Marque<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="brand_name" class="form-control" value="{{$brand->brand_name}}"> </div>
                                         @error('brand_name')
@@ -32,7 +32,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <h5>Brand image<span class="text-danger">*</span></h5>
+                                        <h5>Image Marque<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="file" name="brand_image" class="form-control" > </div>
                                         @error('brand_image')
@@ -40,7 +40,7 @@
                                         @enderror
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

@@ -24,6 +24,7 @@ use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\Vendors\VendorsController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -442,3 +443,15 @@ Route::post('search-product', [IndexController::class, 'SearchProduct']);
 Route::get('/shop', [ShopController::class, 'ShopPage'])->name('shop.page');
 
 Route::post('/shop/filter', [ShopController::class, 'ShopFilter'])->name('shop.filter');
+
+//Vendors
+Route::prefix('vendors')->group(function(){
+
+    Route::get('/', [VendorsController::class, 'firstPage'])->name('first.vendors');
+
+    /*Route::get('/admin/approve/{id}', [ReviewController::class, 'ReviewApprove'])->name('review.approve');
+
+    Route::get('/publish', [ReviewController::class, 'PublishReview'])->name('publish.review');
+
+    Route::get('/delete/{id}', [ReviewController::class, 'DeleteReview'])->name('delete.review');*/
+});

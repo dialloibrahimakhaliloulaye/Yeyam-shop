@@ -7,40 +7,40 @@
                 @include('frontend.common.user_sidebar')
                 <div class="col-md-5">
                     <div class="card">
-                        <div class="card-header"><h4>Shipping Details</h4></div>
+                        <div class="card-header"><h4>Récapitulatif destinaire</h4></div>
                         <hr>
                         <div class="card-body" style="background: #E9EBEC;">
                             <table class="table">
                                 <tr>
-                                    <th> Shipping Name : </th>
+                                    <th> Destinataire : </th>
                                     <th> {{ $order->name }} </th>
                                 </tr>
                                 <tr>
-                                    <th> Shipping Phone : </th>
+                                    <th> Télephone : </th>
                                     <th> {{ $order->phone }} </th>
                                 </tr>
                                 <tr>
-                                    <th> Shipping Email : </th>
+                                    <th> Email : </th>
                                     <th> {{ $order->email }} </th>
                                 </tr>
                                 <tr>
-                                    <th> Division : </th>
-                                    <th> {{ $order->division->division_name }} </th>
+                                    <th> Région : </th>
+                                    <th> {{ $order->division->division_name??'' }} </th>
                                 </tr>
                                 <tr>
-                                    <th> District : </th>
-                                    <th> {{ $order->district->district_name }} </th>
+                                    <th> Département : </th>
+                                    <th> {{ $order->district->district_name??'' }} </th>
                                 </tr>
                                 <tr>
-                                    <th> State : </th>
-                                    <th>{{ $order->state->state_name }} </th>
+                                    <th> Arrondissement : </th>
+                                    <th>{{ $order->state->state_name??'' }} </th>
                                 </tr>
                                 <tr>
-                                    <th> Post Code : </th>
+                                    <th> Code postal : </th>
                                     <th> {{ $order->post_code }} </th>
                                 </tr>
                                 <tr>
-                                    <th> Order Date : </th>
+                                    <th> Date commande : </th>
                                     <th> {{ $order->order_date }} </th>
                                 </tr>
                             </table>
@@ -49,24 +49,24 @@
                 </div> <!-- // end col md -5 -->
                 <div class="col-md-5">
                     <div class="card">
-                        <div class="card-header"><h4>Order Details
+                        <div class="card-header"><h4>Details commande
                                 <span class="text-danger"> Invoice : {{ $order->invoice_no }}</span></h4>
                         </div>
                         <hr>
                         <div class="card-body" style="background: #E9EBEC;">
                             <table class="table">
                                 <tr>
-                                    <th>  Name : </th>
+                                    <th>  Nom : </th>
                                     <th> {{ $order->user->name }} </th>
                                 </tr>
 
                                 <tr>
-                                    <th>  Phone : </th>
+                                    <th>  Télephone : </th>
                                     <th> {{ $order->user->phone }} </th>
                                 </tr>
 
                                 <tr>
-                                    <th> Payment Type : </th>
+                                    <th> Type Paiement : </th>
                                     <th> {{ $order->payment_method }} </th>
                                 </tr>
 
@@ -76,17 +76,17 @@
                                 </tr>
 
                                 <tr>
-                                    <th> Invoice  : </th>
+                                    <th> Commande no  : </th>
                                     <th class="text-danger"> {{ $order->invoice_no }} </th>
                                 </tr>
 
                                 <tr>
-                                    <th> Order Total : </th>
+                                    <th> Total : </th>
                                     <th>{{ $order->amount }} </th>
                                 </tr>
 
                                 <tr>
-                                    <th> Order : </th>
+                                    <th> status : </th>
                                     <th>
                                         <span class="badge badge-pill badge-warning" style="background: #418DB9;">{{ $order->status }} </span> </th>
                                 </tr>
@@ -106,27 +106,27 @@
                                     </td>
 
                                     <td class="col-md-3">
-                                        <label for=""> Product Name </label>
+                                        <label for=""> Nom Produit </label>
                                     </td>
 
                                     <td class="col-md-3">
-                                        <label for=""> Product Code</label>
+                                        <label for=""> Code Produit</label>
                                     </td>
 
                                     <td class="col-md-2">
-                                        <label for=""> Color </label>
+                                        <label for=""> Couleur </label>
                                     </td>
 
                                     <td class="col-md-2">
-                                        <label for=""> Size </label>
+                                        <label for=""> Taille </label>
                                     </td>
 
                                     <td class="col-md-1">
-                                        <label for=""> Quantity </label>
+                                        <label for=""> Quantité </label>
                                     </td>
 
                                     <td class="col-md-1">
-                                        <label for=""> Price </label>
+                                        <label for=""> Prix </label>
                                     </td>
 
                                 </tr>
@@ -158,7 +158,7 @@
                                         </td>
 
                                         <td class="col-md-2">
-                                            <label for=""> ${{ $item->price }}  ( {{ $item->price * $item->qty}} ) FCFA </label>
+                                            <label for=""> {{ $item->price }}  ( {{ $item->price * $item->qty}} ) FCFA </label>
                                         </td>
 
                                     </tr>
@@ -180,15 +180,15 @@
                     @if($order)
                     <form action="{{ route('return.order',$order->id) }}" method="post">@csrf
                     <div class="form-group">
-                        <label for="label"> Order Return Reason:</label>
-                        <textarea name="return_reason" id="" class="form-control" cols="30" rows="05">Return Reason</textarea>
+                        <label for="label"> Raison de retour du commande:</label>
+                        <textarea name="return_reason" id="" class="form-control" cols="30" rows="05">Raisons</textarea>
 
                     </div>
-                        <button type="submit" class="btn btn-danger">Order Return</button>
+                        <button type="submit" class="btn btn-danger">Soumettre</button>
                     </form>
                     @else
 
-                        <span class="badge badge-pill badge-warning" style="background: red">You Have sent return request for this product</span>
+                        <span class="badge badge-pill badge-warning" style="background: red">Vous avez déjà envoyé une requête de retour pour ce produit</span>
 
                     @endif
                 @endif

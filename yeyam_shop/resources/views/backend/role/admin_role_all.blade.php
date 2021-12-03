@@ -14,8 +14,8 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Total Admin User </h3>
-                            <a href="{{ route('add.admin') }}" class="btn btn-danger" style="float: right;">Add Admin User</a>
+                            <h3 class="box-title">Les utilisateurs admin </h3>
+                            <a href="{{ route('add.admin') }}" class="btn btn-danger" style="float: right;">Ajouter admin</a>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -23,10 +23,10 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Image  </th>
-                                        <th>Name  </th>
+                                        <th>Image </th>
+                                        <th>Nom </th>
                                         <th>Email </th>
-                                        <th>Access </th>
+                                        <th>Privilège </th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -38,17 +38,17 @@
                                             <td> {{ $item->email  }} </td>
                                             <td>
                                                 @if($item->brand == 1)
-                                                    <span class="badge btn-primary">Brand</span>
+                                                    <span class="badge btn-primary">Marque</span>
                                                 @else
                                                 @endif
 
                                                 @if($item->category == 1)
-                                                    <span class="badge btn-secondary">Category</span>
+                                                    <span class="badge btn-secondary">Catégorie</span>
                                                 @else
                                                 @endif
 
                                                 @if($item->product == 1)
-                                                    <span class="badge btn-success">Product</span>
+                                                    <span class="badge btn-success">Produit</span>
                                                 @else
                                                 @endif
 
@@ -63,7 +63,7 @@
                                                 @endif
 
                                                 @if($item->shipping == 1)
-                                                    <span class="badge btn-info">Shipping</span>
+                                                    <span class="badge btn-info">Points livraison</span>
                                                 @else
                                                 @endif
 
@@ -73,22 +73,22 @@
                                                 @endif
 
                                                 @if($item->setting == 1)
-                                                    <span class="badge btn-dark">Setting</span>
+                                                    <span class="badge btn-dark">Paramètre</span>
                                                 @else
                                                 @endif
 
                                                 @if($item->returnorder == 1)
-                                                    <span class="badge btn-primary">Return Order</span>
+                                                    <span class="badge btn-primary">Commandes retouné</span>
                                                 @else
                                                 @endif
 
                                                 @if($item->review == 1)
-                                                    <span class="badge btn-secondary">Review</span>
+                                                    <span class="badge btn-secondary">Commentaires</span>
                                                 @else
                                                 @endif
 
                                                 @if($item->orders == 1)
-                                                    <span class="badge btn-success">Orders</span>
+                                                    <span class="badge btn-success">Commandes</span>
                                                 @else
                                                 @endif
 
@@ -98,23 +98,23 @@
                                                 @endif
 
                                                 @if($item->reports == 1)
-                                                    <span class="badge btn-warning">Reports</span>
+                                                    <span class="badge btn-warning">Récapitulatifs</span>
                                                 @else
                                                 @endif
 
                                                 @if($item->alluser == 1)
-                                                    <span class="badge btn-info">Alluser</span>
+                                                    <span class="badge btn-info">Tous admin</span>
                                                 @else
                                                 @endif
 
                                                 @if($item->adminuserrole == 1)
-                                                    <span class="badge btn-dark">Adminuserrole</span>
+                                                    <span class="badge btn-dark">privilèges admin</span>
                                                 @else
                                                 @endif
                                             </td>
                                             <td width="25%">
-                                                <a href="{{ route('edit.admin.user',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                                                <a href="{{ route('delete.admin.user',$item->id) }}" class="btn btn-danger" title="Delete" id="delete">
+                                                <a href="{{ route('edit.admin.user',$item->id) }}" class="btn btn-info" title="Editer"><i class="fa fa-pencil"></i> </a>
+                                                <a href="{{ route('delete.admin.user',$item->id) }}" class="btn btn-danger" title="Supprimer" id="delete">
                                                     <i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

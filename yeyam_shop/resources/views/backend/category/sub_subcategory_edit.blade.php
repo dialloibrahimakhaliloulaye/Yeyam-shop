@@ -11,7 +11,7 @@
                 <div class="col-8">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Edit Sub-SubCategory </h3>
+                            <h3 class="box-title">Editer Sous-SouCatégorie </h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -20,10 +20,10 @@
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $subsubcategories->id }}">
                                     <div class="form-group">
-                                        <h5>Category Select <span class="text-danger">*</span></h5>
+                                        <h5>Choisir Catégorie <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="category_id" class="form-control"  >
-                                                <option value="" selected="" disabled="">Select Category</option>
+                                                <option value="" selected="" disabled="">Catégorie</option>
                                                 @foreach($categories as $category)
                                                     <option value="{{ $category->id }}"
                                                         {{ $category->id == $subsubcategories->category_id ? 'selected':'' }} >
@@ -37,10 +37,10 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <h5>SubCategory Select <span class="text-danger">*</span></h5>
+                                        <h5>Choisir SouCatégorie <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="subcategory_id" class="form-control"  >
-                                                <option value="" selected="" disabled="">Select SubCategory</option>
+                                                <option value="" selected="" disabled="">SousCatégorie</option>
 
                                                 @foreach($subcategories as $subsub)
                                                     <option value="{{ $subsub->id }}" {{ $subsub->id == $subsubcategories->subcategory_id ? 'selected':'' }} >
@@ -54,7 +54,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <h5>Sub-SubCategory <span class="text-danger">*</span></h5>
+                                        <h5>Sous-SousCategory <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="subsubcategory_name" class="form-control"
                                                    value="{{ $subsubcategories['sub_subcategory_name'] }}" >
@@ -65,7 +65,7 @@
                                     </div>
 
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

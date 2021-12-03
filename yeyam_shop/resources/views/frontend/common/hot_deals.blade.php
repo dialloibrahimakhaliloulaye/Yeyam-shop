@@ -25,7 +25,7 @@
 
                         <div class="timing-wrapper">
                             <div class="box-wrapper">
-                                <div class="date box"> <span class="key">120</span> <span class="value">DAYS</span> </div>
+                                <div class="date box"> <span class="key">120</span> <span class="value">JOURS</span> </div>
                             </div>
                             <div class="box-wrapper">
                                 <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
@@ -63,7 +63,7 @@
                         <div class="action">
                             <div class="add-cart-button btn-group">
                                 <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()" >Ajouter au Panier</button>
                             </div>
                         </div>
                         <!-- /.action -->
@@ -76,3 +76,4 @@
     </div>
     <!-- /.sidebar-widget -->
 </div>
+

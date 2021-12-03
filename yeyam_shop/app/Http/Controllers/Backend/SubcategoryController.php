@@ -23,14 +23,13 @@ class SubcategoryController extends Controller
             'category_id'=>'required',
             'subcategory_name'=>'required'
         ]);
-
         Subcategory::insert([
             'category_id'=>$request->category_id,
             'subcategory_name'=>$request->subcategory_name,
             'subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subcategory_name)),
         ]);
         $notification=array(
-            'message'=>'Subcategory created successfully',
+            'message'=>'Souscatégorie créée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);
@@ -52,7 +51,7 @@ class SubcategoryController extends Controller
             'subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subcategory_name)),
         ]);
         $notification=array(
-            'message'=>'Subcategory updated successfully',
+            'message'=>'Souscatégorie mis à jour avec succès',
             'alert-type'=>'info'
         );
         return redirect()->route('all.subcategory')->with($notification);
@@ -62,15 +61,12 @@ class SubcategoryController extends Controller
     {
         Subcategory::findOrFail($id)->delete();
         $notification=array(
-            'message'=>'Subcategory deleted successfully',
+            'message'=>'Souscatégorie supprimée avec succès',
             'alert-type'=>'info'
         );
         return redirect()->back()->with($notification);
     }
-
-
     // --------------Sub sub-category ----------------
-
     public function SubsubcategoryView()
     {
         $categories=Category::orderBy('category_name', 'ASC')->get();
@@ -105,7 +101,7 @@ class SubcategoryController extends Controller
             'sub_subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subsubcategory_name)),
         ]);
         $notification=array(
-            'message'=>'Sub-subcategory created successfully',
+            'message'=>'Sous-souscatégorie créée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);
@@ -117,25 +113,20 @@ class SubcategoryController extends Controller
         $subcategories = SubCategory::orderBy('subcategory_name','ASC')->get();
         $subsubcategories = SubSubCategory::findOrFail($id);
         return view('backend.category.sub_subcategory_edit',compact('categories','subcategories','subsubcategories'));
-
     }
 
     public function SubsubCategoryUpdate(Request $request){
-
         $subsubcat_id = $request->id;
-
         Subsubcategory::findOrFail($subsubcat_id)->update([
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
             'sub_subcategory_name' => $request->subsubcategory_name,
             'sub_subcategory_slug' => strtolower(str_replace(' ', '-',$request->subsubcategory_name)),
         ]);
-
         $notification = array(
-            'message' => 'Sub-subCategory Updated Successfully',
+            'message' => 'Sous-souscatégorie mis à jour avec succès',
             'alert-type' => 'info'
         );
-
         return redirect()->route('all.subsubcategory')->with($notification);
 
     } // end method
@@ -144,7 +135,7 @@ class SubcategoryController extends Controller
     {
         Subsubcategory::findOrFail($id)->delete();
         $notification=array(
-            'message'=>'Sub-subcategory deleted successfully',
+            'message'=>'Sous-souscatégorie supprimée avec succès',
             'alert-type'=>'info'
         );
         return redirect()->back()->with($notification);

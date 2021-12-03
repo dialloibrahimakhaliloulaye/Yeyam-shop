@@ -22,15 +22,15 @@
                                 </td>
 
                                 <td class="col-md-3">
-                                    <label for=""> Payment</label>
+                                    <label for=""> Paiement</label>
+                                </td>
+
+                                <td class="col-md-3">
+                                    <label for=""> Commande no</label>
                                 </td>
 
                                 <td class="col-md-2">
-                                    <label for=""> Invoice</label>
-                                </td>
-
-                                <td class="col-md-2">
-                                    <label for=""> Order</label>
+                                    <label for=""> Status</label>
                                 </td>
 
                                 <td class="col-md-1">
@@ -59,41 +59,34 @@
 
                                     <td class="col-md-2">
                                         <label for="">
-                                            <span class="badge badge-pill badge-warning" style="background: #418DB9;">{{ $order->status }} </span>
-                                    <td class="col-md-2">
-                                        <label for="">
-
                                             @if($order->status == 'pending')
-                                                <span class="badge badge-pill badge-warning" style="background: #800080;"> Pending </span>
-                                            @elseif($order->status == 'confirm')
-                                                <span class="badge badge-pill badge-warning" style="background: #0000FF;"> Confirm </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #800080;"> En attente </span>
+                                            @elseif($order->status == 'confirmed')
+                                                <span class="badge badge-pill badge-warning" style="background: #0000FF;"> Confirmée </span>
 
                                             @elseif($order->status == 'processing')
-                                                <span class="badge badge-pill badge-warning" style="background: #FFA500;"> Processing </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #FFA500;"> En traitement </span>
 
                                             @elseif($order->status == 'picked')
-                                                <span class="badge badge-pill badge-warning" style="background: #808000;"> Picked </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #808000;"> Selectionnée </span>
 
                                             @elseif($order->status == 'shipped')
-                                                <span class="badge badge-pill badge-warning" style="background: #808080;"> Shipped </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #808080;"> Expédiée </span>
 
                                             @elseif($order->status == 'delivered')
-                                                <span class="badge badge-pill badge-warning" style="background: #008000;"> Delivered </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #008000;"> Livrée </span>
 
                                                 @if($order->return_order == 1)
-                                                    <span class="badge badge-pill badge-warning" style="background:red;">Return Requested </span>
-
+                                                    <span class="badge badge-pill badge-warning" style="background:red;">Retour demandée</span>
                                                 @endif
-
                                             @else
-                                                <span class="badge badge-pill badge-warning" style="background: #FF0000;"> Cancel </span>
-
+                                                <span class="badge badge-pill badge-warning" style="background: #FF0000;"> Annulée </span>
                                             @endif
                                         </label>
                                     </td>
 
                                     <td class="col-md-1">
-                                        <a href="{{ url('user/order_details/'.$order->id ) }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+                                        <a href="{{ url('user/order_details/'.$order->id ) }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Voir</a>
                                         <a target="_blank" href="{{ url('user/invoice_download/'.$order->id ) }}" class="btn btn-sm btn-danger" style="margin-top: 5px;">
                                             <i class="fa fa-download" style="color: white;"></i> Invoice </a>
                                     </td>

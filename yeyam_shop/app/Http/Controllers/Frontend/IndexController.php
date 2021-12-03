@@ -73,7 +73,7 @@ class IndexController extends Controller
         $data->save();
 
         $notification=array(
-            'message'=>'User Profile updated successfully',
+            'message'=>'Profile utilisateur mis à jour avec succès',
             'alert-type'=>'success'
         );
         return redirect()->route('dashboard')->with($notification);
@@ -88,7 +88,6 @@ class IndexController extends Controller
 
     public function UserPasswordUpdate(Request $request)
     {
-
         $validateData=$request->validate([
             'oldPassword'=>'required',
             'password'=>'required|confirmed',

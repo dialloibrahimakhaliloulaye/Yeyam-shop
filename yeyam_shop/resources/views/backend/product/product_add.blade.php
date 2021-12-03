@@ -9,7 +9,7 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Add Product </h4>
+                    <h4 class="box-title">Ajouter produit </h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -22,10 +22,10 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Brand Select <span class="text-danger">*</span></h5>
+                                                    <h5>Choisir marque <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="brand_id" class="form-control"  >
-                                                            <option value="" selected="" disabled="">Select Brand</option>
+                                                            <option value="" selected="" disabled="">Marque</option>
                                                             @foreach($brands as $brand)
                                                                 <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
                                                             @endforeach
@@ -39,10 +39,10 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Category Select <span class="text-danger">*</span></h5>
+                                                    <h5>Choisir Catégorie <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="category_id" class="form-control"  >
-                                                            <option value="" selected="" disabled="">Select Category</option>
+                                                            <option value="" selected="" disabled="">Catégorie</option>
                                                             @foreach($categories as $category)
                                                                 <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                                             @endforeach
@@ -56,10 +56,10 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>SubCategory Select <span class="text-danger">*</span></h5>
+                                                    <h5>Choisir SousCatégorie <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="subcategory_id" class="form-control"  >
-                                                            <option value="" selected="" disabled="">Select SubCategory</option>
+                                                            <option value="" selected="" disabled="">SousCatégorie</option>
                                                         </select>
                                                         @error('subcategory_id')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -73,10 +73,10 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Sub-subCategory Select <span class="text-danger">*</span></h5>
+                                                    <h5>Sous-sousCatégorie <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="subsubcategory_id" class="form-control"  >
-                                                            <option value="" selected="" disabled="">Select Sub-subCategory</option>
+                                                            <option value="" selected="" disabled="">Sous-sousCatégorie</option>
                                                         </select>
                                                         @error('subsubcategory_id')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -87,7 +87,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product name <span class="text-danger">*</span></h5>
+                                                    <h5>Nom produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_name" class="form-control" required>
                                                         @error('product_name')
@@ -97,9 +97,9 @@
                                                 </div>
                                             </div> <!-- end col md 4 -->
 
-                                            <div class="col-md-4">
+                                            {{--<div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product code <span class="text-danger">*</span></h5>
+                                                    <h5>code produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_code" class="form-control" required>
                                                         @error('product_code')
@@ -107,14 +107,14 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                            </div> <!-- end col md 4 -->
+                                            </div> <!-- end col md 4 -->--}}
                                         </div> <!-- end 2nd row  -->
 
                                         <div class="row"> <!-- start 3rd row  -->
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product color <span class="text-danger">*</span></h5>
+                                                    <h5>Couleur produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_color" class="form-control"
                                                                value="Black,White,Blue" data-role="tagsinput">
@@ -127,7 +127,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Tags <span class="text-danger">*</span></h5>
+                                                    <h5>Tags produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_tags" class="form-control"
                                                                value="Lorem,Ipsum,Amet" data-role="tagsinput">
@@ -140,7 +140,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product size <span class="text-danger">*</span></h5>
+                                                    <h5>Taille produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_size" class="form-control"
                                                                value="Small,Midium,Large" data-role="tagsinput">
@@ -156,7 +156,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product quantity <span class="text-danger">*</span></h5>
+                                                    <h5>quantité produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_qty" class="form-control" >
                                                         @error('product_qty')
@@ -167,7 +167,7 @@
                                             </div> <!-- end col md 4 -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product selling price <span class="text-danger">*</span></h5>
+                                                    <h5>Prix produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="selling_price" class="form-control" required>
                                                         @error('selling_price')
@@ -179,7 +179,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product discount price<span class="text-danger">*</span></h5>
+                                                    <h5>Prix réduction produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="discount_price" class="form-control">
                                                         @error('discount_price')
@@ -195,7 +195,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Main Thambnail <span class="text-danger">*</span></h5>
+                                                    <h5>Thambnail produit <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="product_thambnail" class="form-control"
                                                                required onChange="mainThambUrl(this)">
@@ -208,7 +208,7 @@
                                             </div> <!-- end col md 4 -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Multiple image <span class="text-danger">*</span></h5>
+                                                    <h5>Image Multiple <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="multi_image[]" class="form-control"
                                                                 multiple="" id="multiImg">
@@ -227,7 +227,7 @@
 
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <h5>Short description <span class="text-danger">*</span></h5>
+                                                    <h5>Petite description <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea name="short_descp" id="textarea" class="form-control"
                                                                   required placeholder="short description"></textarea>
@@ -236,10 +236,10 @@
                                             </div> <!-- end col md 4 -->
                                             <div class="col-md-7">
                                                 <div class="form-group">
-                                                    <h5>Long description <span class="text-danger">*</span></h5>
+                                                    <h5>Description <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea id="editor1" name="long_descp" rows="10" cols="80" >
-												            This is my textarea to be replaced with CKEditor.
+												            Veuillez decrire votre produit ici.
 						                                </textarea>
                                                     </div>
                                                 </div>
@@ -274,11 +274,11 @@
                                             <div class="controls">
                                                 <fieldset>
                                                     <input type="checkbox" name="special_offer" id="checkbox_4" value="1" >
-                                                    <label for="checkbox_4">Special offer</label>
+                                                    <label for="checkbox_4">Offre Special</label>
                                                 </fieldset>
                                                 <fieldset>
                                                     <input type="checkbox" name="special_deals" id="checkbox_5" value="1" >
-                                                    <label for="checkbox_5">Special deals</label>
+                                                    <label for="checkbox_5">Deals Special</label>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -286,7 +286,7 @@
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Product" >
+                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Ajouter produit" >
                                 </div>
                             </form>
 

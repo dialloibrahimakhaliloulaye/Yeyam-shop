@@ -9,7 +9,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Accueil</a></li>
                 <li class='active'>MyCart</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -27,12 +27,12 @@
                             <thead>
                             <tr>
                                 <th class="cart-romove item">Image</th>
-                                <th class="cart-description item">Name</th>
-                                <th class="cart-product-name item">Color</th>
-                                <th class="cart-edit item">Size</th>
-                                <th class="cart-qty item">Quantity</th>
+                                <th class="cart-description item">Nom</th>
+                                <th class="cart-product-name item">Couleur</th>
+                                <th class="cart-edit item">Taille</th>
+                                <th class="cart-qty item">Quantité</th>
                                 <th class="cart-sub-total item">Subtotal</th>
-                                <th class="cart-total last-item">Remove</th>
+                                <th class="cart-total last-item">Effacer</th>
                             </tr>
                             </thead>
                             <tbody id="cartPage">
@@ -50,8 +50,8 @@
                         <thead>
                         <tr>
                             <th>
-                                <span class="estimate-title">Discount Code</span>
-                                <p>Enter your coupon code if you have one..</p>
+                                <span class="estimate-title">Code de réduction</span>
+                                <p>SVP entrer votre code coupon si vous en avez ...</p>
                             </th>
                         </tr>
                         </thead>
@@ -62,7 +62,7 @@
                                     <input type="text" class="form-control unicase-form-control text-input" placeholder="You Coupon.." id="coupon_name">
                                 </div>
                                 <div class="clearfix pull-right">
-                                    <button type="submit" class="btn-upper btn btn-primary" onclick="applyCoupon()">APPLY COUPON</button>
+                                    <button type="submit" class="btn-upper btn btn-primary" onclick="applyCoupon()">APPLIQUER LE COUPON</button>
                                 </div>
                             </td>
                         </tr>
@@ -79,7 +79,7 @@
                         <tr>
                             <td>
                                 <div class="cart-checkout-btn pull-right">
-                                    <a href="{{ route('checkout') }}" type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</a>
+                                    <a href="{{ route('checkout') }}" type="submit" class="btn btn-primary checkout-btn">POURSUIVRE LA COMMANDE</a>
                                 </div>
                             </td>
                         </tr>

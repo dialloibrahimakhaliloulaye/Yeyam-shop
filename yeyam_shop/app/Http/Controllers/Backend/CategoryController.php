@@ -27,7 +27,7 @@ class CategoryController extends Controller
             'category_image'=>$request->category_image,
         ]);
         $notification=array(
-            'message'=>'Category created successfully',
+            'message'=>'Catégorie créée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);
@@ -48,7 +48,7 @@ class CategoryController extends Controller
             'category_image'=>$request->category_image,
         ]);
         $notification=array(
-            'message'=>'Category updated successfully',
+            'message'=>'Catégorie mis à jour avec succès',
             'alert-type'=>'success'
         );
         return redirect()->route('all.category')->with($notification);
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     {
         Category::findOrFail($id)->delete();
         $notification=array(
-            'message'=>'Category deleted successfully',
+            'message'=>'Catégorie supprimée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);

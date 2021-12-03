@@ -36,7 +36,7 @@ class ProductController extends Controller
             'subsubcategory_id'=>$request->subsubcategory_id,
             'product_name'=>$request->product_name,
             'product_slug'=> strtolower(str_replace(' ', '-', $request->product_name)),
-            'product_code'=>$request->product_code,
+            'product_code'=>'PR'.mt_rand(1000000000,9999999999),
 
             'product_qty'=>$request->product_qty,
             'product_tags'=>$request->product_tags,
@@ -72,7 +72,7 @@ class ProductController extends Controller
         }
 
         $notification=array(
-            'message'=>'Product created successfully',
+            'message'=>'Produit crée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->route('manage.product')->with($notification);
@@ -108,7 +108,6 @@ class ProductController extends Controller
         'subsubcategory_id'=>$request->subsubcategory_id,
         'product_name'=>$request->product_name,
         'product_slug'=> strtolower(str_replace(' ', '-', $request->product_name)),
-        'product_code'=>$request->product_code,
 
         'product_qty'=>$request->product_qty,
         'product_tags'=>$request->product_tags,
@@ -131,7 +130,7 @@ class ProductController extends Controller
         ]);
 
         $notification=array(
-            'message'=>'Product updated without image, successfully',
+            'message'=>'Produit mis à jour sans image',
             'alert-type'=>'success'
         );
         return redirect()->route('manage.product')->with($notification);
@@ -153,18 +152,15 @@ class ProductController extends Controller
             MultiImage::where('id',$id)->update([
                 'photo_name' => $uploadPath,
                 'updated_at' => Carbon::now(),
-
             ]);
 
         } // end foreach
 
         $notification = array(
-            'message' => 'Product Image Updated Successfully',
+            'message' => 'Produit mis à jour avec image',
             'alert-type' => 'info'
         );
-
         return redirect()->back()->with($notification);
-
     } // end mehtod
 
     /// Product Main Thambnail Update ///
@@ -182,11 +178,10 @@ class ProductController extends Controller
         Product::findOrFail($pro_id)->update([
             'product_thambnail' => $save_url,
             'updated_at' => Carbon::now(),
-
         ]);
 
         $notification = array(
-            'message' => 'Product Image Thambnail Updated Successfully',
+            'message' => 'Image Thambnail du produit mis à jour avec succès',
             'alert-type' => 'info'
         );
 
@@ -202,7 +197,7 @@ class ProductController extends Controller
         MultiImage::findOrFail($id)->delete();
 
         $notification = array(
-            'message' => 'Product Image Deleted Successfully',
+            'message' => 'Image du produit supprimée avec succès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -211,7 +206,7 @@ class ProductController extends Controller
     public function ProductInactive($id){
         Product::findOrFail($id)->update(['status' => 0]);
         $notification = array(
-            'message' => 'Product Inactive',
+            'message' => 'Inactive',
             'alert-type' => 'success'
         );
 
@@ -222,7 +217,7 @@ class ProductController extends Controller
     public function ProductActive($id){
         Product::findOrFail($id)->update(['status' => 1]);
         $notification = array(
-            'message' => 'Product Active',
+            'message' => 'Active',
             'alert-type' => 'success'
         );
 
@@ -243,7 +238,7 @@ class ProductController extends Controller
         }
 
         $notification = array(
-            'message' => 'Product Deleted Successfully',
+            'message' => 'Produit supprimée avec succès',
             'alert-type' => 'success'
         );
 

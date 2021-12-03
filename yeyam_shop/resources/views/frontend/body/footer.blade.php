@@ -7,7 +7,7 @@
                         @php
                             $setting = App\Models\SiteSetting::find(1);
                         @endphp
-                        <h4 class="module-title">Contact Us</h4>
+                        <h4 class="module-title">Nous Contacter</h4>
                     </div>
                     <!-- /.module-heading -->
 
@@ -38,17 +38,15 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="module-heading">
-                        <h4 class="module-title">Customer Service</h4>
+                        <h4 class="module-title">Nos services</h4>
                     </div>
                     <!-- /.module-heading -->
 
                     <div class="module-body">
                         <ul class='list-unstyled'>
-                            <li class="first"><a href="#" title="Contact us">My Account</a></li>
-                            <li><a href="#" title="About us">Order History</a></li>
-                            <li><a href="#" title="faq">FAQ</a></li>
-                            <li><a href="#" title="Popular Searches">Specials</a></li>
-                            <li class="last"><a href="#" title="Where is my order?">Help Center</a></li>
+                            <li class="first"><a href="#" title="Contact us">Vendez vos produits</a></li>
+                            <li><a href="#" title="About us">Vendez vos services</a></li>
+                            <li><a href="#" title="faq">Publiez vos articles</a></li>
                         </ul>
                     </div>
                     <!-- /.module-body -->
@@ -57,17 +55,17 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="module-heading">
-                        <h4 class="module-title">Corporation</h4>
+                        <h4 class="module-title">A propos</h4>
                     </div>
                     <!-- /.module-heading -->
 
                     <div class="module-body">
                         <ul class='list-unstyled'>
-                            <li class="first"><a title="Your Account" href="#">About us</a></li>
-                            <li><a title="Information" href="#">Customer Service</a></li>
-                            <li><a title="Addresses" href="#">Company</a></li>
-                            <li><a title="Addresses" href="#">Investor Relations</a></li>
-                            <li class="last"><a title="Orders History" href="#">Advanced Search</a></li>
+                            <li><a title="Addresses" href="#">Conditions générales d'utilisation</a></li>
+                            <li class="last"><a title="Orders History" href="#">Politique de confidentialité</a></li>
+                            <li><a title="Addresses" href="#">Méthode de paiement</a></li>
+                            <li><a title="Addresses" href="#">Méthode de livraison</a></li>
+                            <li><a title="Addresses" href="#">Politique de retour</a></li>
                         </ul>
                     </div>
                     <!-- /.module-body -->
@@ -76,17 +74,17 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="module-heading">
-                        <h4 class="module-title">Why Choose Us</h4>
+                        <h4 class="module-title">Pourquoi nous ?</h4>
                     </div>
                     <!-- /.module-heading -->
 
                     <div class="module-body">
                         <ul class='list-unstyled'>
-                            <li class="first"><a href="#" title="About us">Shopping Guide</a></li>
+                            <li class="first"><a title="Your Account" href="#">Qui sommes nous ?</a></li>
+                            <li class="first"><a href="#" title="About us">Guide pour achat et vente</a></li>
                             <li><a href="#" title="Blog">Blog</a></li>
-                            <li><a href="#" title="Company">Company</a></li>
-                            <li><a href="#" title="Investor Relations">Investor Relations</a></li>
-                            <li class=" last"><a href="contact-us.html" title="Suppliers">Contact Us</a></li>
+                            <li><a href="#" title="Investor Relations">Partenaires</a></li>
+                            <li class=" last"><a href="contact-us.html" title="Suppliers">Centre d'aide</a></li>
                         </ul>
                     </div>
                     <!-- /.module-body -->
@@ -106,18 +104,6 @@
                     <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="{{ $setting->linkedin }}" title="Linkedin"></a></li>
                     <li class="youtube pull-left"><a target="_blank" rel="nofollow" href="{{ $setting->youtube }}" title="Youtube"></a></li>
                 </ul>
-            </div>
-            <div class="col-xs-12 col-sm-6 no-padding">
-                <div class="clearfix payment-methods">
-                    <ul>
-                        <li><img src="assets/images/payments/1.png" alt=""></li>
-                        <li><img src="assets/images/payments/2.png" alt=""></li>
-                        <li><img src="assets/images/payments/3.png" alt=""></li>
-                        <li><img src="assets/images/payments/4.png" alt=""></li>
-                        <li><img src="assets/images/payments/5.png" alt=""></li>
-                    </ul>
-                </div>
-                <!-- /.payment-methods -->
             </div>
         </div>
     </div>

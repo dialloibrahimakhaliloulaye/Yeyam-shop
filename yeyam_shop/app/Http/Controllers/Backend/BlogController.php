@@ -19,17 +19,17 @@ class BlogController extends Controller
 
     public function BlogCategoryStore(Request $request){
         $request->validate([
-            'blog_category_name_en' => 'required',
+            'blog_category_name' => 'required',
         ],[
-            'blog_category_name.required' => 'Input Blog Category Name',
+            'blog_category_name.required' => 'Veuillez Saisir le Blog catégorie',
         ]);
         BlogPostCategory::insert([
-            'blog_category_name' => $request->blog_category_name_en,
+            'blog_category_name' => $request->blog_category_name,
             'blog_category_slug' => strtolower(str_replace(' ', '-',$request->blog_category_name)),
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'Blog Category Inserted Successfully',
+            'message' => 'Blog Catégorie est crée avec succès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -48,7 +48,7 @@ class BlogController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'Blog Category Updated Successfully',
+            'message' => 'Blog Catégorie est mis à jour avec succès',
             'alert-type' => 'info'
         );
         return redirect()->route('blog.category')->with($notification);
@@ -71,7 +71,7 @@ class BlogController extends Controller
             'post_title' => 'required',
             'post_image' => 'required',
         ],[
-            'post_title.required' => 'Input Post Title Name',
+            'post_title.required' => "Veuillez saisr le titre de l'article",
         ]);
         $image = $request->file('post_image');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -87,7 +87,7 @@ class BlogController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'Blog Post Inserted Successfully',
+            'message' => 'Article crée avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('list.post')->with($notification);

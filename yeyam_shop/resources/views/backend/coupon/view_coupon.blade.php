@@ -10,7 +10,7 @@
                 <div class="col-8">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Coupon List<span class="badge badge-pill badge-info"> {{ count($coupons) }} </span></h3>
+                            <h3 class="box-title">Liste Coupon <span class="badge badge-pill badge-info"> {{ count($coupons) }} </span></h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -18,9 +18,9 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Coupon Name </th>
-                                        <th>Coupon Discount</th>
-                                        <th>Validity </th>
+                                        <th>Nom Coupon </th>
+                                        <th>Coupon Réduction</th>
+                                        <th>Validité </th>
                                         <th>Status </th>
                                         <th>Action</th>
                                     </tr>
@@ -36,16 +36,16 @@
 
                                             <td>
                                                 @if($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d'))
-                                                    <span class="badge badge-pill badge-success"> Valid </span>
+                                                    <span class="badge badge-pill badge-success"> Valide </span>
                                                 @else
-                                                    <span class="badge badge-pill badge-danger"> Invalid </span>
+                                                    <span class="badge badge-pill badge-danger"> Invalide </span>
                                                 @endif
 
                                             </td>
 
                                             <td width="25%">
-                                                <a href="{{ route('coupon.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                                                <a href="{{ route('coupon.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
+                                                <a href="{{ route('coupon.edit',$item->id) }}" class="btn btn-info" title="Editer"><i class="fa fa-pencil"></i> </a>
+                                                <a href="{{ route('coupon.delete',$item->id) }}" class="btn btn-danger" title="Supprimer Data" id="delete">
                                                     <i class="fa fa-trash"></i></a>
                                             </td>
 
@@ -67,14 +67,14 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Add Coupon </h3>
+                            <h3 class="box-title">Ajouter Coupon </h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
                                 <form method="post" action="{{ route('coupon.store') }}" >@csrf
                                     <div class="form-group">
-                                        <h5>Coupon Name  <span class="text-danger">*</span></h5>
+                                        <h5>Nom Coupon <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text"  name="coupon_name" class="form-control" >
                                             @error('coupon_name')
@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Coupon Discount(%) <span class="text-danger">*</span></h5>
+                                        <h5>Coupon Réduction(%) <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="coupon_discount" class="form-control" >
                                             @error('coupon_discount')
@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Coupon Validity Date  <span class="text-danger">*</span></h5>
+                                        <h5>Date validité Coupon <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="date" name="coupon_validity" class="form-control" min="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
                                             @error('coupon_validity')
@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add New">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Ajouter">
                                     </div>
                                 </form>
                             </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Invoice</title>
+    <title>Reçu</title>
 
     <style type="text/css">
         * {
@@ -69,41 +69,41 @@
     <tr>
         <td>
             <p class="font" style="margin-left: 20px;">
-                <strong>Name:</strong> {{ $order->name }}<br>
+                <strong>Nom:</strong> {{ $order->name }}<br>
                 <strong>Email:</strong> {{ $order->email }} <br>
-                <strong>Phone:</strong> {{ $order->phone }} <br>
+                <strong>Télephone:</strong> {{ $order->phone }} <br>
                 @php
                     $div = $order->division->division_name;
                     $dis = $order->district->district_name;
                     $state = $order->state->state_name;
                 @endphp
 
-                <strong>Address:</strong> {{ $div }},{{ $dis }}.{{ $state }} <br>
-                <strong>Post Code:</strong> {{ $order->post_code }}
+                <strong>Adresse:</strong> {{ $div }},{{ $dis }}.{{ $state }} <br>
+                <strong>Code postal:</strong> {{ $order->post_code }}
             </p>
         </td>
         <td>
             <p class="font">
             <h3><span style="color: green;">Invoice:</span> #{{ $order->invoice_no}}</h3>
-            Order Date: {{ $order->order_date }} <br>
-            Delivery Date: {{ $order->delivered_date }} <br>
-            Payment Type : {{ $order->payment_method }} </span>
+            Date commande: {{ $order->order_date }} <br>
+            Date livraison: {{ $order->delivered_date }} <br>
+            Type paiement : {{ $order->payment_method }} </span>
             </p>
         </td>
     </tr>
 </table>
 <br/>
-<h3>Products</h3>
+<h3>Produits</h3>
 <table width="100%">
     <thead style="background-color: green; color:#FFFFFF;">
     <tr class="font">
         <th>Image</th>
-        <th>Product Name</th>
-        <th>Size</th>
-        <th>Color</th>
+        <th>Nom produits</th>
+        <th>Taille</th>
+        <th>Couleur</th>
         <th>Code</th>
-        <th>Quantity</th>
-        <th>Unit Price </th>
+        <th>Quantité</th>
+        <th>Prix unité </th>
         <th>Total </th>
     </tr>
     </thead>
@@ -144,11 +144,11 @@
     </tr>
 </table>
 <div class="thanks mt-3">
-    <p>Thanks For Buying Products..!!</p>
+    <p>Merci d'avoir choisi yeyam-shop..!!</p>
 </div>
 <div class="authority float-right mt-5">
     <p>-----------------------------------</p>
-    <h5>Authority Signature:</h5>
+    <h5>Signature:</h5>
 </div>
 </body>
 </html>

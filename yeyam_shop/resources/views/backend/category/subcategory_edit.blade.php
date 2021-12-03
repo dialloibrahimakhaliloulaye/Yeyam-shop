@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Edit Subcategory</h3>
+                            <h3 class="box-title">Editer Souscatégorie</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -23,10 +23,10 @@
 
                                     <input type="hidden" name="id" value="">
                                     <div class="form-group">
-                                        <h5>Category select <span class="text-danger">*</span></h5>
+                                        <h5>Choisir Catégorie <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="category_id" class="form-control">
-                                                <option value="">Select Catego{{$subcategory->id}}ry</option>
+                                                <option value="">Categorie {{$subcategory->id}}</option>
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}" {{$category->id==$subcategory->category_id ? 'selected':''}}>
                                                         {{$category->category_name}}</option>
@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Subcategory name<span class="text-danger">*</span></h5>
+                                        <h5>Nom Souscatégorie<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="subcategory_name" class="form-control"
                                                    value="{{$subcategory->subcategory_name}}">
@@ -48,7 +48,7 @@
                                         @enderror
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

@@ -69,25 +69,25 @@
     <tr>
         <td>
             <p class="font" style="margin-left: 20px;">
-                <strong>Name:</strong> {{ $order->name }}<br>
+                <strong>Nom:</strong> {{ $order->name }}<br>
                 <strong>Email:</strong> {{ $order->email }} <br>
-                <strong>Phone:</strong> {{ $order->phone }} <br>
+                <strong>Télephone:</strong> {{ $order->phone }} <br>
                 @php
                     $div = $order->division->division_name;
                     $dis = $order->district->district_name;
-                    $state = $order->state->state_name;
+                    $state = $order->state->state_name??'';
                 @endphp
 
-                <strong>Address:</strong> {{ $div }},{{ $dis }}.{{ $state }} <br>
-                <strong>Post Code:</strong> {{ $order->post_code }}
+                <strong>Adresse:</strong> {{ $div }},{{ $dis }}.{{ $state }} <br>
+                <strong>Code postal:</strong> {{ $order->post_code }}
             </p>
         </td>
         <td>
             <p class="font">
             <h3><span style="color: green;">Invoice:</span> #{{ $order->invoice_no}}</h3>
-            Order Date: {{ $order->order_date }} <br>
-            Delivery Date: {{ $order->delivered_date }} <br>
-            Payment Type : {{ $order->payment_method }} </span>
+            Date Commande : {{ $order->order_date }} <br>
+            Date Livraison : {{ $order->delivered_date }} <br>
+            Type Paiement : {{ $order->payment_method }} </span>
             </p>
         </td>
     </tr>
@@ -98,12 +98,12 @@
     <thead style="background-color: green; color:#FFFFFF;">
     <tr class="font">
         <th>Image</th>
-        <th>Product Name</th>
-        <th>Size</th>
-        <th>Color</th>
+        <th>Nom Produit</th>
+        <th>Taille</th>
+        <th>Couleur</th>
         <th>Code</th>
-        <th>Quantity</th>
-        <th>Unit Price </th>
+        <th>Quantité</th>
+        <th>Prix unitaire </th>
         <th>Total </th>
     </tr>
     </thead>
@@ -112,7 +112,7 @@
     @foreach($orderItem as $item)
     <tr class="font">
         <td align="center">
-            <img src="{{ public_path($item->product->product_thambnail)  }}" height="60px;" width="60px;" alt="">
+            <img src="{{ public_path($item->product->product_thambnail??'')  }}" height="60px;" width="60px;" alt="">
         </td>
         <td align="center"> {{ $item->product->product_name }}</td>
         <td align="center">
@@ -144,11 +144,11 @@
     </tr>
 </table>
 <div class="thanks mt-3">
-    <p>Thanks For Buying Products..!!</p>
+    <p>Merci d'avoir choisi Yéyam-shop..!!</p>
 </div>
 <div class="authority float-right mt-5">
     <p>-----------------------------------</p>
-    <h5>Authority Signature:</h5>
+    <h5>Signature:</h5>
 </div>
 </body>
 </html>

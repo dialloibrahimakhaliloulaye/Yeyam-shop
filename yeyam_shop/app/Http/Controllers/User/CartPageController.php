@@ -32,7 +32,7 @@ class CartPageController extends Controller
         if (Session::has('coupon')) {
             Session::forget('coupon');
         }
-        return response()->json(['success' => 'Successfully Remove From Cart']);
+        return response()->json(['success' => 'Produit supprimé du Panier avec succès']);
     }
 
     // Cart Increment
@@ -72,7 +72,6 @@ class CartPageController extends Controller
                 'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount/100)
             ]);
         }
-
         return response()->json('Decrement');
     }// end mehtod
 }

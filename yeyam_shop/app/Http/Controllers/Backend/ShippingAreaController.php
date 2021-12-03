@@ -25,7 +25,7 @@ class ShippingAreaController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'Division Inserted Successfully',
+            'message' => 'Région créée avec sussès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -43,7 +43,7 @@ class ShippingAreaController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Division Updated Successfully',
+            'message' => 'Région mis à jour avec sussès',
             'alert-type' => 'info'
         );
         return redirect()->route('manage-division')->with($notification);
@@ -53,7 +53,7 @@ class ShippingAreaController extends Controller
         ShipDivision::findOrFail($id)->delete();
 
         $notification = array(
-            'message' => 'Division Deleted Successfully',
+            'message' => 'Région supprimée avec sussès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);
@@ -80,7 +80,7 @@ class ShippingAreaController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'District Inserted Successfully',
+            'message' => 'Département créée avec sussès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -99,7 +99,7 @@ class ShippingAreaController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'District Updated Successfully',
+            'message' => 'Département mis à jour avec sussès',
             'alert-type' => 'info'
         );
         return redirect()->route('manage-district')->with($notification);
@@ -109,7 +109,7 @@ class ShippingAreaController extends Controller
         ShipDistrict::findOrFail($id)->delete();
 
         $notification = array(
-            'message' => 'District Deleted Successfully',
+            'message' => 'Département supprimé avec sussès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);
@@ -140,7 +140,7 @@ class ShippingAreaController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'State Inserted Successfully',
+            'message' => 'Arrondissement créée avec sussès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -161,7 +161,7 @@ class ShippingAreaController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'State Updated Successfully',
+            'message' => 'Arrondissement mis à jour avec sussès',
             'alert-type' => 'info'
         );
         return redirect()->route('manage-state')->with($notification);
@@ -170,7 +170,7 @@ class ShippingAreaController extends Controller
     public function StateDelete($id){
         ShipState::findOrFail($id)->delete();
         $notification = array(
-            'message' => 'State Deleted Successfully',
+            'message' => 'Arrondissement supprimé avec sussès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);

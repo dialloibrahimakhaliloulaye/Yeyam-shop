@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Pending Orders List</h3>
+                            <h3 class="box-title">Liste des commandes en attente</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -23,9 +23,9 @@
                                     <thead>
                                     <tr>
                                         <th>Date </th>
-                                        <th>Invoice </th>
-                                        <th>Amount </th>
-                                        <th>Payment </th>
+                                        <th>Reçu </th>
+                                        <th>Montant </th>
+                                        <th>Paiement </th>
                                         <th>Status </th>
                                         <th>Action</th>
                                     </tr>
@@ -41,7 +41,7 @@
                                             <td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span>  </td>
 
                                             <td width="25%">
-                                                <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Edit Data">
+                                                <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Editer">
                                                     <i class="fa fa-eye"></i> </a>
                                             </td>
                                         </tr>

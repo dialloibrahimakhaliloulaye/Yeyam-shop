@@ -23,15 +23,15 @@
                                 </td>
 
                                 <td class="col-md-3">
-                                    <label for=""> Payment</label>
+                                    <label for=""> Paiement</label>
+                                </td>
+
+                                <td class="col-md-3">
+                                    <label for=""> Commande no</label>
                                 </td>
 
                                 <td class="col-md-2">
-                                    <label for=""> Invoice</label>
-                                </td>
-
-                                <td class="col-md-2">
-                                    <label for=""> Order</label>
+                                    <label for=""> Status </label>
                                 </td>
 
                                 <td class="col-md-1">
@@ -66,14 +66,14 @@
                                     </td>
 
                                     <td class="col-md-1">
-                                        <a href="{{ url('user/order_details/'.$order->id ) }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+                                        <a href="{{ url('user/order_details/'.$order->id ) }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Voir</a>
 
                                         <a target="_blank" href="{{ url('user/invoice_download/'.$order->id ) }}" class="btn btn-sm btn-danger" style="margin-top: 5px;">
                                             <i class="fa fa-download" style="color: white;"></i> Invoice </a>
                                     </td>
                                 </tr>
                             @empty
-                                <h2 class="text-danger">Order Not Found</h2>
+                                <h2 class="text-danger">Aucune commande trouvée</h2>
 
                             @endforelse
                             </tbody>

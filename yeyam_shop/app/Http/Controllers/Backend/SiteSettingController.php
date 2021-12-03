@@ -37,7 +37,7 @@ class SiteSettingController extends Controller
 
             ]);
             $notification = array(
-                'message' => 'Setting Updated with Image Successfully',
+                'message' => 'Paramètres du site mis à jour, sans image',
                 'alert-type' => 'info'
             );
             return redirect()->back()->with($notification);
@@ -54,7 +54,7 @@ class SiteSettingController extends Controller
                 'youtube' => $request->youtube,
             ]);
             $notification = array(
-                'message' => 'Setting Updated Successfully',
+                'message' => 'Paramètres du site mis à jour, avec image',
                 'alert-type' => 'info'
             );
             return redirect()->back()->with($notification);
@@ -76,7 +76,7 @@ class SiteSettingController extends Controller
             'google_analytics' => $request->google_analytics,
         ]);
         $notification = array(
-            'message' => 'Seo Updated Successfully',
+            'message' => 'Les Seo ont été mis à jour avec succès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);

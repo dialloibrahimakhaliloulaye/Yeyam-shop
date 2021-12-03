@@ -19,7 +19,7 @@ class SliderController extends Controller
         $request->validate([
             'slider_img' => 'required',
         ],[
-            'slider_img.required' => 'Plz Select One Image',
+            'slider_img.required' => 'Veuillez choisir une image au moins',
         ]);
 
         $image = $request->file('slider_img');
@@ -34,7 +34,7 @@ class SliderController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Slider Inserted Successfully',
+            'message' => 'Slider crée avec succès',
             'alert-type' => 'success'
         );
 
@@ -68,7 +68,7 @@ class SliderController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Slider Updated Successfully',
+                'message' => 'Slider mis à jour avec succès',
                 'alert-type' => 'info'
             );
             return redirect()->route('manage-slider')->with($notification);
@@ -79,7 +79,7 @@ class SliderController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Slider Updated Without Image Successfully',
+                'message' => 'Slider mis à jour sans image',
                 'alert-type' => 'info'
             );
             return redirect()->route('manage-slider')->with($notification);
@@ -94,7 +94,7 @@ class SliderController extends Controller
         Slider::findOrFail($id)->delete();
 
         $notification = array(
-            'message' => 'Slider Delectd Successfully',
+            'message' => 'Slider supprimé avec succès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);
@@ -104,7 +104,7 @@ class SliderController extends Controller
         Slider::findOrFail($id)->update(['status' => 0]);
 
         $notification = array(
-            'message' => 'Slider Inactive Successfully',
+            'message' => 'Slider Inactive',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);
@@ -114,7 +114,7 @@ class SliderController extends Controller
         Slider::findOrFail($id)->update(['status' => 1]);
 
         $notification = array(
-            'message' => 'Slider Active Successfully',
+            'message' => 'Slider Active',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);

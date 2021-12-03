@@ -36,7 +36,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Accueil</a></li>
                 <li class='active'>Stripe</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -52,7 +52,7 @@
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Your Shopping Amount </h4>
+                                    <h4 class="unicase-checkout-title">Résumé d'achat </h4>
                                 </div>
                                 <div class="">
                                     <ul class="nav nav-checkout-progress list-unstyled">
@@ -90,7 +90,7 @@
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Select Payment Method</h4>
+                                    <h4 class="unicase-checkout-title">Code card paiement</h4>
                                 </div>
 
                                 <form action="{{ route('stripe.order') }}" method="post" id="payment-form">
@@ -114,7 +114,7 @@
                                         <div id="card-errors" role="alert"></div>
                                     </div>
                                     <br>
-                                    <button class="btn btn-primary">Submit Payment</button>
+                                    <button class="btn btn-primary">Soumettre le paiement</button>
                                 </form>
                             </div>
                         </div>

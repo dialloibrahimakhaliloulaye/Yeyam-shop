@@ -22,7 +22,7 @@
                                 <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
                             </div>
                             <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Today's Sale</p>
+                                <p class="text-mute mt-20 mb-0 font-size-16">Ventes d'aujourd'hui</p>
                                 <h3 class="text-white mb-0 font-weight-500">{{ $today  }} <small
                                         class="text-success"><i class="fa fa-caret-up"></i> FCFA</small></h3>
                             </div>
@@ -36,7 +36,7 @@
                                 <i class="text-warning mr-0 font-size-24 mdi mdi-car"></i>
                             </div>
                             <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Monthly Sale </p>
+                                <p class="text-mute mt-20 mb-0 font-size-16">Ventes mensuelles </p>
                                 <h3 class="text-white mb-0 font-weight-500">{{ $month }} <small class="text-success"><i
                                             class="fa fa-caret-up"></i> FCFA</small></h3>
                             </div>
@@ -50,7 +50,7 @@
                                 <i class="text-info mr-0 font-size-24 mdi mdi-sale"></i>
                             </div>
                             <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Yearly Sale </p>
+                                <p class="text-mute mt-20 mb-0 font-size-16">Ventes annuelles </p>
                                 <h3 class="text-white mb-0 font-weight-500">{{ $year }} <small class="text-danger"><i
                                             class="fa fa-caret-down"></i> FCFA</small></h3>
                             </div>
@@ -64,7 +64,7 @@
                                 <i class="text-danger mr-0 font-size-24 mdi mdi-phone-incoming"></i>
                             </div>
                             <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Pending Orders </p>
+                                <p class="text-mute mt-20 mb-0 font-size-16">Commandes en attente</p>
                                 <h3 class="text-white mb-0 font-weight-500">{{ count($pending) }} <small
                                         class="text-danger"><i class="fa fa-caret-up"></i> Order </small></h3>
                             </div>

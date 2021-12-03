@@ -11,7 +11,7 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Add Blog Post </h4>
+                    <h4 class="box-title">Ajouter Blog Post </h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -23,7 +23,7 @@
                                         <div class="row"> <!-- start 2nd row  -->
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <h5>Post Title <span class="text-danger">*</span></h5>
+                                                    <h5>Titre post <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="post_title" class="form-control"
                                                                required="">
@@ -40,11 +40,11 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group">
-                                                    <h5>Blog Category Select <span class="text-danger">*</span></h5>
+                                                    <h5>Catégorie Blog<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="category_id" class="form-control" required="">
                                                             <option value="" selected="" disabled="">Select
-                                                                Blog Category
+                                                                Catégorie Blog
                                                             </option>
                                                             @foreach($blogcategory as $category)
                                                                 <option
@@ -62,7 +62,7 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group">
-                                                    <h5>Post Main Image <span class="text-danger">*</span></h5>
+                                                    <h5>Image Post<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="post_image" class="form-control"
                                                                onChange="mainThamUrl(this)" required="">
@@ -79,10 +79,10 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group">
-                                                    <h5>Post Details <span class="text-danger">*</span></h5>
+                                                    <h5>Details Post<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea id="editor1" name="post_details" rows="10" cols="80" required="">
-                                                            Post Details
+                                                            Details Post
                                                         </textarea>
                                                     </div>
                                                 </div>

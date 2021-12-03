@@ -16,8 +16,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li class='active'>Floral Print Buttoned</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -41,14 +40,14 @@
                     <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
                         <h3 class="section-title">Newsletters</h3>
                         <div class="sidebar-widget-body outer-top-xs">
-                            <p>Sign Up for Our Newsletter!</p>
+                            <p>Incrivez vous et recevez nos newsletter</p>
                             <form>
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputEmail1">Email address</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1"
                                            placeholder="Subscribe to our newsletter">
                                 </div>
-                                <button class="btn btn-primary">Subscribe</button>
+                                <button class="btn btn-primary">S'inscrire</button>
                             </form>
                         </div><!-- /.sidebar-widget-body -->
                     </div><!-- /.sidebar-widget -->
@@ -180,7 +179,7 @@
 
                                         <div class="col-sm-8">
                                             <div class="reviews">
-                                                <a href="#" class="lnk">({{ count($reviewcount) }} Reviews)</a>
+                                                <a href="#" class="lnk">({{ count($reviewcount) }} Commentaires)</a>
                                             </div>
                                         </div>
                                     </div><!-- /.row -->
@@ -190,12 +189,12 @@
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <div class="stock-box">
-                                                <span class="label">Availability :</span>
+                                                <span class="label">Disponible :</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="stock-box">
-                                                <span class="value">In Stock</span>
+                                                <span class="value">En Stock {{$product->product_qty}}</span>
                                             </div>
                                         </div>
                                     </div><!-- /.row -->
@@ -247,11 +246,11 @@
                                                 @if($product->product_size == null)
 
                                                 @else
-                                                    <label class="info-title control-label">Choose color
+                                                    <label class="info-title control-label">Choisir la couleur
                                                         <span></span></label>
                                                     <select class="form-control unicase-form-control selectpicker"
                                                             style="display: none;" id="color">
-                                                        <option selected disabled>--Choose color--</option>
+                                                        <option selected disabled>--Couleur--</option>
                                                         @foreach($product_color as $color)
                                                             <option value="{{$color}}">{{ucwords($color)}}</option>
                                                         @endforeach
@@ -265,11 +264,11 @@
                                                 @if($product->product_size == null)
 
                                                 @else
-                                                    <label class="info-title control-label">Choose size
+                                                    <label class="info-title control-label">Choisir la taille
                                                         <span></span></label>
                                                     <select class="form-control unicase-form-control selectpicker"
                                                             style="display: none;" id="size">
-                                                        <option selected disabled>--Choose size--</option>
+                                                        <option selected disabled>--Taille--</option>
                                                         @foreach($product_size as $size)
                                                             <option value="{{$size}}">{{ucwords($size)}}</option>
                                                         @endforeach
@@ -284,7 +283,7 @@
                                     <div class="row">
 
                                         <div class="col-sm-2">
-                                            <span class="label">Qty :</span>
+                                            <span class="label">Qté :</span>
                                         </div>
 
                                         <div class="col-sm-2">
@@ -303,7 +302,7 @@
                                         <input type="hidden" id="product_id" value="{{ $product->id }}" min="1">
                                         <div class="col-sm-7">
                                             <button type="submit" onclick="addToCart()" class="btn btn-primary"><i
-                                                    class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART
+                                                    class="fa fa-shopping-cart inner-right-vs"></i> Ajouter au Panier
                                             </button>
                                         </div>
                                     </div><!-- /.row -->
@@ -322,7 +321,7 @@
                         <div class="col-sm-3">
                             <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
                                 <li class="active"><a data-toggle="tab" href="#description">DESCRIPTION</a></li>
-                                <li><a data-toggle="tab" href="#review">REVIEW</a></li>
+                                <li><a data-toggle="tab" href="#review">COMMENTAIRES</a></li>
                                 <li><a data-toggle="tab" href="#tags">TAGS</a></li>
                             </ul><!-- /.nav-tabs #product-tabs -->
                         </div>
@@ -337,7 +336,7 @@
                                 <div id="review" class="tab-pane">
                                     <div class="product-tab">
                                         <div class="product-reviews">
-                                            <h4 class="title">Customer Reviews</h4>
+                                            <h4 class="title">Commentaires des clients</h4>
                                             @php
                                                 $reviews = App\Models\Review::where('product_id',$product->id)->latest()->limit(5)->get();
                                             @endphp
@@ -406,15 +405,15 @@
                                         </div><!-- /.product-reviews -->
 
                                         <div class="product-add-review">
-                                            <h4 class="title">Write your own review</h4>
+                                            <h4 class="title">Veuillez évaluer et commenter SVP</h4>
                                             <div class="review-table">
 
                                             </div><!-- /.review-table -->
 
                                             <div class="review-form">
                                                 @guest
-                                                    <p><b> For Add Product Review. You Need to Login First <a
-                                                                href="{{ route('login') }}">Login Here</a> </b>
+                                                    <p><b> Pour laisser un commentaire, veuillez vous connecter d'abord <a
+                                                                href="{{ route('login') }}">Se connecter</a> </b>
                                                     </p>
                                                 @else
                                                     <div class="form-container">
@@ -427,16 +426,16 @@
                                                                 <thead>
                                                                 <tr>
                                                                     <th class="cell-label">&nbsp;</th>
-                                                                    <th>1 star</th>
-                                                                    <th>2 stars</th>
-                                                                    <th>3 stars</th>
-                                                                    <th>4 stars</th>
-                                                                    <th>5 stars</th>
+                                                                    <th>1 étoile</th>
+                                                                    <th>2 étoiles</th>
+                                                                    <th>3 étoiles</th>
+                                                                    <th>4 étoiles</th>
+                                                                    <th>5 étoiles</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
-                                                                    <td class="cell-label">Quality</td>
+                                                                    <td class="cell-label">Qualité</td>
                                                                     <td><input type="radio" name="quality" class="radio" value="1"></td>
                                                                     <td><input type="radio" name="quality" class="radio" value="2"></td>
                                                                     <td><input type="radio" name="quality" class="radio" value="3"></td>
@@ -451,7 +450,7 @@
                                                                 <div class="col-sm-6">
 
                                                                     <div class="form-group">
-                                                                        <label for="exampleInputSummary">Summary <span
+                                                                        <label for="exampleInputSummary">Titre <span
                                                                                 class="astk">*</span></label>
                                                                         <input type="text" name="summary" class="form-control txt" id="exampleInputSummary" placeholder="">
                                                                     </div><!-- /.form-group -->
@@ -459,14 +458,14 @@
 
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="exampleInputReview">Review <span class="astk">*</span></label>
+                                                                        <label for="exampleInputReview">Commentaire <span class="astk">*</span></label>
                                                                         <textarea class="form-control txt txt-review" name="comment" id="exampleInputReview" rows="4" placeholder=""></textarea>
                                                                     </div><!-- /.form-group -->
                                                                 </div>
                                                             </div><!-- /.row -->
 
                                                             <div class="action text-right">
-                                                                <button type="submit" class="btn btn-primary btn-upper">SUBMIT REVIEW</button>
+                                                                <button type="submit" class="btn btn-primary btn-upper">COMMENTER</button>
                                                             </div><!-- /.action -->
 
                                                         </form><!-- /.cnt-form -->
@@ -484,16 +483,16 @@
                                 <div id="tags" class="tab-pane">
                                     <div class="product-tag">
 
-                                        <h4 class="title">Product Tags</h4>
+                                        <h4 class="title">Tags Produit</h4>
                                         <form role="form" class="form-inline form-cnt">
                                             <div class="form-container">
 
                                                 <div class="form-group">
-                                                    <label for="exampleInputTag">Add Your Tags: </label>
+                                                    <label for="exampleInputTag">Ajouter votre tags: </label>
                                                     <input type="email" id="exampleInputTag" class="form-control txt">
 
                                                 </div>
-                                                <button class="btn btn-upper btn-primary" type="submit">ADD TAGS
+                                                <button class="btn btn-upper btn-primary" type="submit">Ajouter
                                                 </button>
                                             </div><!-- /.form-container -->
                                         </form><!-- /.form-cnt -->
@@ -515,7 +514,7 @@
 
                 <!-- ============================================== RELATED PRODUCTS ============================================== -->
                 <section class="section featured-product wow fadeInUp">
-                    <h3 class="section-title">Related products</h3>
+                    <h3 class="section-title">Produits similaires</h3>
                     <div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 
                         @foreach($relatedProduct as $product)

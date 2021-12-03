@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Product Stock List <span class="badge badge-pill badge-danger"> {{ count($products) }} </span></h3>
+                            <h3 class="box-title">Liste stock produit <span class="badge badge-pill badge-danger"> {{ count($products) }} </span></h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -23,10 +23,10 @@
                                     <thead>
                                     <tr>
                                         <th>Image </th>
-                                        <th>Product </th>
-                                        <th>Product Price </th>
-                                        <th>Quantity </th>
-                                        <th>Discount </th>
+                                        <th>Produit </th>
+                                        <th>Prix produit </th>
+                                        <th>Quantité </th>
+                                        <th>Réduction </th>
                                         <th>Status </th>
                                     </tr>
                                     </thead>
@@ -35,11 +35,11 @@
                                         <tr>
                                             <td> <img src="{{ asset($item->product_thambnail) }}" style="width: 60px; height: 50px;">  </td>
                                             <td>{{ $item->product_name }}</td>
-                                            <td>{{ $item->selling_price }} $</td>
+                                            <td>{{ $item->selling_price }} FCFA</td>
                                             <td>{{ $item->product_qty }} Pic</td>
                                             <td>
                                                 @if($item->discount_price == NULL)
-                                                    <span class="badge badge-pill badge-danger">No Discount</span>
+                                                    <span class="badge badge-pill badge-danger">Pas de réduction</span>
 
                                                 @else
                                                     @php

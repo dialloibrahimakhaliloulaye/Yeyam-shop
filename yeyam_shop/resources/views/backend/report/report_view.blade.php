@@ -14,7 +14,7 @@
                 <div class="col-4">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Search By Date </h3>
+                            <h3 class="box-title">Chercher par date </h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -22,7 +22,7 @@
 
                                 <form method="post" action="{{ route('search-by-date') }}">@csrf
                                     <div class="form-group">
-                                        <h5>Select Date <span class="text-danger">*</span></h5>
+                                        <h5>Choisir la date <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="date" name="date" class="form-control" >
                                             @error('date')
@@ -32,7 +32,7 @@
                                     </div>
 
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Search">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Chercher">
                                     </div>
                                 </form>
 
@@ -47,7 +47,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Search By Month </h3>
+                            <h3 class="box-title">Chercher par mois </h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -55,23 +55,23 @@
 
                                 <form method="post" action="{{ route('search-by-month') }}">@csrf
                                     <div class="form-group">
-                                        <h5>Select Month  <span class="text-danger">*</span></h5>
+                                        <h5>Choisir mois  <span class="text-danger">*</span></h5>
                                         <div class="controls">
 
                                             <select name="month" class="form-control">
                                                 <option label="Choose One"></option>
-                                                <option value="January">January</option>
-                                                <option value="February">February</option>
-                                                <option value="March">March</option>
-                                                <option value="April">April</option>
-                                                <option value="May">May</option>
-                                                <option value="Jun">Jun</option>
-                                                <option value="July">July</option>
-                                                <option value="August">August</option>
-                                                <option value="September">September</option>
-                                                <option value="October">October</option>
-                                                <option value="November">November</option>
-                                                <option value="December">December</option>
+                                                <option value="January">Janvier</option>
+                                                <option value="February">Février</option>
+                                                <option value="March">Mars</option>
+                                                <option value="April">Avril</option>
+                                                <option value="May">Mai</option>
+                                                <option value="Jun">Juin</option>
+                                                <option value="July">Juillet</option>
+                                                <option value="August">Août</option>
+                                                <option value="September">Septembre</option>
+                                                <option value="October">Octobre</option>
+                                                <option value="November">Novembre</option>
+                                                <option value="December">Décembre</option>
 
                                             </select>
 
@@ -82,11 +82,11 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <h5>Select Year  <span class="text-danger">*</span></h5>
+                                        <h5>Choisir l'année  <span class="text-danger">*</span></h5>
                                         <div class="controls">
 
                                             <select name="year_name" class="form-control">
-                                                <option label="Choose One"></option>
+                                                <option label="Choisir"></option>
                                                 <option value="2020">2020</option>
                                                 <option value="2021">2021</option>
                                                 <option value="2022">2022</option>
@@ -103,7 +103,7 @@
                                     </div>
 
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Search">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Chercher">
                                     </div>
                                 </form>
                             </div>
@@ -116,18 +116,18 @@
                 <div class="col-4">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Select Year </h3>
+                            <h3 class="box-title">Chercher par année </h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
                                 <form method="post" action="{{ route('search-by-year') }}" >@csrf
                                     <div class="form-group">
-                                        <h5>Select Year  <span class="text-danger">*</span></h5>
+                                        <h5>Année <span class="text-danger">*</span></h5>
                                         <div class="controls">
 
                                             <select name="year" class="form-control">
-                                                <option label="Choose One"></option>
+                                                <option label="Choisir"></option>
                                                 <option value="2020">2020</option>
                                                 <option value="2021">2021</option>
                                                 <option value="2022">2022</option>
@@ -143,7 +143,7 @@
                                         </div>
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Search">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Chercher">
                                     </div>
                                 </form>
                             </div>

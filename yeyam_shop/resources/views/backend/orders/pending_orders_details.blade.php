@@ -9,12 +9,12 @@
         <div class="content-header">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
-                    <h3 class="page-title">Order Details</h3>
+                    <h3 class="page-title">Details commande</h3>
                     <div class="d-inline-block align-items-center">
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                                <li class="breadcrumb-item" aria-current="page">Order Details</li>
+                                <li class="breadcrumb-item" aria-current="page">Details commande</li>
                             </ol>
                         </nav>
                     </div>
@@ -29,47 +29,47 @@
                 <div class="col-md-6 col-12">
                     <div class="box box-bordered border-primary">
                         <div class="box-header with-border">
-                            <h4 class="box-title"><strong>Shipping Details</strong> </h4>
+                            <h4 class="box-title"><strong>Details expédition</strong> </h4>
                         </div>
 
                         <table class="table">
                             <tr>
-                                <th> Shipping Name : </th>
+                                <th> Nom expédition : </th>
                                 <th> {{ $order->name }} </th>
                             </tr>
 
                             <tr>
-                                <th> Shipping Phone : </th>
+                                <th> Télephone expédition : </th>
                                 <th> {{ $order->phone }} </th>
                             </tr>
 
                             <tr>
-                                <th> Shipping Email : </th>
+                                <th> Email expédition : </th>
                                 <th> {{ $order->email }} </th>
                             </tr>
 
                             <tr>
-                                <th> Division : </th>
-                                <th> {{ $order->division->division_name }} </th>
+                                <th> Arrondissement : </th>
+                                <th> {{ $order->division->division_name ??'' }} </th>
                             </tr>
 
                             <tr>
-                                <th> District : </th>
-                                <th> {{ $order->district->district_name }} </th>
+                                <th> Département : </th>
+                                <th> {{ $order->district->district_name ??''}} </th>
                             </tr>
 
                             <tr>
-                                <th> State : </th>
-                                <th>{{ $order->state->state_name }} </th>
+                                <th> Région : </th>
+                                <th>{{ $order->state->state_name ??''}} </th>
                             </tr>
 
                             <tr>
-                                <th> Post Code : </th>
+                                <th> Code postal : </th>
                                 <th> {{ $order->post_code }} </th>
                             </tr>
 
                             <tr>
-                                <th> Order Date : </th>
+                                <th> Date commande : </th>
                                 <th> {{ $order->order_date }} </th>
                             </tr>
 
@@ -81,22 +81,22 @@
                 <div class="col-md-6 col-12">
                     <div class="box box-bordered border-primary">
                         <div class="box-header with-border">
-                            <h4 class="box-title"><strong>Order Details</strong><span class="text-danger"> Invoice : {{ $order->invoice_no }}</span></h4>
+                            <h4 class="box-title"><strong>Details commande</strong><span class="text-danger"> Reçu : {{ $order->invoice_no }}</span></h4>
                         </div>
 
                         <table class="table">
                             <tr>
-                                <th>  Name : </th>
+                                <th>  Nom : </th>
                                 <th> {{ $order->user->name }} </th>
                             </tr>
 
                             <tr>
-                                <th>  Phone : </th>
+                                <th>  Téléphone : </th>
                                 <th> {{ $order->user->phone }} </th>
                             </tr>
 
                             <tr>
-                                <th> Payment Type : </th>
+                                <th> Type paiement : </th>
                                 <th> {{ $order->payment_method }} </th>
                             </tr>
 
@@ -106,17 +106,17 @@
                             </tr>
 
                             <tr>
-                                <th> Invoice  : </th>
+                                <th> Reçu : </th>
                                 <th class="text-danger"> {{ $order->invoice_no }} </th>
                             </tr>
 
                             <tr>
-                                <th> Order Total : </th>
+                                <th> Total commande : </th>
                                 <th>{{ $order->amount }} FCFA</th>
                             </tr>
 
                             <tr>
-                                <th> Order : </th>
+                                <th> Commande : </th>
                                 <th>
                                     <span class="badge badge-pill badge-warning" style="background: #418DB9;">{{ $order->status }} </span> </th>
                             </tr>
@@ -125,19 +125,19 @@
                                 <th>  </th>
                                 <th>
                                     @if($order->status == 'pending')
-                                        <a href="{{ route('pending-confirm',$order->id) }}" class="btn btn-block btn-success" id="confirm">Confirm Order</a>
+                                        <a href="{{ route('pending-confirm',$order->id) }}" class="btn btn-block btn-success" id="confirm">Confirmer commande</a>
 
                                     @elseif($order->status == 'confirmed')
-                                        <a href="{{ route('confirm.processing',$order->id) }}" class="btn btn-block btn-success" id="processing">Processing Order</a>
+                                        <a href="{{ route('confirm.processing',$order->id) }}" class="btn btn-block btn-success" id="processing">Commandes en traitement</a>
 
                                     @elseif($order->status == 'processing')
-                                        <a href="{{ route('processing.picked',$order->id) }}" class="btn btn-block btn-success" id="picked">Picked Order</a>
+                                        <a href="{{ route('processing.picked',$order->id) }}" class="btn btn-block btn-success" id="picked">Commandes séléctionnées</a>
 
                                     @elseif($order->status == 'picked')
-                                        <a href="{{ route('picked.shipped',$order->id) }}" class="btn btn-block btn-success" id="shipped">Shipped Order</a>
+                                        <a href="{{ route('picked.shipped',$order->id) }}" class="btn btn-block btn-success" id="shipped">Commandes expédiées</a>
 
                                     @elseif($order->status == 'shipped')
-                                        <a href="{{ route('shipped.delivered',$order->id) }}" class="btn btn-block btn-success" id="delivered">Delivered Order</a>
+                                        <a href="{{ route('shipped.delivered',$order->id) }}" class="btn btn-block btn-success" id="delivered">Commandes livrées</a>
                                     @endif
 
                                 </th>
@@ -163,27 +163,27 @@
                                 </td>
 
                                 <td width="20%">
-                                    <label for=""> Product Name </label>
+                                    <label for=""> Nom produit </label>
                                 </td>
 
                                 <td width="10%">
-                                    <label for=""> Product Code</label>
+                                    <label for=""> Code produit</label>
                                 </td>
 
                                 <td width="10%">
-                                    <label for=""> Color </label>
+                                    <label for=""> Couleur </label>
                                 </td>
 
                                 <td width="10%">
-                                    <label for=""> Size </label>
+                                    <label for=""> Taille </label>
                                 </td>
 
                                 <td width="10%">
-                                    <label for=""> Quantity </label>
+                                    <label for=""> Quantité </label>
                                 </td>
 
                                 <td width="10%">
-                                    <label for=""> Price </label>
+                                    <label for=""> Prix </label>
                                 </td>
 
                             </tr>

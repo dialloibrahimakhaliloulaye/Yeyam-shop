@@ -20,22 +20,17 @@ class CouponController extends Controller
             'coupon_name' => 'required',
             'coupon_discount' => 'required',
             'coupon_validity' => 'required',
-
         ]);
-
         Coupon::insert([
             'coupon_name' => strtoupper($request->coupon_name),
             'coupon_discount' => $request->coupon_discount,
             'coupon_validity' => $request->coupon_validity,
             'created_at' => Carbon::now(),
-
         ]);
-
         $notification = array(
-            'message' => 'Coupon Inserted Successfully',
+            'message' => 'Coupon crée avec succès',
             'alert-type' => 'success'
         );
-
         return redirect()->back()->with($notification);
 
     } // end method
@@ -51,10 +46,9 @@ class CouponController extends Controller
             'coupon_discount' => $request->coupon_discount,
             'coupon_validity' => $request->coupon_validity,
             'created_at' => Carbon::now(),
-
         ]);
         $notification = array(
-            'message' => 'Coupon Updated Successfully',
+            'message' => 'Coupon mis à jour avec succès',
             'alert-type' => 'info'
         );
         return redirect()->route('manage-coupon')->with($notification);
@@ -63,7 +57,7 @@ class CouponController extends Controller
     public function CouponDelete($id){
         Coupon::findOrFail($id)->delete();
         $notification = array(
-            'message' => 'Coupon Deleted Successfully',
+            'message' => 'Coupon supprimé avec succès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);

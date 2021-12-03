@@ -66,7 +66,7 @@ class OrderController extends Controller
     public function PendingToConfirm($order_id){
         Order::findOrFail($order_id)->update(['status' => 'confirmed']);
         $notification = array(
-            'message' => 'Order Confirmed Successfully',
+            'message' => 'Commande confirmée avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('pending-orders')->with($notification);
@@ -75,7 +75,7 @@ class OrderController extends Controller
     public function ConfirmToProcessing($order_id){
         Order::findOrFail($order_id)->update(['status' => 'processing']);
         $notification = array(
-            'message' => 'Order Processing Successfully',
+            'message' => 'Commande en cours de traitement',
             'alert-type' => 'success'
         );
         return redirect()->route('confirmed-orders')->with($notification);
@@ -84,7 +84,7 @@ class OrderController extends Controller
     public function ProcessingToPicked($order_id){
         Order::findOrFail($order_id)->update(['status' => 'picked']);
         $notification = array(
-            'message' => 'Order Picked Successfully',
+            'message' => 'Commande sélectionnée avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('processing-orders')->with($notification);
@@ -93,7 +93,7 @@ class OrderController extends Controller
     public function PickedToShipped($order_id){
         Order::findOrFail($order_id)->update(['status' => 'shipped']);
         $notification = array(
-            'message' => 'Order Shipped Successfully',
+            'message' => 'Commande expédiée avec succèe',
             'alert-type' => 'success'
         );
         return redirect()->route('picked-orders')->with($notification);
@@ -108,7 +108,7 @@ class OrderController extends Controller
 
         Order::findOrFail($order_id)->update(['status' => 'delivered']);
         $notification = array(
-            'message' => 'Order Delivered Successfully',
+            'message' => 'Commande délivrée avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('shipped-orders')->with($notification);
