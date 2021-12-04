@@ -62,24 +62,24 @@ class AdvertisementController extends Controller
         ]);
 
         $data=$request->all();
-        if ($request->hasFile('first_image')){
-            $firstImage=$request->file('first_image')->store('public/ads');
-            $data['image1']=$firstImage;
+        if ($request->hasFile('image1')){
+            $image1=$request->file('image1')->store('public/ads');
+            $data['image1']=$image1;
         }
-        if ($request->hasFile('second_image')){
-            $secondImage=$request->file('second_image')->store('public/ads');
-            $data['image2']=$secondImage;
+        if ($request->hasFile('image2')){
+            $image2=$request->file('image2')->store('public/ads');
+            $data['image2']=$image2;
         }
-        if ($request->hasFile('third_image')){
-            $thirdImage=$request->file('third_image')->store('public/ads');
-            $data['image3']=$thirdImage;
+        if ($request->hasFile('image3')){
+            $image3=$request->file('image3')->store('public/ads');
+            $data['image3']=$image3;
         }
 
         $data['slug']=Str::slug($request->name);
         $data['user_id']=auth()->user()->id;
 
         Advertisement::create($data);
-        return redirect()->route('ads.index')->with('message', 'Annonce créée avec succès');
+        return redirect()->route('marketplace.ads.index')->with('message', 'Annonce créée avec succès');
     }
 
     /**
@@ -115,7 +115,36 @@ class AdvertisementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required|min:3|max:60',
+            'description'=>'required|min:5',
+            'category_id'=>'required',
+            'price'=>"required|regex:/^\d+(\.\d{1,2})?$/",
+            'price_status'=>'required',
+            'condition'=>'required',
+            'phone_number'=>'required|numeric',
+        ]);
+
+        $ad=Advertisement::find($id);
+        $image1=$ad->image1;
+        $image2=$ad->image2;
+        $image3=$ad->image3;
+        $data=$request->all();
+        if ($request->hasFile('image1')){
+            $image1=$request->file('image1')->store('public/ads');
+        }
+        if ($request->hasFile('image2')){
+            $image2=$request->file('image2')->store('public/ads');
+        }
+        if ($request->hasFile('image3')){
+            $image3=$request->file('image3')->store('public/ads');
+        }
+        $data['image1']=$image1;
+        $data['image2']=$image2;
+        $data['image3']=$image3;
+
+        $ad->update($data);
+        return redirect()->route('marketplace.ads.index')->with('message', 'Annonce mise à jour avec succès');
     }
 
     /**
@@ -126,6 +155,8 @@ class AdvertisementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad=Advertisement::find($id);
+        $ad->delete();
+        return back()->with('message','Annonce supprimée avec succès');
     }
 }

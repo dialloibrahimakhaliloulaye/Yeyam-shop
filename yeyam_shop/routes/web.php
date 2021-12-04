@@ -25,6 +25,7 @@ use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendors\AdvertisementController;
+use App\Http\Controllers\Vendors\ProfileController;
 use App\Http\Controllers\Vendors\VendorsController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -457,8 +458,15 @@ Route::prefix('vendors')->group(function(){
     Route::get('/ads', [AdvertisementController::class, 'index'])->name('ads.index');
 
     Route::get('/ads/{id}/edit', [AdvertisementController::class, 'edit'])->name('ads.edit');
+
+    Route::put('/ads/{id}/update', [AdvertisementController::class, 'update'])->name('ads.update');
+
+    Route::delete('/ads/{id}/delete', [AdvertisementController::class, 'destroy'])->name('ads.destroy');
+
+    //profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+
+    Route::post('/profile', [ProfileController::class, 'updateProfile'])->name('update.profile')->middleware('auth');
+
 });
 
-/*//profile
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
-Route::post('/profile', 'App\Http\Controllers\ProfileController@updateProfile')->name('update.profile')->middleware('auth');*/
