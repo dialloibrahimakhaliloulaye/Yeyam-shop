@@ -450,11 +450,15 @@ Route::prefix('vendors')->group(function(){
 
     Route::get('/', [VendorsController::class, 'firstPage'])->name('first.vendors');
 
-    Route::get('/ads/create', [AdvertisementController::class, 'create']);
+    Route::get('/ads/create', [AdvertisementController::class, 'create'])->name('ads.create');
 
     Route::post('/ads/store', [AdvertisementController::class, 'store'])->name('ads.store');
 
-    /*Route::get('/publish', [ReviewController::class, 'PublishReview'])->name('publish.review');
+    Route::get('/ads', [AdvertisementController::class, 'index'])->name('ads.index');
 
-    Route::get('/delete/{id}', [ReviewController::class, 'DeleteReview'])->name('delete.review');*/
+    Route::get('/ads/{id}/edit', [AdvertisementController::class, 'edit'])->name('ads.edit');
 });
+
+/*//profile
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::post('/profile', 'App\Http\Controllers\ProfileController@updateProfile')->name('update.profile')->middleware('auth');*/

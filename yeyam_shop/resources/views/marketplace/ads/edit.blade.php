@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                @include('ads/sidebar')
+                @include('marketplace.ads.sidebar')
             </div>
             <div class="col-md-9">
                 @if($errors->any())
@@ -60,16 +60,18 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Condition du produit</label>
+                                <label for="">Condition</label>
                                 <select name="product_condition" id="" class="form-control">
                                     <option value="">Choisir</option>
-                                    <option value="tout_neuf" {{$ad->product_condition=="tout_neuf"?'selected':''}}>Tout neuf</option>
-                                    <option value="occasion" {{$ad->product_condition=="occasion"?'selected':''}}>Occasion</option>
+                                    <option value="tout_neuf" {{$ad->condition=="tout_neuf"?'selected':''}}>Tout neuf</option>
+                                    <option value="occasion" {{$ad->condition=="occasion"?'selected':''}}>Occasion</option>
+                                    <option value="post_paid" {{$ad->condition=="post_paid"?'selected':''}}>Post payer</option>
+                                    <option value="pre_paid" {{$ad->condition=="pre_paid"?'selected':''}}>pré-payer</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="location">Lieu (adresse)</label>
-                                <input type="text" class="form-control" name="listing_location" value="{{$ad->listing_location}}">
+                                <input type="text" class="form-control" name="location" value="{{$ad->location}}">
                             </div>
                             <div class="form-group">
                                 <label for="">Téléphone du vendeur</label>
@@ -77,7 +79,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Lien (youtube) visualisation du produit</label>
-                                <input type="text" class="form-control" name="link" value="{{$ad->link}}">
+                                <input type="text" class="form-control" name="video_link" value="{{$ad->link}}">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-success" type="submit">Mettre à jour</button>

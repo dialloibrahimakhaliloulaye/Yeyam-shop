@@ -196,7 +196,7 @@
                                 <li> <a href="{{ route('first.vendors') }}">Marketplace</a> </li>
 
                                 <li class="dropdown  navbar-right special-menu">
-                                    <a href="#">
+                                    <a href="{{ route('first.vendors') }}">
                                         <button class="btn btn-success " type="button"><b>Vendez-avec-nous</b></button>
                                     </a>
                                 </li>

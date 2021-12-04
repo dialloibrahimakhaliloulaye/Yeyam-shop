@@ -19,12 +19,13 @@ class AdvertisementController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth']);
     }
 
     public function index()
     {
-        //
+        $ads=Advertisement::latest()->where('user_id', auth()->user()->id)->get();
+        return view('marketplace.ads.index', compact('ads'));
     }
 
     /**
@@ -38,7 +39,15 @@ class AdvertisementController extends Controller
         return view('marketplace.ads.create', compact('menus'));
     }
 
-    public function store(Request $request){
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $request->validate([
             'image1'=>'required|mimes:png,jpg,jpeg',
             'image2'=>'mimes:png,jpg,jpeg',
@@ -74,17 +83,6 @@ class AdvertisementController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -103,7 +101,9 @@ class AdvertisementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ad=Advertisement::find($id);
+        $this->authorize('edit-ad', $ad);
+        return view('marketplace.ads.edit', compact('ad'));
     }
 
     /**

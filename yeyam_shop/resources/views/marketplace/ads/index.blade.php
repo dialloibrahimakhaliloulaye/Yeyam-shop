@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                @include('ads/sidebar')
+                @include('marketplace.ads.sidebar')
             </div>
             <div class="col-md-9">
                 @include('backend.inc.message')
@@ -36,13 +36,13 @@
                                     </ol>
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="{{Storage::url($ad->first_image)}}" width="130">
+                                            <img src="{{Storage::url($ad->image1)}}" width="130">
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{Storage::url($ad->second_image)}}" width="130">
+                                            <img src="{{Storage::url($ad->image2)}}" width="130">
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{Storage::url($ad->third_image)}}" width="130">
+                                            <img src="{{Storage::url($ad->image3)}}" width="130">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators{{$ad->id}}"

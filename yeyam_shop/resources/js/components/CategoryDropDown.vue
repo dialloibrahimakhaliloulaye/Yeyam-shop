@@ -13,9 +13,9 @@
             </select>
         </div>
         <div class="col-md-4">
-            <select class="form-control" name="childcategory_id" >
+            <select class="form-control" name="subsubcategory_id" >
                 <option value="">Choisir la sous sous-catégorie</option>
-                <option v-for="data in childcategories" :value="data.id" :key="data.id">{{data.name}}</option>
+                <option v-for="data in subsubcategories" :value="data.id" :key="data.id">{{data.name}}</option>
             </select>
         </div>
     </div>
@@ -29,7 +29,7 @@ export default {
             categories:[],
             subcategory:0,
             subcategories:[],
-            childcategories:[]
+            subsubcategories:[]
         }
     },
     mounted() {
@@ -48,10 +48,10 @@ export default {
                     this.subcategories=response.data
             }).bind(this)
         },
-        getChildcategories(){
-            axios.get('/api/childcategory', {params:{subcategory_id:this.subcategory}})
+        getSubsubcategories(){
+            axios.get('/api/subsubcategory', {params:{subcategory_id:this.subcategory}})
                 .then((response)=>{
-                    this.childcategories=response.data
+                    this.subsubcategories=response.data
                 }).bind(this)
         }
     }
