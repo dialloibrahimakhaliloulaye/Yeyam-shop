@@ -32,7 +32,7 @@ class CartPageController extends Controller
         if (Session::has('coupon')) {
             Session::forget('coupon');
         }
-        return response()->json(['success' => 'Successfully Remove From Cart']);
+        return response()->json(['success' => 'Produit supprimé du Panier avec succès']);
     }
 
     // Cart Increment

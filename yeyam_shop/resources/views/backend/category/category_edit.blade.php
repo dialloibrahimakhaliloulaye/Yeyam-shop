@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Add Category</h3>
+                            <h3 class="box-title">Ajouter Catégorie</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -22,7 +22,7 @@
                                 <form method="post" action="{{route('category.update')}}" >@csrf
                                     <input type="hidden" name="id" value="{{$category->id}}">
                                     <div class="form-group">
-                                        <h5>Category name<span class="text-danger">*</span></h5>
+                                        <h5>Nom Catégorie<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="category_name" class="form-control" value="{{$category->category_name}}">
                                         </div>
@@ -31,7 +31,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <h5>Category image<span class="text-danger">*</span></h5>
+                                        <h5>Image Catégorie<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="category_image" class="form-control" value="{{$category->category_image}}">
                                         </div>
@@ -40,7 +40,7 @@
                                         @enderror
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

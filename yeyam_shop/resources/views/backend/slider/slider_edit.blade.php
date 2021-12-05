@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Edit Slider </h3>
+                            <h3 class="box-title">Editer Slider </h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -21,19 +21,19 @@
                                     <input type="hidden" name="old_image" value="{{ $sliders->slider_img }}">
 
                                     <div class="form-group">
-                                        <h5>Slider Title <span class="text-danger">*</span></h5>
+                                        <h5>Titre Slider<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text"  name="title" class="form-control" value="{{ $sliders->title }}" >
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Slider Decription <span class="text-danger">*</span></h5>
+                                        <h5>Decription Slider<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="description" class="form-control" value="{{ $sliders->description }}" >
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Slider Image <span class="text-danger">*</span></h5>
+                                        <h5>Image Slider<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="file" name="slider_img" class="form-control" >
                                             @error('slider_img')
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

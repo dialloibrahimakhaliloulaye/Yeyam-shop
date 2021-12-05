@@ -92,7 +92,7 @@ class StripeController extends Controller
         }
         Cart::destroy();
         $notification = array(
-            'message' => 'Your Order Place Successfully',
+            'message' => 'Votre commande a été soumise avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('dashboard')->with($notification);

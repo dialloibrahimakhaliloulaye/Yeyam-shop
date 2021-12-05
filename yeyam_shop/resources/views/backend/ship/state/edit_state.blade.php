@@ -11,17 +11,17 @@
                 <div class="col-6">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Edit State </h3>
+                            <h3 class="box-title">Editer</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
                                 <form method="post" action="{{ route('state.update',$state->id) }}">@csrf
                                     <div class="form-group">
-                                        <h5>Division Select <span class="text-danger">*</span></h5>
+                                        <h5>Choisir Arrondissement<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="division_id" class="form-control"  >
-                                                <option value="" selected="" disabled="">Select Division</option>
+                                                <option value="" selected="" disabled="">Arrondissement</option>
                                                 @foreach($division as $div)
                                                     <option value="{{ $div->id }}" {{ $div->id == $state->division_id ? 'selected': '' }}>{{ $div->division_name }}</option>
                                                 @endforeach
@@ -32,10 +32,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>District Select <span class="text-danger">*</span></h5>
+                                        <h5>Choisir Département<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="district_id" class="form-control"  >
-                                                <option value="" selected="" disabled="">Select District</option>
+                                                <option value="" selected="" disabled="">Département</option>
                                                 @foreach($district as $dis)
                                                     <option value="{{ $dis->id }}" {{ $dis->id == $state->district_id ? 'selected': '' }}>{{ $dis->district_name }}</option>
                                                 @endforeach
@@ -46,7 +46,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>State Name  <span class="text-danger">*</span></h5>
+                                        <h5>Choisir Région<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text"  name="state_name" class="form-control" value="{{ $state->state_name }}">
                                             @error('state_name	')
@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

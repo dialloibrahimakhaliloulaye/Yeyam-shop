@@ -53,7 +53,7 @@ class AdminUserController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'Admin User Created Successfully',
+            'message' => 'Admin vendor est crée avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('all.admin.user')->with($notification);
@@ -102,7 +102,7 @@ class AdminUserController extends Controller
                 'created_at' => Carbon::now(),
             ]);
             $notification = array(
-                'message' => 'Admin User Updated Successfully',
+                'message' => 'Admin est mis à jour avec succès',
                 'alert-type' => 'info'
             );
             return redirect()->route('all.admin.user')->with($notification);
@@ -133,7 +133,7 @@ class AdminUserController extends Controller
                 'created_at' => Carbon::now(),
             ]);
             $notification = array(
-                'message' => 'Admin User Updated Successfully',
+                'message' => 'Admin est mis à jour avec succès',
                 'alert-type' => 'info'
             );
             return redirect()->route('all.admin.user')->with($notification);
@@ -147,7 +147,7 @@ class AdminUserController extends Controller
 
         Admin::findOrFail($id)->delete();
         $notification = array(
-            'message' => 'Admin User Deleted Successfully',
+            'message' => 'Admin est supprimé avec succès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);

@@ -9,7 +9,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="#">Home</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li class='active'>{{ $blogpost->post_title }}</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -40,12 +40,12 @@
                     <div class="blog-write-comment outer-bottom-xs outer-top-xs">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Leave A Comment</h4>
+                                <h4>Laisser un commentaire</h4>
                             </div>
                             <div class="col-md-4">
                                 <form class="register-form" role="form">
                                     <div class="form-group">
-                                        <label class="info-title" for="exampleInputName">Your Name <span>*</span></label>
+                                        <label class="info-title" for="exampleInputName">Votre nom<span>*</span></label>
                                         <input type="email" class="form-control unicase-form-control text-input" id="exampleInputName" placeholder="">
                                     </div>
                                 </form>
@@ -53,7 +53,7 @@
                             <div class="col-md-4">
                                 <form class="register-form" role="form">
                                     <div class="form-group">
-                                        <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                        <label class="info-title" for="exampleInputEmail1">Email <span>*</span></label>
                                         <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="">
                                     </div>
                                 </form>
@@ -61,7 +61,7 @@
                             <div class="col-md-4">
                                 <form class="register-form" role="form">
                                     <div class="form-group">
-                                        <label class="info-title" for="exampleInputTitle">Title <span>*</span></label>
+                                        <label class="info-title" for="exampleInputTitle">Titre<span>*</span></label>
                                         <input type="email" class="form-control unicase-form-control text-input" id="exampleInputTitle" placeholder="">
                                     </div>
                                 </form>
@@ -69,13 +69,13 @@
                             <div class="col-md-12">
                                 <form class="register-form" role="form">
                                     <div class="form-group">
-                                        <label class="info-title" for="exampleInputComments">Your Comments <span>*</span></label>
+                                        <label class="info-title" for="exampleInputComments">Votre commentaire<span>*</span></label>
                                         <textarea class="form-control unicase-form-control" id="exampleInputComments" ></textarea>
                                     </div>
                                 </form>
                             </div>
                             <div class="col-md-12 outer-bottom-small m-t-20">
-                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Submit Comment</button>
+                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Publier</button>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
 
                         <!-- ======== ====CATEGORY======= === -->
                         <div class="sidebar-widget outer-bottom-xs wow fadeInUp">
-                            <h3 class="section-title">Blog Category</h3>
+                            <h3 class="section-title">Catégorie Blog</h3>
                             <div class="sidebar-widget-body m-t-10">
                                 <div class="accordion">
 

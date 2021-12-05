@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Pending All Reviews </h3>
+                            <h3 class="box-title">Commentaires en attente</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -22,10 +22,10 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Summary  </th>
-                                        <th>Comment </th>
-                                        <th>User </th>
-                                        <th>Product  </th>
+                                        <th>Sommaire  </th>
+                                        <th>Commentaire </th>
+                                        <th>Utilisateur </th>
+                                        <th>Produit  </th>
                                         <th>Status </th>
                                         <th>Action</th>
                                     </tr>
@@ -40,15 +40,15 @@
                                             <td> {{ $item->product->product_name_en }}  </td>
                                             <td>
                                                 @if($item->status == 0)
-                                                    <span class="badge badge-pill badge-primary">Pending </span>
+                                                    <span class="badge badge-pill badge-primary">En attente</span>
                                                 @elseif($item->status == 1)
-                                                    <span class="badge badge-pill badge-success">Publish </span>
+                                                    <span class="badge badge-pill badge-success">Publié</span>
                                                 @endif
 
                                             </td>
 
                                             <td width="25%">
-                                                <a href="{{ route('review.approve',$item->id) }}" class="btn btn-danger">Approve </a>
+                                                <a href="{{ route('review.approve',$item->id) }}" class="btn btn-danger">Approuver</a>
                                             </td>
                                         </tr>
                                     @endforeach

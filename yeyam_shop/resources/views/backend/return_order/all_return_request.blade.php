@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">All Return Orders List</h3>
+                            <h3 class="box-title">Liste commandes retourné</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -23,9 +23,9 @@
                                     <thead>
                                     <tr>
                                         <th>Date </th>
-                                        <th>Invoice </th>
-                                        <th>Amount </th>
-                                        <th>Payment </th>
+                                        <th>Reçu </th>
+                                        <th>Montant </th>
+                                        <th>Paiement </th>
                                         <th>Status </th>
                                         <th>Action</th>
                                     </tr>
@@ -39,15 +39,15 @@
                                             <td> {{ $item->payment_method }}  </td>
                                             <td>
                                                 @if($item->return_order == 1)
-                                                    <span class="badge badge-pill badge-primary">Pending </span>
+                                                    <span class="badge badge-pill badge-primary">En attente</span>
                                                 @elseif($item->return_order == 2)
-                                                    <span class="badge badge-pill badge-success">Success </span>
+                                                    <span class="badge badge-pill badge-success">Succès</span>
                                                 @endif
 
                                             </td>
 
                                             <td width="25%">
-                                                <span class="badge badge-success">Return Success </span>
+                                                <span class="badge badge-success">Returnée avec succès</span>
                                             </td>
 
                                         </tr>

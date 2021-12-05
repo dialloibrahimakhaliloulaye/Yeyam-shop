@@ -32,7 +32,7 @@ class CouponController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Coupon Inserted Successfully',
+            'message' => 'Coupon crée avec succès',
             'alert-type' => 'success'
         );
 
@@ -54,7 +54,7 @@ class CouponController extends Controller
 
         ]);
         $notification = array(
-            'message' => 'Coupon Updated Successfully',
+            'message' => 'Coupon mis à jour avec succès',
             'alert-type' => 'info'
         );
         return redirect()->route('manage-coupon')->with($notification);
@@ -63,7 +63,7 @@ class CouponController extends Controller
     public function CouponDelete($id){
         Coupon::findOrFail($id)->delete();
         $notification = array(
-            'message' => 'Coupon Deleted Successfully',
+            'message' => 'Coupon supprimé avec succès',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);

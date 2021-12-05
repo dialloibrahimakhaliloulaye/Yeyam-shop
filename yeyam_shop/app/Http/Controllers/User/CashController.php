@@ -41,7 +41,7 @@ class CashController extends Controller
             'currency' =>  'Usd',
             'amount' => $total_amount,
 
-            'invoice_no' => 'EOS'.mt_rand(10000000,99999999),
+            'invoice_no' => 'YS'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),
             'order_year' => Carbon::now()->format('Y'),
@@ -78,7 +78,7 @@ class CashController extends Controller
         }
         Cart::destroy();
         $notification = array(
-            'message' => 'Your Order Place Successfully',
+            'message' => 'Votre commande a été soumise avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('dashboard')->with($notification);

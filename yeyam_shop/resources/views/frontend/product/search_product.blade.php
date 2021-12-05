@@ -53,7 +53,7 @@
 </style>
 
 @if($products -> isEmpty())
-    <h3 class="text-center text-danger">Product Not Found </h3>
+    <h3 class="text-center text-danger">Produit non trouvé</h3>
 
 @else
 

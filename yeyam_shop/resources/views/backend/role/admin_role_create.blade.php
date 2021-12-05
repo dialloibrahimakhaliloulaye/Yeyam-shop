@@ -9,7 +9,7 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Create Admin User </h4>
+                    <h4 class="box-title">Créer vendeur admin</h4>
 
                 </div>
                 <!-- /.box-header -->
@@ -25,7 +25,7 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group">
-                                                    <h5>Admin User Name  <span class="text-danger">*</span></h5>
+                                                    <h5>Nom admin <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="name" class="form-control" > </div>
                                                 </div>
@@ -35,7 +35,7 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group">
-                                                    <h5>Admin Email  <span class="text-danger">*</span></h5>
+                                                    <h5>Email Admin<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="email" name="email" class="form-control" > </div>
                                                 </div>
@@ -48,7 +48,7 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group">
-                                                    <h5>Admin User Phone  <span class="text-danger">*</span></h5>
+                                                    <h5>Télephone Admin<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="phone" class="form-control" > </div>
                                                 </div>
@@ -58,7 +58,7 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group">
-                                                    <h5>Admin Password  <span class="text-danger">*</span></h5>
+                                                    <h5>Mot de passe<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="password" name="password" class="form-control" > </div>
                                                 </div>
@@ -71,7 +71,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <h5>Admin User Image <span class="text-danger">*</span></h5>
+                                                    <h5>Image Admin<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="profile_photo_path" class="form-control" required="" id="image"> </div>
                                                 </div>
@@ -97,12 +97,12 @@
                                                         </fieldset>
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_3" name="category" value="1">
-                                                            <label for="checkbox_3">Category</label>
+                                                            <label for="checkbox_3">Catégorie</label>
                                                         </fieldset>
 
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_4" name="product" value="1">
-                                                            <label for="checkbox_4">Product</label>
+                                                            <label for="checkbox_4">Producit</label>
                                                         </fieldset>
 
                                                         <fieldset>
@@ -124,7 +124,7 @@
                                                     <div class="controls">
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_7" name="shipping" value="1">
-                                                            <label for="checkbox_7">Shipping</label>
+                                                            <label for="checkbox_7">Point livraison</label>
                                                         </fieldset>
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_8" name="blog" value="1">
@@ -133,18 +133,18 @@
 
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_9" name="setting" value="1">
-                                                            <label for="checkbox_9">Setting</label>
+                                                            <label for="checkbox_9">Paramètre</label>
                                                         </fieldset>
 
 
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_10" name="returnorder" value="1">
-                                                            <label for="checkbox_10">Return Order</label>
+                                                            <label for="checkbox_10">Retoure commande</label>
                                                         </fieldset>
 
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_11" name="review" value="1">
-                                                            <label for="checkbox_11">	Review</label>
+                                                            <label for="checkbox_11">Commentaire</label>
                                                         </fieldset>
                                                     </div>
                                                 </div>
@@ -156,7 +156,7 @@
                                                     <div class="controls">
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_12" name="orders" value="1">
-                                                            <label for="checkbox_12">Orders</label>
+                                                            <label for="checkbox_12">Commandes</label>
                                                         </fieldset>
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_13" name="stock" value="1">
@@ -165,24 +165,24 @@
 
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_14" name="reports" value="1">
-                                                            <label for="checkbox_14">Reports</label>
+                                                            <label for="checkbox_14">Récapitulatif</label>
                                                         </fieldset>
 
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_15" name="alluser" value="1">
-                                                            <label for="checkbox_15">Alluser</label>
+                                                            <label for="checkbox_15">Les admin</label>
                                                         </fieldset>
 
                                                         <fieldset>
                                                             <input type="checkbox" id="checkbox_16" name="adminuserrole" value="1">
-                                                            <label for="checkbox_16">Adminuserrole</label>
+                                                            <label for="checkbox_16">Privilèges admin</label>
                                                         </fieldset>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="text-xs-right">
-                                            <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Admin User">
+                                            <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Ajouter admin vendeur">
                                         </div>
                             </form>
                         </div>

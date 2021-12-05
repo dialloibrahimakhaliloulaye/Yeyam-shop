@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Sub-subcategory List<span class="badge badge-pill badge-info"> {{ count($subsubcategory) }} </span></h3>
+                            <h3 class="box-title">Liste Sous-souscatégorie<span class="badge badge-pill badge-info"> {{ count($subsubcategory) }} </span></h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -22,9 +22,9 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Category </th>
-                                        <th>Subcategory </th>
-                                        <th>Sub-subcategory </th>
+                                        <th>Catégorie </th>
+                                        <th>Souscatégorie </th>
+                                        <th>Sous-souscatégorie </th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -36,9 +36,9 @@
                                             <td>{{$item['sub_subcategory_name']}}</td>
                                             <td width="30%">
                                                 <a href="{{route('subsubcategory.edit', $item->id)}}" class="btn btn-info"
-                                                   title="Edit"><i class="fa fa-pencil" style="width: 10px;"></i></a>
+                                                   title="Editer"><i class="fa fa-pencil" style="width: 10px;"></i></a>
                                                 <a href="{{route('subsubcategory.delete', $item->id)}}" class="btn btn-danger"
-                                                   id="delete" title="Delete"><i class="fa fa-trash" style="width: 10px;"></i></a>
+                                                   id="delete" title="Supprimer"><i class="fa fa-trash" style="width: 10px;"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -55,7 +55,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Add Sub-subcategory</h3>
+                            <h3 class="box-title">Ajouter Sous-souscatégorie</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -63,10 +63,10 @@
                                 <form method="post" action="{{route('subsubcategory.store')}}" >@csrf
 
                                     <div class="form-group">
-                                        <h5>Category select <span class="text-danger">*</span></h5>
+                                        <h5>Choisir Catégorie<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="category_id" class="form-control">
-                                                <option value="">Select Category</option>
+                                                <option value="">Catégorie</option>
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                 @endforeach
@@ -77,10 +77,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Subcategory select <span class="text-danger">*</span></h5>
+                                        <h5>Choisir Souscatégorie<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <select name="subcategory_id" class="form-control">
-                                                <option value="">Select Subcategory</option>
+                                                <option value="">Souscatégorie</option>
                                             </select>
                                             @error('subcategory_id')
                                             <span class="text-danger">{{$message}}</span>
@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <h5>Sub-subcategory name<span class="text-danger">*</span></h5>
+                                        <h5>Nom Sous-souscatégorie<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="subsubcategory_name" class="form-control" >
                                         </div>
@@ -97,7 +97,7 @@
                                         @enderror
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Ajouter">
                                     </div>
                                 </form>
                             </div>

@@ -9,7 +9,7 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Site Setting Page </h4>
+                    <h4 class="box-title">Parmètres du site</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -23,19 +23,19 @@
                                             <div class="col-md-8">
 
                                                 <div class="form-group">
-                                                    <h5>Site Logo  <span class="text-danger"> </span></h5>
+                                                    <h5>Logo du site<span class="text-danger"> </span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="logo" class="form-control" > </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <h5>Phone One <span class="text-danger">*</span></h5>
+                                                    <h5>Contact 1<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="phone_one" class="form-control" value="{{ $setting->phone_one }}" > </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <h5>Phone Two <span class="text-danger">*</span></h5>
+                                                    <h5>Contact 2<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="phone_two" class="form-control"  value="{{ $setting->phone_two }}"  > </div>
                                                 </div>
@@ -47,7 +47,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <h5>Company Name <span class="text-danger">*</span></h5>
+                                                    <h5>Nom entreprise<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="company_name" class="form-control" value="{{ $setting->company_name }}"   >
                                                     </div>
@@ -55,7 +55,7 @@
 
 
                                                 <div class="form-group">
-                                                    <h5>Company Address <span class="text-danger">*</span></h5>
+                                                    <h5>Adresse de l'entreprise<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="company_address" class="form-control" value="{{ $setting->company_address }}">
                                                     </div>
@@ -93,7 +93,7 @@
 
                                         </div>	<!-- end row 	 -->
                                         <div class="text-xs-right">
-                                            <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                            <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Metre à jour">
                                         </div>
                                     </div>
                                 </div>

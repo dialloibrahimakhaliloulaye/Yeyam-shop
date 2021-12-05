@@ -2,14 +2,14 @@
 @section('content')
 
 @section('title')
-    Blog Category Page
+    Catégorie Blog Page
 @endsection
 
 <div class="breadcrumb">
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="#">Home</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li class='active'>Blog</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -33,7 +33,7 @@
                             <p>{!! Str::limit($blog->post_details, 200 )  !!}</p>
 
 
-                            <a href="{{ route('post.details',$blog->id) }}" class="btn btn-upper btn-primary read-more">read more</a>
+                            <a href="{{ route('post.details',$blog->id) }}" class="btn btn-upper btn-primary read-more">Lire la suite</a>
 
                         </div>
                     @endforeach
@@ -70,7 +70,7 @@
                         </div>
                         <!-- ======== ====CATEGORY======= === -->
                         <div class="sidebar-widget outer-bottom-xs wow fadeInUp">
-                            <h3 class="section-title">Blog Category</h3>
+                            <h3 class="section-title">Categorie Blog</h3>
                             <div class="sidebar-widget-body m-t-10">
                                 <div class="accordion">
 
@@ -88,10 +88,10 @@
 
                         <!-- === ======== PRODUCT TAGS ==== ========== -->
                         <div class="sidebar-widget product-tag wow fadeInUp">
-                            <h3 class="section-title">Product tags</h3>
+                            <h3 class="section-title">Tags Produit</h3>
                             <div class="sidebar-widget-body outer-top-xs">
                                 <div class="tag-list">
-                                    <a class="item" title="Phone" href="category.html">Phone</a>
+                                    <a class="item" title="Phone" href="category.html">Télephone</a>
                                     <a class="item active" title="Vest" href="category.html">Vest</a>
                                     <a class="item" title="Smartphone" href="category.html">Smartphone</a>
                                     <a class="item" title="Furniture" href="category.html">Furniture</a>

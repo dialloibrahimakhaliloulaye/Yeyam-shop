@@ -9,7 +9,7 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Edit Product </h4>
+                    <h4 class="box-title">Editer Produit</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -23,10 +23,10 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Brand Select <span class="text-danger">*</span></h5>
+                                                    <h5>Choisir Brand<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="brand_id" class="form-control"  >
-                                                            <option value="" selected="" disabled="">Select Brand</option>
+                                                            <option value="" selected="" disabled="">Brand</option>
                                                             @foreach($brands as $brand)
                                                                 <option value="{{ $brand->id }}" {{ $brand->id==$products->brand_id ? 'selected' : '' }}>{{ $brand->brand_name }}</option>
                                                             @endforeach
@@ -40,10 +40,10 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Category Select <span class="text-danger">*</span></h5>
+                                                    <h5>Choisir Catégorie<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="category_id" class="form-control"  >
-                                                            <option value="" selected="" disabled="">Select Category</option>
+                                                            <option value="" selected="" disabled="">Catégorie</option>
                                                             @foreach($categories as $category)
                                                                 <option value="{{ $category->id }}" {{ $category->id==$products->category_id ? 'selected' : '' }}>
                                                                     {{ $category->category_name }}</option>
@@ -58,11 +58,11 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>SubCategory Select <span class="text-danger">*</span></h5>
+                                                    <h5>Coisir SousCatégorie<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="subcategory_id" class="form-control"  >
                                                             <option value="" selected="" disabled="" >
-                                                                Select SubCategory</option>
+                                                                SousCatégorie</option>
                                                             @foreach($subcategories as $subcategory)
                                                                 <option value="{{ $subcategory->id }}" {{ $subcategory->id==$products->subcategory_id ? 'selected' : '' }}>
                                                                     {{ $subcategory->subcategory_name }}</option>
@@ -80,10 +80,10 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Sub-subCategory Select <span class="text-danger">*</span></h5>
+                                                    <h5>Choisir Sous-sousCatégorie<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="subsubcategory_id" class="form-control"  >
-                                                            <option value="" selected="" disabled="">Select Sub-subCategory</option>
+                                                            <option value="" selected="" disabled="">Sous-sousCatégorie</option>
                                                             @foreach($subsubcategories as $subsubcategory)
                                                                 <option value="{{ $subsubcategory->id }}" {{ $subsubcategory->id==$products->subsubcategory_id ? 'selected' : '' }}>
                                                                     {{ $category->category_name }}</option>
@@ -98,7 +98,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product name <span class="text-danger">*</span></h5>
+                                                    <h5>Nom produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_name" class="form-control" required value="{{$products->product_name}}">
                                                         @error('product_name')
@@ -108,7 +108,7 @@
                                                 </div>
                                             </div> <!-- end col md 4 -->
 
-                                            <div class="col-md-4">
+<!--                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <h5>Product code <span class="text-danger">*</span></h5>
                                                     <div class="controls">
@@ -118,16 +118,16 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                            </div> <!-- end col md 4 -->
+                                            </div> &lt;!&ndash; end col md 4 &ndash;&gt;-->
                                         </div> <!-- end 2nd row  -->
 
                                         <div class="row"> <!-- start 3rd row  -->
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product color <span class="text-danger">*</span></h5>
+                                                    <h5>Couleur produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_color" class="form-control" required
+                                                        <input type="text" name="product_color" class="form-control"
                                                                value="{{$products->product_color}}" data-role="tagsinput">
                                                         @error('product_color')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -138,9 +138,9 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Tags <span class="text-danger">*</span></h5>
+                                                    <h5>Tags produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_tags" class="form-control" required
+                                                        <input type="text" name="product_tags" class="form-control"
                                                                value="{{$products->product_tags}}" data-role="tagsinput">
                                                         @error('product_tags')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -151,9 +151,9 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product size <span class="text-danger">*</span></h5>
+                                                    <h5>Taille produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_size" class="form-control" required
+                                                        <input type="text" name="product_size" class="form-control"
                                                                value="{{$products->product_size}}" data-role="tagsinput">
                                                         @error('product_size')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -167,7 +167,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product quantity <span class="text-danger">*</span></h5>
+                                                    <h5>Quantité produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_qty" class="form-control" required value="{{$products->product_qty}}">
                                                         @error('product_qty')
@@ -178,7 +178,7 @@
                                             </div> <!-- end col md 4 -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product selling price <span class="text-danger">*</span></h5>
+                                                    <h5>Prix produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="selling_price" class="form-control" required value="{{$products->selling_price}}">
                                                         @error('selling_price')
@@ -190,9 +190,9 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product discount price<span class="text-danger">*</span></h5>
+                                                    <h5>Prix réduction produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="discount_price" class="form-control" required value="{{$products->discount_price}}">
+                                                        <input type="text" name="discount_price" class="form-control" value="{{$products->discount_price}}">
                                                         @error('discount_price')
                                                         <span class="text-danger">{{ $message }}</span>
                                                         @enderror
@@ -206,7 +206,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Main Thambnail <span class="text-danger">*</span></h5>
+                                                    <h5>Thambnail produit<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="product_thambnail" class="form-control"
                                                                 onChange="mainThambUrl(this)">
@@ -219,7 +219,7 @@
                                             </div> <!-- end col md 4 -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Multiple image <span class="text-danger">*</span></h5>
+                                                    <h5>Image Multiple<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="multi_image[]" class="form-control"
                                                                 multiple="" id="multiImg">
@@ -238,10 +238,10 @@
 
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <h5>Short description <span class="text-danger">*</span></h5>
+                                                    <h5>Petite description <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea name="short_descp" id="textarea" class="form-control"
-                                                                  required placeholder="short description">
+                                                                  placeholder="Petite description">
                                                             {!! $products->short_descp !!}
                                                         </textarea>
                                                     </div>
@@ -249,10 +249,10 @@
                                             </div> <!-- end col md 4 -->
                                             <div class="col-md-7">
                                                 <div class="form-group">
-                                                    <h5>Long description <span class="text-danger">*</span></h5>
+                                                    <h5>Description<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <textarea id="editor1" name="long_descp" rows="10" cols="80" required>
-												            Describe the product here
+                                                        <textarea id="editor1" name="long_descp" rows="10" cols="80">
+												            Decrivez votre produit ici.
                                                             {!! $products->long_descp !!}
 						                                </textarea>
                                                     </div>
@@ -277,7 +277,7 @@
                                                 </fieldset>
                                                 <fieldset>
                                                     <input type="checkbox" name="featured" id="checkbox_3" value="1" {{$products->featured==1 ? 'checked' : ''}}>
-                                                    <label for="checkbox_3">Featured</label>
+                                                    <label for="checkbox_3">Populaires</label>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -288,11 +288,11 @@
                                             <div class="controls">
                                                 <fieldset>
                                                     <input type="checkbox" name="special_offer" id="checkbox_4" value="1" {{$products->special_offer==1 ? 'checked' : ''}}>
-                                                    <label for="checkbox_4">Special offer</label>
+                                                    <label for="checkbox_4">Offre Special</label>
                                                 </fieldset>
                                                 <fieldset>
                                                     <input type="checkbox" name="special_deals" id="checkbox_5" value="1" {{$products->special_deals==1 ? 'checked' : ''}}>
-                                                    <label for="checkbox_5">Special deals</label>
+                                                    <label for="checkbox_5">Deals Special</label>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -300,7 +300,7 @@
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update" >
+                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour" >
                                 </div>
                             </form>
 
@@ -321,7 +321,7 @@
                 <div class="col-md-12">
                     <div class="box bt-3 border-info">
                         <div class="box-header">
-                            <h4 class="box-title">Product Multiple Image <strong>Update</strong></h4>
+                            <h4 class="box-title">Image multiple produit <strong>Modifier</strong></h4>
                         </div>
                         <form method="post" action="{{ route('update.product.image') }}" enctype="multipart/form-data">@csrf
                             <div class="row row-sm">
@@ -331,12 +331,12 @@
                                             <img src="{{ asset($img->photo_name) }}" class="card-img-top" style="height: 130px; width: 280px;">
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    <a href="{{ route('product.multiimg.delete',$img->id) }}" class="btn btn-sm btn-danger" id="delete" title="Delete Data">
+                                                    <a href="{{ route('product.multiimg.delete',$img->id) }}" class="btn btn-sm btn-danger" id="delete" title="Supprimer">
                                                         <i class="fa fa-trash"></i> </a>
                                                 </h5>
                                                 <p class="card-text">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                                                    <label class="form-control-label">Changer l'image<span class="tx-danger">*</span></label>
                                                     <input class="form-control" type="file" name="multi_img[{{ $img->id }}]">
                                                 </div>
                                                 </p>
@@ -347,7 +347,7 @@
                                 @endforeach
                             </div>
                             <div class="text-xs-right">
-                                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+                                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour l'image">
                             </div>
                             <br><br>
                         </form>
@@ -363,7 +363,7 @@
                 <div class="col-md-12">
                     <div class="box bt-3 border-info">
                         <div class="box-header">
-                            <h4 class="box-title">Product Thambnail Image <strong>Update</strong></h4>
+                            <h4 class="box-title">Image Thambnail Produit<strong>Modifier</strong></h4>
                         </div>
                         <form method="post" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data">@csrf
                             <input type="hidden" name="id" value="{{ $products->id }}">
@@ -375,7 +375,7 @@
                                         <div class="card-body">
                                             <p class="card-text">
                                             <div class="form-group">
-                                                <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                                                <label class="form-control-label">Changer l'mage<span class="tx-danger">*</span></label>
                                                 <input type="file" name="product_thambnail" class="form-control" onChange="mainThamUrl(this)"  >
                                                 <img src="" id="mainThmb">
                                             </div>
@@ -385,7 +385,7 @@
                                 </div><!--  end col md 3		 -->
                             </div>
                             <div class="text-xs-right">
-                                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+                                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour les images">
                             </div>
                             <br><br>
                         </form>

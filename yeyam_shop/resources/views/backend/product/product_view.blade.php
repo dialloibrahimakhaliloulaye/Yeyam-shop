@@ -13,7 +13,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Product List <span class="badge badge-pill badge-info"> {{ count($products) }} </span></h3>
+                            <h3 class="box-title">Liste produit<span class="badge badge-pill badge-info"> {{ count($products) }} </span></h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -22,10 +22,10 @@
                                     <thead>
                                     <tr>
                                         <th>Image</th>
-                                        <th>name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Discount</th>
+                                        <th>Nom</th>
+                                        <th>Prix</th>
+                                        <th>Quantité</th>
+                                        <th>Réduction</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -40,7 +40,7 @@
                                             <td>{{ $item->product_qty }} Pi</td>
                                             <td>
                                                 @if($item->discount_price == NULL)
-                                                    <span class="badge badge-pill badge-danger">No Discount</span>
+                                                    <span class="badge badge-pill badge-danger">Pas de réduction</span>
                                                 @else
                                                     @php
                                                         $amount = $item->selling_price - $item->discount_price;
@@ -59,15 +59,15 @@
                                             </td>
                                             <td width="30%">
                                                 <a href="{{ route('product.edit',$item->id) }}" class="btn btn-primary"
-                                                   title="Product Details Data"><i class="fa fa-eye"></i> </a>
+                                                   title="Details produit"><i class="fa fa-eye"></i> </a>
                                                 <a href="{{route('product.edit', $item->id)}}" class="btn btn-info"
-                                                   title="Edit"><i class="fa fa-pencil"></i></a>
+                                                   title="Editer"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{route('product.delete', $item->id)}}" class="btn btn-danger"
-                                                   id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                   id="Supprimer" title="Delete"><i class="fa fa-trash"></i></a>
                                                 @if($item->status == 1)
-                                                    <a href="{{ route('product.inactive',$item->id) }}" class="btn btn-danger" title="Inactive Now"><i class="fa fa-arrow-down"></i> </a>
+                                                    <a href="{{ route('product.inactive',$item->id) }}" class="btn btn-danger" title="Inactive"><i class="fa fa-arrow-down"></i> </a>
                                                 @else
-                                                    <a href="{{ route('product.active',$item->id) }}" class="btn btn-success" title="Active Now"><i class="fa fa-arrow-up"></i> </a>
+                                                    <a href="{{ route('product.active',$item->id) }}" class="btn btn-success" title="Active"><i class="fa fa-arrow-up"></i> </a>
                                                 @endif
                                             </td>
                                         </tr>

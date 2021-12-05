@@ -12,14 +12,14 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Edit Division </h3>
+                            <h3 class="box-title">Editer Région</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
                                 <form method="post" action="{{ route('division.update',$divisions->id) }}" >@csrf
                                     <div class="form-group">
-                                        <h5>Division Name  <span class="text-danger">*</span></h5>
+                                        <h5>Région<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text"  name="division_name" class="form-control" value="{{ $divisions->division_name }}" >
                                             @error('division_name')
@@ -28,7 +28,7 @@
                                         </div>
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

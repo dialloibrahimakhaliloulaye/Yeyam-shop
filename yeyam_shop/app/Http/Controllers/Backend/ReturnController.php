@@ -16,7 +16,7 @@ class ReturnController extends Controller
     public function ReturnRequestApprove($order_id){
         Order::where('id',$order_id)->update(['return_order' => 2]);
         $notification = array(
-            'message' => 'Return Order Successfully',
+            'message' => 'Retour approuvé avec succès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

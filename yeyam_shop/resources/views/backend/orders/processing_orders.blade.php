@@ -12,7 +12,7 @@
                 <div class="col-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Processing Orders List</h3>
+                            <h3 class="box-title">Liste commandes en traitement</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -21,9 +21,9 @@
                                     <thead>
                                     <tr>
                                         <th>Date </th>
-                                        <th>Invoice </th>
-                                        <th>Amount </th>
-                                        <th>Payment </th>
+                                        <th>Reçu </th>
+                                        <th>Montant </th>
+                                        <th>Paiement </th>
                                         <th>Status </th>
                                         <th>Action</th>
                                     </tr>
@@ -39,8 +39,8 @@
                                             <td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span>  </td>
 
                                             <td width="25%">
-                                                <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-eye"></i> </a>
-                                                <a target="_blank" href="{{ route('invoice.download',$item->id) }}" class="btn btn-danger" title="Invoice Download">
+                                                <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Editer"><i class="fa fa-eye"></i> </a>
+                                                <a target="_blank" href="{{ route('invoice.download',$item->id) }}" class="btn btn-danger" title="Télecharger facture">
                                                     <i class="fa fa-download"></i></a>
                                             </td>
                                         </tr>

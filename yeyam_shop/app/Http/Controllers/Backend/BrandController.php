@@ -33,7 +33,7 @@ class BrandController extends Controller
             'brand_image'=>$save_url,
         ]);
         $notification=array(
-            'message'=>'Brand created successfully',
+            'message'=>'Marque créée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);
@@ -62,7 +62,7 @@ class BrandController extends Controller
                 'brand_image'=>$save_url,
             ]);
             $notification=array(
-                'message'=>'Brand updated successfully',
+                'message'=>'Marque mis à jour avec succès',
                 'alert-type'=>'info'
             );
             return redirect()->route('all.brand')->with($notification);
@@ -73,7 +73,7 @@ class BrandController extends Controller
                 'brand_slug'=>strtolower(str_replace(' ', '-', $request->brand_name)),
             ]);
             $notification=array(
-                'message'=>'Brand updated successfully',
+                'message'=>'Marque mis à jour avec succès',
                 'alert-type'=>'info'
             );
             return redirect()->route('all.brand')->with($notification);
@@ -89,7 +89,7 @@ class BrandController extends Controller
         Brand::findOrFail($id)->delete();
 
         $notification=array(
-            'message'=>'Brand deleted successfully',
+            'message'=>'Marque Supprimée avec succès',
             'alert-type'=>'info'
         );
         return redirect()->route('all.brand')->with($notification);

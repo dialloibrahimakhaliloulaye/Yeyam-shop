@@ -3,14 +3,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @section('title')
-    My Checkout
+    Ma commande
 @endsection
 
 <div class="breadcrumb">
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Accueil</a></li>
                 <li class='active'>Checkout</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -34,11 +34,11 @@
                                     <div class="row">
                                         <!-- guest-login -->
                                         <div class="col-md-6 col-sm-6 already-registered-login">
-                                            <h4 class="checkout-subtitle"><b>Shipping Address</b></h4>
+                                            <h4 class="checkout-subtitle"><b>Point de livraison</b></h4>
 
                                             <form class="register-form" action="{{ route('checkout.store') }}" method="POST">@csrf
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1"><b>Shipping Name</b>  <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1"><b>Nom Destinataire</b>  <span>*</span></label>
                                                     <input type="text" name="shipping_name" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Full Name" value="{{ Auth::user()->name }}" required="">
                                                 </div>  <!-- // end form group  -->
 
@@ -48,12 +48,12 @@
                                                 </div>  <!-- // end form group  -->
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1"><b>Phone</b>  <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1"><b>Télephone</b>  <span>*</span></label>
                                                     <input type="number" name="shipping_phone" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Phone" value="{{ Auth::user()->phone }}" required="">
                                                 </div>  <!-- // end form group  -->
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1"><b>Post Code </b> <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1"><b>Code postal</b> <span>*</span></label>
                                                     <input type="text" name="post_code" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Post Code" required="">
                                                 </div>  <!-- // end form group  -->
                                         </div>
@@ -63,10 +63,10 @@
                                         <div class="col-md-6 col-sm-6 already-registered-login">
 
                                             <div class="form-group">
-                                                <h5><b>Division Select </b> <span class="text-danger">*</span></h5>
+                                                <h5><b>Choisir Région</b> <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="division_id" class="form-control" required="" >
-                                                        <option value="" selected="" disabled="">Select Division</option>
+                                                        <option value="" selected="" disabled="">Région</option>
                                                         @foreach($divisions as $item)
                                                             <option value="{{ $item->id }}">{{ $item->division_name }}</option>
 
@@ -79,10 +79,10 @@
                                             </div> <!-- // end form group -->
 
                                             <div class="form-group">
-                                                <h5><b>District Select</b>  <span class="text-danger">*</span></h5>
+                                                <h5><b>Choisir Département</b>  <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="district_id" class="form-control" required="" >
-                                                        <option value="" selected="" disabled="">Select District</option>
+                                                        <option value="" selected="" disabled="">Département</option>
 
                                                     </select>
                                                     @error('district_id')
@@ -92,10 +92,10 @@
                                             </div> <!-- // end form group -->
 
                                             <div class="form-group">
-                                                <h5><b>State Select</b> <span class="text-danger">*</span></h5>
+                                                <h5><b>Choisir Arrondissement</b> <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="state_id" class="form-control"  >
-                                                        <option value="" selected="" disabled="">Select State</option>
+                                                        <option value="" selected="" disabled="">Arrondissement</option>
 
                                                     </select>
                                                     @error('state_id')
@@ -126,7 +126,7 @@
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Your Checkout Progress</h4>
+                                    <h4 class="unicase-checkout-title">DETAILS DE L'ACHAT</h4>
                                 </div>
                                 <div class="">
                                     <ul class="nav nav-checkout-progress list-unstyled">
@@ -141,10 +141,10 @@
                                                 <strong>Qty: </strong>
                                                 ( {{ $item->qty }} )
 
-                                                <strong>Color: </strong>
+                                                <strong>Couleur: </strong>
                                                 {{ $item->options->color }}
 
-                                                <strong>Size: </strong>
+                                                <strong>Taille: </strong>
                                                 {{ $item->options->size }}
                                             </li>
                                         @endforeach
@@ -152,20 +152,20 @@
                                         <li>
                                             @if(Session::has('coupon'))
 
-                                                <strong>SubTotal: </strong> {{ $cartTotal }} FCFA<hr>
+                                                <strong>Sous Total: </strong> {{ $cartTotal }} FCFA<hr>
 
-                                                <strong>Coupon Name : </strong> {{ session()->get('coupon')['coupon_name'] }}
+                                                <strong>Nom Coupon : </strong> {{ session()->get('coupon')['coupon_name'] }}
                                                 ( {{ session()->get('coupon')['coupon_discount'] }} % )
                                                 <hr>
 
-                                                <strong>Coupon Discount : </strong> {{ session()->get('coupon')['discount_amount'] }} FCFA
+                                                <strong>Coupon Réduction : </strong> {{ session()->get('coupon')['discount_amount'] }} FCFA
                                                 <hr>
 
                                                 <strong>Grand Total : </strong> {{ session()->get('coupon')['total_amount'] }} FCFA
                                                 <hr>
 
                                             @else
-                                                <strong>SubTotal: </strong> {{ $cartTotal }} FCFA<hr>
+                                                <strong>Sous Total: </strong> {{ $cartTotal }} FCFA<hr>
                                                 <strong>Grand Total : </strong> {{ $cartTotal }} FCFA<hr>
                                             @endif
                                         </li>
@@ -182,7 +182,7 @@
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Select Payment Method</h4>
+                                    <h4 class="unicase-checkout-title">methode de paiement</h4>
                                 </div>
 
                                 <div class="row">
@@ -192,11 +192,11 @@
                                         <img src="{{ asset('frontend/assets/images/payments/4.png') }}">
                                     </div> <!-- end col md 4 -->
 
-                                    <div class="col-md-4">
+<!--                                    <div class="col-md-4">
                                         <label for="">Card</label>
                                         <input type="radio" name="payment_method" value="card">
                                         <img src="{{ asset('frontend/assets/images/payments/3.png') }}">
-                                    </div> <!-- end col md 4 -->
+                                    </div> &lt;!&ndash; end col md 4 &ndash;&gt;-->
 
                                     <div class="col-md-4">
                                         <label for="">Cash</label>
@@ -206,7 +206,7 @@
 
                                 </div> <!-- // end row  -->
                                 <hr>
-                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Payment Step</button>
+                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Poursuivre le paiement</button>
 
 
                             </div>

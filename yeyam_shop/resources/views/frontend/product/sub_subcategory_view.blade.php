@@ -8,7 +8,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="#">Home</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li class='active'>Handbags</li>
                 @foreach($breadsubsubcat as $item)
                     <li class='active'>{{ $item->category->category_name }}</li>
@@ -39,9 +39,9 @@
                     <div class="sidebar-filter">
                         <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
                         <div class="sidebar-widget wow fadeInUp">
-                            <h3 class="section-title">shop by</h3>
+                            <h3 class="section-title">Chercher par</h3>
                             <div class="widget-header">
-                                <h4 class="widget-title">Category</h4>
+                                <h4 class="widget-title">Catégorie</h4>
                             </div>
                             <div class="sidebar-widget-body">
                                 <div class="accordion">
@@ -303,13 +303,13 @@
 
                                                         @if ($product->discount_price == NULL)
                                                             <div class="product-price">
-                                                                <span class="price"> ${{ $product->selling_price }} </span>
+                                                                <span class="price"> {{ $product->selling_price }} FCFA</span>
                                                             </div>
 
                                                         @else
                                                             <div class="product-price">
-                                                                <span class="price"> ${{ $product->discount_price }} </span>
-                                                                <span class="price-before-discount">$ {{ $product->selling_price }}</span>
+                                                                <span class="price"> {{ $product->discount_price }} FCFA</span>
+                                                                <span class="price-before-discount"> {{ $product->selling_price }} FCFA</span>
                                                             </div>
                                                     @endif
                                                     <!-- /.product-price -->
@@ -372,11 +372,11 @@
 
 
                                                             @if ($product->discount_price == NULL)
-                                                                <div class="product-price"> <span class="price"> ${{ $product->selling_price }} </span>  </div>
+                                                                <div class="product-price"> <span class="price"> {{ $product->selling_price }} FCFA</span>  </div>
                                                             @else
                                                                 <div class="product-price">
-                                                                    <span class="price"> ${{ $product->discount_price }} </span>
-                                                                    <span class="price-before-discount">$ {{ $product->selling_price }}</span>
+                                                                    <span class="price"> {{ $product->discount_price }} FCFA</span>
+                                                                    <span class="price-before-discount">{{ $product->selling_price }} FCFA</span>
                                                                 </div>
                                                         @endif
 

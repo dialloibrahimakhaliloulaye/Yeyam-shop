@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Delivered Orders List</h3>
+                            <h3 class="box-title">Liste commandes livrées</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -20,9 +20,9 @@
                                     <thead>
                                     <tr>
                                         <th>Date </th>
-                                        <th>Invoice </th>
-                                        <th>Amount </th>
-                                        <th>Payment </th>
+                                        <th>Reçcu </th>
+                                        <th>Montant </th>
+                                        <th>Paiement </th>
                                         <th>Status </th>
                                         <th>Action</th>
                                     </tr>
@@ -38,8 +38,8 @@
                                             <td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span>  </td>
 
                                             <td width="25%">
-                                                <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-eye"></i> </a>
-                                                <a href="{{ route('coupon.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
+                                                <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Editer"><i class="fa fa-eye"></i> </a>
+                                                <a href="{{ route('coupon.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="Supprimer">
                                                     <i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

@@ -10,9 +10,9 @@
                 <div class="col-md-6">
                     <div class="card">
                         <h3 class="text-center">
-                            <span class="text-danger">Hi...</span>
+                            <span class="text-danger">Bonjour...</span>
                             <strong>{{Auth::user()->name}}</strong>
-                            Welcome to Yéyam-shop
+                            Bienvenu à Yéyam-shop
                         </h3>
                     </div>
                 </div>

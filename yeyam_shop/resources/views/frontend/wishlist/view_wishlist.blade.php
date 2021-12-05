@@ -10,7 +10,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Accueil</a></li>
                 <li class='active'>Wishlist</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -26,7 +26,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th colspan="4" class="heading-title">My Wishlist</th>
+                                <th colspan="4" class="heading-title">Mon Wishlist</th>
                             </tr>
                             </thead>
                             <tbody id="wishlist">

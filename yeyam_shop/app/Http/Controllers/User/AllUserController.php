@@ -43,7 +43,7 @@ class AllUserController extends Controller
             'return_order' => 1,
         ]);
         $notification = array(
-            'message' => 'Return Request Send Successfully',
+            'message' => 'Requête de retour soumise avec succès',
             'alert-type' => 'success'
         );
         return redirect()->route('my.orders')->with($notification);
@@ -70,7 +70,7 @@ class AllUserController extends Controller
             return view('frontend.tracking.track_order',compact('track'));
         }else{
             $notification = array(
-                'message' => 'Invoice Code Is Invalid',
+                'message' => 'Numéro du Commande Invalide',
                 'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);

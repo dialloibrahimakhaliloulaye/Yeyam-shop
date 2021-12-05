@@ -25,7 +25,7 @@ class ReviewController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message' => 'Review Will be Approved By Admin',
+            'message' => "Merci pour votre commentaire, il sera approuvé par l'Admin",
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -39,7 +39,7 @@ class ReviewController extends Controller
     public function ReviewApprove($id){
         Review::where('id',$id)->update(['status' => 1]);
         $notification = array(
-            'message' => 'Review Approved Successfully',
+            'message' => 'Commentaire approuvé avec succès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -53,7 +53,7 @@ class ReviewController extends Controller
     public function DeleteReview($id){
         Review::findOrFail($id)->delete();
         $notification = array(
-            'message' => 'Review Delete Successfully',
+            'message' => 'Commentaire supprimé avec succès',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

@@ -4,7 +4,7 @@
     <div class="container-full">
         <div class="box">
             <div class="box-header with-border">
-                <h4 class="box-title">Admin change password</h4>
+                <h4 class="box-title">changer de mot de passe</h4>
 
             </div>
             <!-- /.box-header -->
@@ -18,17 +18,17 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Current password<span class="text-danger">*</span></h5>
+                                                <h5>Mot de passe courant<span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="password" id="current_password" name="oldPassword" class="form-control" required=""> </div>
                                             </div>
                                             <div class="form-group">
-                                                <h5>New password<span class="text-danger">*</span></h5>
+                                                <h5>Nouveau mot de passe<span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="password" id="password" name="password" class="form-control" required=""> </div>
                                             </div>
                                             <div class="form-group">
-                                                <h5>Confirm password<span class="text-danger">*</span></h5>
+                                                <h5>Confirmer nouveau mot de passe<span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required=""> </div>
                                             </div>
@@ -37,7 +37,7 @@
                                     </div>
 
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                         </form>
 

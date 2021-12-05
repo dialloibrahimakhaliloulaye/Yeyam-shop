@@ -16,7 +16,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Edit Blog Category </h3>
+                            <h3 class="box-title">Editer Blog Catégorie</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -26,7 +26,7 @@
                                     <input type="hidden" name="id" value="{{ $blogcategory->id }}">
 
                                     <div class="form-group">
-                                        <h5>Blog Category <span class="text-danger">*</span></h5>
+                                        <h5>Categorie<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text"  name="blog_category_name" class="form-control" value="{{ $blogcategory->blog_category_name }}" >
                                             @error('blog_category_name')
@@ -36,7 +36,7 @@
                                     </div>
 
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Mettre à jour">
                                     </div>
                                 </form>
                             </div>

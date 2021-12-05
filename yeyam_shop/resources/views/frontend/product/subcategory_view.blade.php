@@ -10,7 +10,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="#">Home</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li class='active'>Handbags</li>
                 @foreach($breadsubcat as $item)
                     <li class='active'>{{ $item->category->category_name }}</li>
@@ -37,9 +37,9 @@
                     <div class="sidebar-filter">
                         <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
                         <div class="sidebar-widget wow fadeInUp">
-                            <h3 class="section-title">shop by</h3>
+                            <h3 class="section-title">Chercher par</h3>
                             <div class="widget-header">
-                                <h4 class="widget-title">Category</h4>
+                                <h4 class="widget-title">Catégorie</h4>
                             </div>
                             <div class="sidebar-widget-body">
                                 <div class="accordion">

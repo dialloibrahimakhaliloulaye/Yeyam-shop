@@ -30,7 +30,7 @@ class SubcategoryController extends Controller
             'subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subcategory_name)),
         ]);
         $notification=array(
-            'message'=>'Subcategory created successfully',
+            'message'=>'Souscatégorie créée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);
@@ -52,7 +52,7 @@ class SubcategoryController extends Controller
             'subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subcategory_name)),
         ]);
         $notification=array(
-            'message'=>'Subcategory updated successfully',
+            'message'=>'Souscatégorie mis à jour avec succès',
             'alert-type'=>'info'
         );
         return redirect()->route('all.subcategory')->with($notification);
@@ -62,7 +62,7 @@ class SubcategoryController extends Controller
     {
         Subcategory::findOrFail($id)->delete();
         $notification=array(
-            'message'=>'Subcategory deleted successfully',
+            'message'=>'Souscatégorie supprimée avec succès',
             'alert-type'=>'info'
         );
         return redirect()->back()->with($notification);
@@ -105,7 +105,7 @@ class SubcategoryController extends Controller
             'sub_subcategory_slug'=> strtolower(str_replace(' ', '-', $request->subsubcategory_name)),
         ]);
         $notification=array(
-            'message'=>'Sub-subcategory created successfully',
+            'message'=>'Sous-souscatégorie créée avec succès',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);
@@ -132,7 +132,7 @@ class SubcategoryController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Sub-subCategory Updated Successfully',
+            'message' => 'Sous-souscatégorie mis à jour avec succès',
             'alert-type' => 'info'
         );
 
@@ -144,7 +144,7 @@ class SubcategoryController extends Controller
     {
         Subsubcategory::findOrFail($id)->delete();
         $notification=array(
-            'message'=>'Sub-subcategory deleted successfully',
+            'message'=>'Sous-souscatégorie supprimée avec succès',
             'alert-type'=>'info'
         );
         return redirect()->back()->with($notification);

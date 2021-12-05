@@ -22,19 +22,19 @@
                                 </td>
 
                                 <td class="col-md-3">
-                                    <label for=""> Payment</label>
+                                    <label for=""> Paiement</label>
                                 </td>
 
-                                <td class="col-md-2">
-                                    <label for=""> Invoice</label>
+                                <td class="col-md-3">
+                                    <label for=""> Comande no</label>
                                 </td>
 
                                 <td class="col-md-1">
-                                    <label for=""> Order Reason  </label>
+                                    <label for=""> Raison de retour  </label>
                                 </td>
 
                                 <td class="col-md-2">
-                                    <label for=""> Order Status</label>
+                                    <label for=""> Status Commande</label>
                                 </td>
 
                             </tr>
@@ -64,13 +64,13 @@
                                     <td class="col-md-2">
                                         <label for="">
                                             @if($order->return_order == 0)
-                                                <span class="badge badge-pill badge-warning" style="background: #418DB9;"> No Return Request </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #418DB9;"> Aucun retour demandé </span>
                                             @elseif($order->return_order == 1)
-                                                <span class="badge badge-pill badge-warning" style="background: #800000;"> Pedding </span>
-                                                <span class="badge badge-pill badge-warning" style="background:red;">Return Requested </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #800000;"> En attente </span>
+                                                <span class="badge badge-pill badge-warning" style="background:red;">Retour demandé </span>
 
                                             @elseif($order->return_order == 2)
-                                                <span class="badge badge-pill badge-warning" style="background: #008000;">Success </span>
+                                                <span class="badge badge-pill badge-warning" style="background: #008000;">Succès </span>
                                             @endif
                                         </label>
                                     </td>
