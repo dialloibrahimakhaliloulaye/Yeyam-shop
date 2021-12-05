@@ -193,7 +193,7 @@
                                 </li>
                                 @endforeach
                                 <li> <a href="{{ route('shop.page') }}">SHOP</a> </li>
-                                <li> <a href="{{ route('first.vendors') }}">Marketplace</a> </li>
+                                <li> <a href="">Marketplace</a> </li>
 
                                 <li class="dropdown  navbar-right special-menu">
                                     <a href="#">
