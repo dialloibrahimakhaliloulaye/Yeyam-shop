@@ -13,4 +13,8 @@ class Category extends Model
         'category_slug',
         'category_image',
     ];
+
+    public function subcategories(){
+        return $this->hasMany(Subcategory::class);
+    }
 }

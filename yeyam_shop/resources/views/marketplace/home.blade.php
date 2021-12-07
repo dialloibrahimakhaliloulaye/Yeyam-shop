@@ -15,25 +15,20 @@
             <ul class="container navbar-nav">
                 @foreach($menus as $menuItem)
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{route('category.show', $menuItem->slug)}}"
+                        <a class="nav-link dropdown-toggle" href=""
                            data-toggle="dropdown_remove_dropdown_class_for_clickable_link" aria-haspopup="true"
                            aria-expanded="false">
-                            <b>{{$menuItem->name}}</b>
+                            <b>{{$menuItem->category_name}}</b>
                         </a>
                         <ul class="dropdown-menu">
                             @foreach($menuItem->subcategories as $subMenuItem)
                                 <li>
-                                    <a class="dropdown-item dropdown-toggle" href="{{route('subcategory.show', [
-                                            $menuItem->slug, $subMenuItem->slug])}}"><b>{{$subMenuItem->name}}</b>
+                                    <a class="dropdown-item dropdown-toggle" href=""><b>{{$subMenuItem->subcategory_name}}</b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        @foreach($subMenuItem->childcategories as $childMenuItem)
+                                        @foreach($subMenuItem->subsubcategories as $subsubMenuItem)
                                             <li>
-                                                <a class="dropdown-item" href="{{route('childcategory.show',[
-                                                        $menuItem->slug,
-                                                        $subMenuItem->slug,
-                                                        $childMenuItem->slug
-                                                        ])}}"><b>{{$childMenuItem->name}}</b>
+                                                <a class="dropdown-item" href=""><b>{{$subsubMenuItem->subsubcategory_name}}</b>
                                                 </a>
                                             </li>
                                         @endforeach

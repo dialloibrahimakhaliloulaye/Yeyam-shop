@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\Frontend\ShopController;
+use App\Http\Controllers\Marketplace\MenuController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
@@ -449,7 +451,7 @@ Route::get('/test', function (){
 });
 
 Route::prefix('marketplace')->group(function(){
-    Route::get('/home', function (){
-        return view('marketplace.home');
-        });
+    Route::get('/index', [MenuController::class, 'menu']);
+
+    Route::get('/ads/create', [AdvertisementController::class, 'create']);
 });
