@@ -442,3 +442,14 @@ Route::post('search-product', [IndexController::class, 'SearchProduct']);
 Route::get('/shop', [ShopController::class, 'ShopPage'])->name('shop.page');
 
 Route::post('/shop/filter', [ShopController::class, 'ShopFilter'])->name('shop.filter');
+
+
+Route::get('/test', function (){
+    return view('test');
+});
+
+Route::prefix('marketplace')->group(function(){
+    Route::get('/home', function (){
+        return view('marketplace.home');
+        });
+});
