@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertisement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdvertisementController extends Controller
 {
@@ -34,6 +36,19 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'first_image'=>'required|mimes:png,jpg,jpeg',
+            'second_image'=>'mimes:png,jpg,jpeg',
+            'third_image'=>'mimes:png,jpg,jpeg',
+            'name'=>'required|min:3|max:60',
+            'description'=>'required|min:5',
+            'price'=>"required|regex:/^\d+(\.\d{1,2})?$/",
+            'price_status'=>'required',
+            'category_id'=>'required',
+            'product_condition'=>'required',
+            'phone_number'=>'numeric|size:9'
+        ]);
+
         $data=$request->all();
         $firstImage=$request->file('first_image')->store('public/ads');
         $secondImage=$request->file('second_image')->store('public/ads');
@@ -41,7 +56,7 @@ class AdvertisementController extends Controller
         $data['first_image']=$firstImage;
         $data['second_image']=$secondImage;
         $data['third_image']=$thirdImage;
-        $data['slug']=Str::slug($request->name);
+        $data['advertisement_slug']=Str::slug($request->name);
         $data['user_id']=auth()->user()->id;
 
         Advertisement::create($data);

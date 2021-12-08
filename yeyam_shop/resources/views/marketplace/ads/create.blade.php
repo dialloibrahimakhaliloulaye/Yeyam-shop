@@ -30,7 +30,7 @@
                         @endforeach
                     </div>
                 @endif
-                <form action="" method="post" enctype="multipart/form-data">@csrf
+                <form action="{{route('ads.store')}}" method="post" enctype="multipart/form-data">@csrf
                     <div class="card">
                         <div class="card-header">Publier une annonce</div>
                         <div class="card-body">

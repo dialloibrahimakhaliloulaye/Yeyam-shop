@@ -454,4 +454,6 @@ Route::prefix('marketplace')->group(function(){
     Route::get('/index', [MenuController::class, 'menu']);
 
     Route::get('/ads/create', [AdvertisementController::class, 'create']);
+
+    Route::post('/ads/store', [AdvertisementController::class, 'store'])->middleware('auth')->name('ads.store');
 });
