@@ -9,4 +9,14 @@ class Advertisement extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
+    public function subsubcategory()
+    {
+        return $this->hasOne(Subsubcategory::class, 'id', 'childcategory_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\Marketplace\MenuController;
+use App\Http\Controllers\Marketplace\ProfileController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
@@ -451,11 +452,16 @@ Route::get('/test', function (){
 });
 
 Route::prefix('marketplace')->group(function(){
-    Route::get('/index', [MenuController::class, 'menu']);
+    Route::get('/index', [MenuController::class, 'menu'])->name('marketplace.index');
 
-    Route::get('/ads/create', [AdvertisementController::class, 'create'])->middleware('auth');
+    Route::get('/ads/create', [AdvertisementController::class, 'create'])->name('ads.create')->middleware('auth');
 
     Route::post('/ads/store', [AdvertisementController::class, 'store'])->middleware('auth')->name('ads.store');
 
-    Route::get('/ads', [AdvertisementController::class, 'index'])->middleware('auth');
+    Route::get('/ads', [AdvertisementController::class,'index'])->name('ads.index')->middleware('auth');
+    Route::get('/ads/{id}/edit', [AdvertisementController::class,'edit'])->name('ads.edit')->middleware('auth');
+    Route::put('/ads/{id}/update', [AdvertisementController::class,'update'])->name('ads.update')->middleware('auth');
+
+//profile
+    Route::get('/profile', [ProfileController::class,'index'])->name('profile.index')->middleware('auth');
 });

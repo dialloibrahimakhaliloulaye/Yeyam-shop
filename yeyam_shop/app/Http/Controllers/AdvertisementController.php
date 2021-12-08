@@ -35,7 +35,7 @@ class AdvertisementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): string
     {
         $request->validate([
             'first_image'=>'required|mimes:png,jpg,jpeg',
@@ -51,17 +51,23 @@ class AdvertisementController extends Controller
         ]);
 
         $data=$request->all();
-        $firstImage=$request->file('first_image')->store('public/ads');
-        $secondImage=$request->file('second_image')->store('public/ads');
-        $thirdImage=$request->file('third_image')->store('public/ads');
-        $data['first_image']=$firstImage;
-        $data['second_image']=$secondImage;
-        $data['third_image']=$thirdImage;
+        if ($request->hasFile('first_image')){
+            $firstImage=$request->file('first_image')->store('public/ads');
+            $data['first_image']=$firstImage;
+        }
+        if ($request->hasFile('second_image')){
+            $secondImage=$request->file('second_image')->store('public/ads');
+            $data['second_image']=$secondImage;
+        }
+        if ($request->hasFile('third_image')){
+            $thirdImage=$request->file('third_image')->store('public/ads');
+            $data['third_image']=$thirdImage;
+        }
         $data['advertisement_slug']=Str::slug($request->name);
         $data['user_id']=auth()->user()->id;
 
         Advertisement::create($data);
-        return "created";
+        return redirect()->route('marketplace.index')->with('message', 'Annonce créée avec succès');
     }
 
     /**
@@ -83,7 +89,9 @@ class AdvertisementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ad=Advertisement::find($id);
+        $this->authorize('edit-ad', $ad);
+        return view('marketplace.ads.edit', compact('ad'));
     }
 
     /**
@@ -95,7 +103,37 @@ class AdvertisementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'name'=>'required|min:3|max:60',
+            'description'=>'required|min:5',
+            'category_id'=>'required',
+            'subcategory_id'=>'required',
+            'price'=>"required|regex:/^\d+(\.\d{1,2})?$/",
+            'price_status'=>'required',
+            'product_condition'=>'required',
+            'phone_number'=>'required|numeric',
+        ]);
+        $ad=Advertisement::find($id);
+        $firstImage=$ad->first_image;
+        $secondImage=$ad->second_image;
+        $thirdImage=$ad->third_image;
+        $data=$request->all();
+        if ($request->hasFile('first_image')){
+            $firstImage=$request->file('first_image')->store('public/ads');
+        }
+        if ($request->hasFile('second_image')){
+            $secondImage=$request->file('second_image')->store('public/ads');
+        }
+        if ($request->hasFile('third_image')){
+            $thirdImage=$request->file('third_image')->store('public/ads');
+        }
+        $data['first_image']=$firstImage;
+        $data['second_image']=$secondImage;
+        $data['third_image']=$thirdImage;
+
+        $ad->update($data);
+        return redirect()->route('ads.index')->with('message', 'Annonce mise à jour avec succès');
     }
 
     /**
