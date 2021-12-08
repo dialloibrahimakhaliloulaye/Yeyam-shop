@@ -31,6 +31,19 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/rateit.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-select.min.css')}}">
+    <style>
+        .vertical-menu a {
+            background-color: #fff;
+            color: #000;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
+        .vertical-menu a:hover {
+            background-color: #1A8BCD;
+            color: #fff;
+        }
+    </style>
 
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/font-awesome.css')}}">
