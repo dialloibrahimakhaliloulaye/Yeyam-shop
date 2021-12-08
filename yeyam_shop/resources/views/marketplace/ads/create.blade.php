@@ -1,5 +1,8 @@
 @extends('frontend.main_master')
 @section('content')
+                <div>
+                    <exemple-component/>
+                </div>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
