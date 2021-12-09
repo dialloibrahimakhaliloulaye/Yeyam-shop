@@ -22,4 +22,14 @@ class Subcategory extends Model
     public function subsubcategories(){
         return $this->hasMany(Subsubcategory::class);
     }
+
+    public function ads()
+    {
+        return $this->hasMany(Advertisement::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

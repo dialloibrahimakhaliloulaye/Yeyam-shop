@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\Frontend\ShopController;
+use App\Http\Controllers\Marketplace\FrontendController;
 use App\Http\Controllers\Marketplace\MenuController;
 use App\Http\Controllers\Marketplace\ProfileController;
 use App\Http\Controllers\User\AllUserController;
@@ -468,5 +469,17 @@ Route::prefix('marketplace')->group(function(){
 
 //profile
     Route::get('/profile', [ProfileController::class ,'index'])->name('profile')->middleware('auth');
+
     Route::post('/profile', [ProfileController::class,'updateProfile'])->name('update.profile')->middleware('auth');
+
+    //frontend
+    Route::get('/product/{categorySlug}/{subcategorySlug}',[FrontendController::class,'findBySubcategory'])->name('subcategory.show');
+
+    Route::get('/product/{categorySlug}/{subcategorySlug}/{childcategorySlug}',[FrontendController::class,'findByChildcategory'])->name('childcategory.show');
+
+    Route::get('/product/{categorySlug}',[FrontendController::class,'findBycategory'])->name('category.show');
+
+    Route::get('products/{id}/{slug}', [FrontendController::class,'show'])->name('ads.show');
 });
+
+
