@@ -27,7 +27,7 @@ class FrontendController extends Controller
         $advertisements=$request->minPrice||$request->maxPrice?
             $advertisementBasedOnFilter:$advertisementWithoutFilter;
 
-        return view('product.subcategory', compact('advertisements','filterByChildcategories'));
+        return view('marketplace.product.subcategory', compact('advertisements','filterByChildcategories'));
     }
 
     public function findByChildcategory(
@@ -49,7 +49,7 @@ class FrontendController extends Controller
         $advertisements=$request->minPrice||$request->maxPrice?
             $advertisementBasedOnFilter:$advertisementWithoutFilter;
 
-        return view('product.childcategory',
+        return view('marketplace.product.childcategory',
             compact('filterByChildcategories', 'advertisements'));
     }
 
@@ -57,14 +57,14 @@ class FrontendController extends Controller
     {
         $advertisements=$categorySlug->ads;
         $filterBySubcategories=Subcategory::where('category_id', $categorySlug->id)->get();
-        return view('product.category', compact('advertisements', 'filterBySubcategories'));
+        return view('marketplace.product.category', compact('advertisements', 'filterBySubcategories'));
     }
 
     //show individual ad
     public function show($id, $slug)
     {
         $advertisement=Advertisement::where('id', $id)->where('slug', $slug)->first();
-        return view('product.show', compact('advertisement'));
+        return view('marketplace.product.show', compact('advertisement'));
     }
 
     //show user ad
@@ -72,6 +72,6 @@ class FrontendController extends Controller
     {
         $advertisement=Advertisement::where('user_id', $id)->paginate(12);
         $user=User::find($id);
-        return view('seller.ads', compact('advertisement', 'user'));
+        return view('marketplace.seller.ads', compact('advertisement', 'user'));
     }
 }
