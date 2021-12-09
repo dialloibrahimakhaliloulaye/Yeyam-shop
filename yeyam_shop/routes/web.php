@@ -459,9 +459,14 @@ Route::prefix('marketplace')->group(function(){
     Route::post('/ads/store', [AdvertisementController::class, 'store'])->middleware('auth')->name('ads.store');
 
     Route::get('/ads', [AdvertisementController::class,'index'])->name('ads.index')->middleware('auth');
+
     Route::get('/ads/{id}/edit', [AdvertisementController::class,'edit'])->name('ads.edit')->middleware('auth');
+
     Route::put('/ads/{id}/update', [AdvertisementController::class,'update'])->name('ads.update')->middleware('auth');
 
+    Route::delete('/ads/{id}/delete', [AdvertisementController::class,'destroy'])->name('ads.destroy')->middleware('auth');
+
 //profile
-    Route::get('/profile', [ProfileController::class,'index'])->name('profile.index')->middleware('auth');
+    Route::get('/profile', [ProfileController::class ,'index'])->name('profile')->middleware('auth');
+    Route::post('/profile', [ProfileController::class,'updateProfile'])->name('update.profile')->middleware('auth');
 });

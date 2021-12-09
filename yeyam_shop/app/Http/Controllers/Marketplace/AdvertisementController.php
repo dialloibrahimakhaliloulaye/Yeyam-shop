@@ -15,7 +15,7 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-        $ads=Advertisement::where('user_id', auth()->user()->id)->get();
+        $ads=Advertisement::latest()->where('user_id', auth()->user()->id)->get();
         return view('marketplace.index', compact('ads'));
     }
 
@@ -67,7 +67,7 @@ class AdvertisementController extends Controller
         $data['user_id']=auth()->user()->id;
 
         Advertisement::create($data);
-        return redirect()->route('marketplace.index')->with('message', 'Annonce créée avec succès');
+        return redirect()->route('ads.index')->with('message', 'Annonce créée avec succès');
     }
 
     /**
@@ -144,6 +144,8 @@ class AdvertisementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad=Advertisement::find($id);
+        $ad->delete();
+        return back()->with('message','Annonce supprimée avec succès');
     }
 }
