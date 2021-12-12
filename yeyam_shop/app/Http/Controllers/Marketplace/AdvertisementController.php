@@ -48,7 +48,7 @@ class AdvertisementController extends Controller
             'price_status'=>'required',
             'category_id'=>'required',
             'product_condition'=>'required',
-            'phone_number'=>'numeric|size:9'
+            'phone_number'=>'required|regex:/[0-9]{9}/'
         ]);
 
         $data=$request->all();
