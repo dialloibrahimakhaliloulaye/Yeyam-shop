@@ -448,3 +448,7 @@ Route::post('/shop/filter', [ShopController::class, 'ShopFilter'])->name('shop.f
 Route::get('/test', function () {
     return view('marketplace.test');
 });
+
+Route::get('/marketplace/register', function () {
+    return view('marketplace.auth.register');
+});
