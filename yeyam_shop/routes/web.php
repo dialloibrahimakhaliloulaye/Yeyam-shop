@@ -452,3 +452,7 @@ Route::get('/test', function () {
 Route::get('/marketplace/register', function () {
     return view('marketplace.auth.register');
 });
+
+Route::get('/marketplace/home', function () {
+    return view('marketplace.home');
+});
