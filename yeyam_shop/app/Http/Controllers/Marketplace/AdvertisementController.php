@@ -37,6 +37,20 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'first_image'=>'required|mimes:png,jpg,jpeg',
+            'second_image'=>'mimes:png,jpg,jpeg',
+            'third_image'=>'mimes:png,jpg,jpeg',
+            'name'=>'required|min:3|max:60',
+            'description'=>'required|min:5',
+            'price'=>"required|regex:/^\d+(\.\d{1,2})?$/",
+            'price_status'=>'required',
+            'category_id'=>'required',
+            'product_condition'=>'required',
+            'phone_number'=>'numeric|size:9'
+        ]);
+
         $data=$request->all();
         $firstImage=$request->file('first_image')->store('public/ads');
         $secondImage=$request->file('second_image')->store('public/ads');
