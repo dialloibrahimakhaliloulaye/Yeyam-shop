@@ -468,6 +468,8 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::get('/', [MenuController::class, 'menu']);
 
     Route::get('/ads/create', [AdvertisementController::class, 'create']);
+
+    Route::post('/ads/store', [AdvertisementController::class, 'store'])->middleware('auth')->name('ads.store');
 });
 
 Route::get('/test', function () {

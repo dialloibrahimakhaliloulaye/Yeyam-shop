@@ -30,7 +30,7 @@
                         @endforeach
                     </div>
                 @endif
-                <form action="{{--{{route('ads.store')}}--}}" method="post" enctype="multipart/form-data">@csrf
+                <form action="{{route('ads.store')}}" method="post" enctype="multipart/form-data">@csrf
                     <div class="card">
                         <div class="card-header">Publier une annonce</div>
                         <div class="card-body">
@@ -65,10 +65,10 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="childcategory_id" id="">
+                                    <select class="form-control" name="subsubcategory_id" id="">
                                         <option value="">Choisir la sous sous-catégorie</option>
-                                        @foreach(\App\Models\Subsubcategory::all() as $childcategory)
-                                            <option value="{{$childcategory->id}}">{{$childcategory->sub_subcategory_name}}</option>
+                                        @foreach(\App\Models\Subsubcategory::all() as $subsubcategory)
+                                            <option value="{{$subsubcategory->id}}">{{$subsubcategory->sub_subcategory_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

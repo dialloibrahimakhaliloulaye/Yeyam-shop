@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Marketplace;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advertisement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdvertisementController extends Controller
 {
@@ -35,7 +37,18 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        $firstImage=$request->file('first_image')->store('public/ads');
+        $secondImage=$request->file('second_image')->store('public/ads');
+        $thirdImage=$request->file('third_image')->store('public/ads');
+        $data['first_image']=$firstImage;
+        $data['second_image']=$secondImage;
+        $data['third_image']=$thirdImage;
+        $data['advertisement_slug']=Str::slug($request->name);
+        $data['user_id']=auth()->user()->id;
+
+        Advertisement::create($data);
+        return "created";
     }
 
     /**
