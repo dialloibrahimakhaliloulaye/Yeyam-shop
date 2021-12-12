@@ -7,7 +7,7 @@
                     <div class="card-header">Accueil</div>
                     <div class="card-body">
 {{--                        Bienvenue, {{auth()->user()->name}}--}}
-                        Salam 
+                        Salam
                     </div>
                 </div>
             </div>

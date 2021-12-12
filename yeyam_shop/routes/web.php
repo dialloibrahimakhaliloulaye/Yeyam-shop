@@ -453,6 +453,10 @@ Route::get('/marketplace/register', function () {
     return view('marketplace.auth.register');
 });
 
+Route::get('/marketplace/login', function () {
+    return view('marketplace.auth.login');
+});
+
 Route::get('/marketplace/home', function () {
     return view('marketplace.home');
 });
