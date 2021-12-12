@@ -480,6 +480,8 @@ Route::prefix('marketplace')->group(function(){
     Route::get('/product/{categorySlug}',[FrontendController::class,'findBycategory'])->name('category.show');
 
     Route::get('products/{id}/{slug}', [FrontendController::class,'show'])->name('ads.show');
+
+    Route::get('products/{id}/{slug}', [FrontendController::class,'show'])->name('product.view');
 });
 
 

@@ -2,21 +2,72 @@
 
 namespace App\Models;
 
+use Cohensive\Embed\Facades\Embed;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Advertisement extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $guarded;
 
-    public function subsubcategory()
+    public function displayVideoFromLink()
     {
-        return $this->hasOne(Subsubcategory::class, 'id', 'childcategory_id');
+        $embed=Embed::make($this->link)->parseUrl();
+        if (!$embed){
+            return;
+        }
+        $embed->setAttribute(['width'=>500]);
+        return $embed->getHtml();
+    }
+
+    public function childcategory()
+    {
+        return $this->hasOne(subsubcategory::class, 'id', 'childcategory_id');
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    //scope method for multimedia
+    public function scopeFirstFourAds($query, $categoryId)
+    {
+        return $query->where('category_id', $categoryId)->orderByDesc('id')->take(4)->get();
+    }
+
+    public function scopeSecondFourAds($query, $categoryId)
+    {
+        $firstAds=$this->scopeFirstFourAds($query, $categoryId);
+        return $query->where('category_id', $categoryId)->whereNotIn('id', $firstAds->pluck('id')->toArray())
+            ->take(4)->get();
+    }
+
+    //scope method for immobilier
+    public function scopeFirstFourImmobiliers($query, $categoryId)
+    {
+        return $query->where('category_id', $categoryId)->orderByDesc('id')->take(4)->get();
+    }
+
+    public function scopeSecondFourImmobiliers($query, $categoryId)
+    {
+        $firstAds=$this->scopeFirstFourImmobiliers($query, $categoryId);
+        return $query->where('category_id', $categoryId)->whereNotIn('id', $firstAds->pluck('id')->toArray())
+            ->take(4)->get();
+    }
+
+    //save ad relationship
+    public function userads()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    //check if user already saved the ad
+    public function didUserSavedAd()
+    {
+        return DB::table('advertisement_user')->where('user_id', auth()->user()->id)
+            ->where('advertisement_id', $this->id)->first();
     }
 }

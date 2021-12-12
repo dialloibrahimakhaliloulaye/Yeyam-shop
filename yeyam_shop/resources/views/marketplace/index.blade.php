@@ -72,7 +72,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="{{route('ads.show', [$ad->id, $ad->slug])}}">
+                                <a target="_blank" href="{{--{{route('ads.show', [$ad->id, $ad->slug])}}--}}">
                                     <button class="btn btn-info btn-primary">Voir</button>
                                 </a>
                             </td>

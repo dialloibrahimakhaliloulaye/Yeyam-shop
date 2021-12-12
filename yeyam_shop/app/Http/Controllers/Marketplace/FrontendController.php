@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Marketplace;
 use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
 use App\Models\Category;
-use App\Models\Childcategory;
 use App\Models\Subcategory;
 use App\Models\Subsubcategory;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {

@@ -9,6 +9,7 @@
         "ext-json": "*",
         "barryvdh/laravel-dompdf": "^0.9.0",
         "bumbummen99/shoppingcart": "^4.0",
+        "cohensive/embed": "^5.5",
         "doctrine/dbal": "^3.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
