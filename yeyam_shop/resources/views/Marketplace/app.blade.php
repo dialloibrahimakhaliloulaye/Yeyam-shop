@@ -168,11 +168,22 @@
             min-width: 250px;
             display: none
         }
+         .vertical-menu a {
+             background-color: #fff;
+             color: #000;
+             display: block;
+             padding: 12px;
+             text-decoration: none;
+         }
+        .vertical-menu a:hover {
+            background-color: green;
+            color: #fff;
+        }
 </style>
 <!--end second navbar-->
 <main class="py-4">
     <div class="container">
-        @yield('content')
+        @yield('content2')
     </div>
 </main>
 </div>
