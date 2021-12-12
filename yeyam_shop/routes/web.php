@@ -445,22 +445,27 @@ Route::post('/shop/filter', [ShopController::class, 'ShopFilter'])->name('shop.f
 
 
 //Marketplace
+Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
+
+    Route::get('/register', function () {
+        return view('marketplace.auth.register');
+    });
+
+    Route::get('/login', function () {
+        return view('marketplace.auth.login');
+    });
+
+    Route::get('/home', function () {
+        return view('marketplace.home');
+    });
+
+    Route::get('/index', function () {
+        return view('marketplace.index');
+    });
+});
+
 Route::get('/test', function () {
     return view('marketplace.test');
 });
 
-Route::get('/marketplace/register', function () {
-    return view('marketplace.auth.register');
-});
 
-Route::get('/marketplace/login', function () {
-    return view('marketplace.auth.login');
-});
-
-Route::get('/marketplace/home', function () {
-    return view('marketplace.home');
-});
-
-Route::get('/marketplace/index', function () {
-    return view('marketplace.index');
-});
