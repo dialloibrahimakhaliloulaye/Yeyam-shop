@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\Frontend\ShopController;
+use App\Http\Controllers\Marketplace\MenuController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
@@ -462,6 +463,8 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::get('/index', function () {
         return view('marketplace.index');
     });
+
+    Route::get('/', [MenuController::class, 'menu']);
 });
 
 Route::get('/test', function () {
