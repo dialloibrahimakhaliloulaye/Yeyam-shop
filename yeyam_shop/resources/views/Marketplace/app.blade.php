@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Yeyam-shop') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm text-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Yeyam-shop') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -87,7 +87,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarHover">
-            <ul class="navbar-nav">
+            <ul class="container-fluid navbar-nav">
+                @for($i=0;$i<7;$i++)
 
 
                 <li class="nav-item dropdown">
@@ -116,6 +117,7 @@
                     </ul>
 
                 </li>
+                @endfor
 
             </ul>
         </div>
@@ -123,7 +125,7 @@
 
 
     <main class="py-4">
-        @yield('content')
+        @yield('content2')
     </main>
 </div>
 <style>

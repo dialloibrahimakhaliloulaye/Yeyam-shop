@@ -460,3 +460,7 @@ Route::get('/marketplace/login', function () {
 Route::get('/marketplace/home', function () {
     return view('marketplace.home');
 });
+
+Route::get('/marketplace/index', function () {
+    return view('marketplace.index');
+});
