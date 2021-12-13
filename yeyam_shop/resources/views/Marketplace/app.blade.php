@@ -176,6 +176,10 @@
              text-decoration: none;
          }
         .vertical-menu a:hover {
+            background-color: whitesmoke;
+            color: green;
+        }
+        .vertical-menu a.active {
             background-color: green;
             color: #fff;
         }

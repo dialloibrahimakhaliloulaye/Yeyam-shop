@@ -1,7 +1,7 @@
 <template>
     <div class="form-inline form-group mt-1">
         <div class="col-md-4">
-            <select class="form-control" name="category_id" v-model="category" @change="getSubcategories">
+            <select class="form-control" name="category_id" required="" v-model="category" @change="getSubcategories">
                 <option value="">Choisir la catégorie</option>
                 <option v-for="data in categories" :value="data.id" :key="data.id">{{data['category_name']}}</option>
             </select>
