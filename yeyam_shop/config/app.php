@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Cohensive\Embed\EmbedServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Embed' => Cohensive\Embed\Facades\Embed::class,
     ],
 
 ];
