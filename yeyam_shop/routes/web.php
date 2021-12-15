@@ -479,7 +479,9 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::put('/ads/{id}/update', [AdvertisementController::class,'update'])->name('ads.update')->middleware('auth');
 
 //profile
-    Route::get('/profile', [ProfileController::class,'index'])->name('profile.index')->middleware('auth');
+    Route::get('/profile', [ProfileController::class,'index'])->name('profile')->middleware('auth');
+
+    Route::post('/profile', [ProfileController::class,'updateProfile'])->name('update.profile')->middleware('auth');
 });
 
 Route::get('/test', function () {
