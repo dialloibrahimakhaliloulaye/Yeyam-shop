@@ -71,7 +71,9 @@
                                 </a>
                             </td>
                             <td>
-                                <button class="btn btn-info btn-primary">Voir</button>
+                                <a target="_blank" href="{{route('ads.show', [$ad->id, $ad->advertisement_slug])}}">
+                                    <button class="btn btn-info btn-primary">Voir</button>
+                                </a>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-danger" data-toggle="modal"
