@@ -46,13 +46,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                        @endif
+                    @endif
 
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -63,7 +63,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -71,7 +71,7 @@
                                     @csrf
                                 </form>
                             </div>
-                        </li>
+                            </li>
                     @endguest
                 </ul>
             </div>
@@ -79,6 +79,7 @@
     </nav>
     <!--second navbar-->
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-hover">
+
 
 
         <a class="navbar-brand" href="#"></a>
@@ -89,42 +90,36 @@
         <div class="collapse navbar-collapse" id="navbarHover">
             <ul class="container-fluid navbar-nav">
                 @foreach($menus as $menuItem)
-
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href=""
-                       data-toggle="dropdown_remove_dropdown_class_for_clickable_link" aria-haspopup="true"
-                       aria-expanded="false">
-                        {{$menuItem->category_name}}
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        @foreach($menuItem->subcategories as $subMenuItem)
-                        <li>
-                            <a class="dropdown-item dropdown-toggle" href="">{{$subMenuItem->subcategory_name}}</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href=""
+                           data-toggle="dropdown_remove_dropdown_class_for_clickable_link" aria-haspopup="true"
+                           aria-expanded="false">
+                            {{$menuItem->category_name}}
+                        </a>
 
                             <ul class="dropdown-menu">
-                                @foreach($subMenuItem->subsubcategories as $childMenuItem)
-                                <li>
-                                    <a class="dropdown-item" href="">{{$childMenuItem->sub_subcategory_name}}
-                                    </a>
-                                </li>
+                                @foreach($menuItem->subcategories as $subMenuItem)
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="{{route('subcategory.show', [
+                                            $menuItem->category_slug, $subMenuItem->subcategory_slug])}}">{{$subMenuItem->subcategory_name}}
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            @foreach($subMenuItem->subsubcategories as $childMenuItem)
+                                                <li>
+                                                    <a class="dropdown-item" href="">{{$childMenuItem->sub_subcategory_name}}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
                                 @endforeach
                             </ul>
 
                         </li>
-                        @endforeach
-                    </ul>
-
-                </li>
                 @endforeach
-
             </ul>
         </div>
     </nav>
-
-
     <main class="py-4">
         @yield('content2')
     </main>
@@ -134,43 +129,6 @@
         color: white !important;
     } */
     .dropdown:hover > .dropdown-menu {
-        display: block;
-    }
-
-    /* hover dropdown menus */
-    @media only screen and (max-width: 991px) {
-        .navbar-hover .show > .dropdown-toggle::after {
-            transform: rotate(-90deg);
-        }
-    }
-
-    @media only screen and (min-width: 492px) {
-        .navbar-hover .collapse ul li {
-            position: relative;
-        }
-
-        .navbar-hover .collapse ul li:hover > ul {
-            display: block
-        }
-
-        .navbar-hover .collapse ul ul {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 250px;
-            display: none
-        }
-
-        .navbar-hover .collapse ul ul ul {
-            position: absolute;
-            top: 0;
-            left: 100%;
-            min-width: 250px;
-            display: none
-        }
-         .vertical-menu a {
-             background-color: #fff;
-             color: #000;
              display: block;
              padding: 12px;
              text-decoration: none;
@@ -183,9 +141,44 @@
             background-color: green;
             color: #fff;
         }
+    @media only screen and (min-width: 492px) {
+        .navbar-hover .collapse ul li {
+            position: relative;
+        }
+        .navbar-hover .collapse ul li:hover > ul {
+            display: block
+        }
+        .navbar-hover .collapse ul ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 250px;
+            display: none
+        }
+        .navbar-hover .collapse ul ul ul {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            min-width: 250px;
+            display: none
+        }
+        .vertical-menu a {
+            background-color: #fff;
+            color: #000;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
+        .vertical-menu a:hover {
+            background-color: whitesmoke;
+            color: green;
+        }
+        .vertical-menu a.active {
+            background-color: green;
+            color: #fff;
+        }
 </style>
 <!--end second navbar-->
-</div>
 </body>
 </html>
 

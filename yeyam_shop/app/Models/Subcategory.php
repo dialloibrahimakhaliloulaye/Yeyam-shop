@@ -14,6 +14,11 @@ class Subcategory extends Model
         'subcategory_slug',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'subcategory_slug';
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
@@ -21,5 +26,10 @@ class Subcategory extends Model
 
     public function subsubcategories(){
         return $this->hasMany(Subsubcategory::class);
+    }
+
+    public function ads()
+    {
+        return $this->hasMany(Advertisement::class);
     }
 }
