@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Yeyam-shop') }}</title>
+    <title>{{ config('app.name', 'Yeyam-shop Marketplace') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm text-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Yeyam-shop') }}
+                {{ config('app.name', 'Yeyam-shop Marketplace') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -91,17 +91,17 @@
             <ul class="container-fluid navbar-nav">
                 @foreach($menus as $menuItem)
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href=""
+                        <a class="nav-link dropdown-toggle" href="{{route('category.show', $menuItem->category_slug)}}"
                            data-toggle="dropdown_remove_dropdown_class_for_clickable_link" aria-haspopup="true"
                            aria-expanded="false">
-                            {{$menuItem->category_name}}
+                            <b>{{$menuItem->category_name}}</b>
                         </a>
 
                             <ul class="dropdown-menu">
                                 @foreach($menuItem->subcategories as $subMenuItem)
                                     <li>
                                         <a class="dropdown-item dropdown-toggle" href="{{route('subcategory.show', [
-                                            $menuItem->category_slug, $subMenuItem->subcategory_slug])}}">{{$subMenuItem->subcategory_name}}
+                                            $menuItem->category_slug, $subMenuItem->subcategory_slug])}}"><b>{{$subMenuItem->subcategory_name}}</b>
                                         </a>
                                         <ul class="dropdown-menu">
                                             @foreach($subMenuItem->subsubcategories as $childMenuItem)
@@ -110,7 +110,7 @@
                                                         $menuItem->category_slug,
                                                         $subMenuItem->subcategory_slug,
                                                         $childMenuItem->sub_subcategory_slug
-                                                        ])}}">{{$childMenuItem->sub_subcategory_name}}
+                                                        ])}}"><b>{{$childMenuItem->sub_subcategory_name}}</b>
                                                     </a>
                                                 </li>
                                             @endforeach

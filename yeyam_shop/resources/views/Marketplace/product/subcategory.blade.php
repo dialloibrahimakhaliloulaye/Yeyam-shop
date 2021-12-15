@@ -10,7 +10,7 @@
                         @foreach($filterByChildcategories as $filterByChildcategory)
                         <p>
                             <a href="{{url()->current()}}/{{($filterByChildcategory->childcategory->sub_subcategory_slug)??''}}">
-                                {{$filterByChildcategory->childcategory->sub_subcategory_name??''}}</a>
+                                <b>{{$filterByChildcategory->childcategory->sub_subcategory_name??''}}</b></a>
                         </p>
                         @endforeach
 

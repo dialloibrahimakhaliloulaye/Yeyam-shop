@@ -17,4 +17,14 @@ class Category extends Model
     public function subcategories(){
         return $this->hasMany(Subcategory::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'category_slug';
+    }
+
+    public function ads()
+    {
+        return $this->hasMany(Advertisement::class);
+    }
 }

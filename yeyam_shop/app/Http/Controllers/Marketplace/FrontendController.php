@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Marketplace;
 
 use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
+use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Subsubcategory;
 use Illuminate\Http\Request;
@@ -45,5 +46,12 @@ class FrontendController extends Controller
 
         //return $advertisements;
         return view('marketplace.product.subsubcategory', compact('advertisements','filterByChildcategories'));
+    }
+
+    public function findBycategory(Category $categorySlug)
+    {
+        $advertisements=$categorySlug->ads;
+        $filterBySubcategories=Subcategory::where('category_id', $categorySlug->id)->get();
+        return view('marketplace.product.category', compact('advertisements', 'filterBySubcategories'));
     }
 }
