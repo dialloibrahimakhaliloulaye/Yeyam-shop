@@ -488,6 +488,7 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
 
     //frontend
     Route::get('/product/{categorySlug}/{subcategorySlug}',[FrontendController::class,'findBySubcategory'])->name('subcategory.show');
+    Route::get('/product/{categorySlug}/{subcategorySlug}/{childcategorySlug}',[FrontendController::class,'findByChildcategory'])->name('childcategory.show');
 });
 
 Route::get('/test', function () {

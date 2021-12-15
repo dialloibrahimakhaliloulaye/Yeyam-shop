@@ -8,10 +8,10 @@
                     <div class="card-header text-white text-center" style="background-color: forestgreen;">Filtrer par : :</div>
                     <div class="card-body">
                         @foreach($filterByChildcategories as $filterByChildcategory)
-                        <p>
-                            <a href="{{url()->current()}}/{{($filterByChildcategory->childcategory->sub_subcategory_slug)??''}}">
-                                {{$filterByChildcategory->childcategory->sub_subcategory_name??''}}</a>
-                        </p>
+                            <p>
+                                <a href="{{($filterByChildcategory->childcategory->sub_subcategory_slug)??''}}">
+                                    {{$filterByChildcategory->childcategory->sub_subcategory_name??''}}</a>
+                            </p>
                         @endforeach
 
 
