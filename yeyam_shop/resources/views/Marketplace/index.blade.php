@@ -30,7 +30,7 @@
     </div>
     <div class="container mt-5">
         <span>
-            <h1>Car</h1>
+            <h2>Multimedias & Autres</h2>
             <a href="#" class="float-right">View all</a>
 
         </span>
@@ -39,67 +39,30 @@
 
                 <div class="carousel-item active">
                     <div class="row">
-                        <div class="col-3">
-                            <img src="/product/car1.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer" style="color: blue;">
-                                Name of product/$500
-                            </p>
-                        </div>
-
-                        <div class="col-3">
-                            <img src="/product/car1.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer">
-                                Name of product/$500
-                            </p>
-                        </div>
-
-                        <div class="col-3">
-                            <img src="/product/car1.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer">
-                                Name of product/$500
-                            </p>
-                        </div>
-
-                        <div class="col-3">
-                            <img src="/product/car1.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer">
-                                Name of product/$500
-                            </p>
-                        </div>
+                        @forelse($firstAds as $firstAd)
+                            <div class="col-3">
+                                <img src="{{Storage::url($firstAd->first_image)}}" class="img-thumbnail" style="min-height: 150px">
+                                <p class="text-center  card-footer" style="color: blue;">
+                                    {{$firstAd->name}} / {{$firstAd->price}} FCFA
+                                </p>
+                            </div>
+                        @empty
+                        @endforelse
 
                     </div>
                 </div>
 
                 <div class="carousel-item">
                     <div class="row">
-                        <div class="col-3">
-                            <img src="/product/car2.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer">
-                                Name of product/$500
-                            </p>
-                        </div>
-
-                        <div class="col-3">
-                            <img src="/product/car2.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer">
-                                Name of product/$500
-                            </p>
-                        </div>
-
-                        <div class="col-3">
-                            <img src="/product/car2.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer">
-                                Name of product/$500
-                            </p>
-                        </div>
-
-                        <div class="col-3">
-                            <img src="/product/car2.jpg" class="img-thumbnail">
-                            <p class="text-center  card-footer">
-                                Name of product/$500
-                            </p>
-                        </div>
-
+                        @forelse($secondAds as $secondAd)
+                            <div class="col-3">
+                                <img src="{{Storage::url($secondAd->first_image)}}" class="img-thumbnail" style="min-height: 150px">
+                                <p class="text-center  card-footer">
+                                    {{$secondAd->name}} / {{$secondAd->price}} FCFA
+                                </p>
+                            </div>
+                        @empty
+                        @endforelse
                     </div>
                 </div>
 
