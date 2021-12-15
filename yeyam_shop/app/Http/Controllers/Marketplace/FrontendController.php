@@ -54,4 +54,10 @@ class FrontendController extends Controller
         $filterBySubcategories=Subcategory::where('category_id', $categorySlug->id)->get();
         return view('marketplace.product.category', compact('advertisements', 'filterBySubcategories'));
     }
+
+    public function show($id, $slug)
+    {
+        $advertisement=Advertisement::where('id', $id)->where('advertisement_slug', $slug)->first();
+        return view('marketplace.product.show', compact('advertisement'));
+    }
 }

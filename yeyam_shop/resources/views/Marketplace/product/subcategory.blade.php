@@ -41,12 +41,13 @@
                 <div class="row">
                     @forelse($advertisements as $advertisement)
                         <div class="col-3">
-                            <img src="{{Storage::url($advertisement->first_image)}}" class="img-thumbnail">
-                            <p class="text-center  card-footer" style="color: blue;">
-                                <b>{{$advertisement->name}} / {{$advertisement->price}} FCFA </b>
-                            </p>
+                            <a href="{{route('product.view', [$advertisement->id, $advertisement->advertisement_slug])}}">
+                                <img src="{{Storage::url($advertisement->first_image)}}" class="img-thumbnail">
+                                <p class="text-center  card-footer" style="color: blue;">
+                                    <b>{{$advertisement->name}} / {{$advertisement->price}} FCFA </b>
+                                </p>
+                            </a>
                         </div>
-
 
                     @empty
                         Désolé, il n'ya pas de produit pour cette séléction

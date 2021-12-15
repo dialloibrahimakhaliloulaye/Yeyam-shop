@@ -5,7 +5,9 @@
         <div class="row ">
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header text-white text-center" style="background-color: forestgreen;">Filtrer par : :</div>
+                    <div class="card-header text-white text-center" style="background-color: forestgreen;">Filtrer par :
+                        :
+                    </div>
                     <div class="card-body">
                         @foreach($filterByChildcategories as $filterByChildcategory)
                             <p>
@@ -31,7 +33,8 @@
                                 <input type="text" name="maxPrice" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success" style="background-color: green">Chercher</button>
+                                <button type="submit" class="btn btn-success" style="background-color: green">Chercher
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -41,10 +44,12 @@
                 <div class="row">
                     @forelse($advertisements as $advertisement)
                         <div class="col-3">
-                            <img src="{{Storage::url($advertisement->first_image)}}" class="img-thumbnail">
-                            <p class="text-center  card-footer" style="color: blue;">
-                                <b>{{$advertisement->name}} / {{$advertisement->price}} FCFA </b>
-                            </p>
+                            <a href="{{route('product.view', [$advertisement->id, $advertisement->advertisement_slug])}}">
+                                <img src="{{Storage::url($advertisement->first_image)}}" class="img-thumbnail">
+                                <p class="text-center  card-footer" style="color: blue;">
+                                    <b>{{$advertisement->name}} / {{$advertisement->price}} FCFA </b>
+                                </p>
+                            </a>
                         </div>
 
 
