@@ -17,6 +17,6 @@ class MenuController extends Controller
 
         $secondAds=Advertisement::where('category_id', $category->id)->whereNotIn('id', $firstAds->pluck('id')->toArray())
             ->take(4)->get();
-        return view('marketplace.index', compact('firstAds', 'secondAds'));
+        return view('marketplace.index', compact('firstAds', 'secondAds', 'category'));
     }
 }

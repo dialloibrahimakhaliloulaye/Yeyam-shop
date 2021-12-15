@@ -31,9 +31,9 @@
     <div class="container mt-5">
         <span>
             <h2>Multimedias & Autres</h2>
-            <a href="#" class="float-right">View all</a>
-
+            <a href="{{route('category.show', $category->category_slug)}}" class="float-right">Voir tout</a>
         </span>
+        <br>
         <div id="carouselExampleFade" class="carousel slide " data-ride="carousel" data-interval="4000">
             <div class="carousel-inner">
 
@@ -41,7 +41,10 @@
                     <div class="row">
                         @forelse($firstAds as $firstAd)
                             <div class="col-3">
-                                <img src="{{Storage::url($firstAd->first_image)}}" class="img-thumbnail" style="min-height: 150px">
+                                <a href="{{route('ads.show', [$firstAd->id, $firstAd->advertisement_slug])}}">
+                                    <img src="{{Storage::url($firstAd->first_image)}}" class="img-thumbnail"
+                                         style="min-height: 150px">
+                                </a>
                                 <p class="text-center  card-footer" style="color: blue;">
                                     {{$firstAd->name}} / {{$firstAd->price}} FCFA
                                 </p>
@@ -56,7 +59,10 @@
                     <div class="row">
                         @forelse($secondAds as $secondAd)
                             <div class="col-3">
-                                <img src="{{Storage::url($secondAd->first_image)}}" class="img-thumbnail" style="min-height: 150px">
+                                <a href="{{route('ads.show', [$secondAd->id, $secondAd->advertisement_slug])}}">
+                                    <img src="{{Storage::url($secondAd->first_image)}}" class="img-thumbnail"
+                                         style="min-height: 150px">
+                                </a>
                                 <p class="text-center  card-footer">
                                     {{$secondAd->name}} / {{$secondAd->price}} FCFA
                                 </p>
