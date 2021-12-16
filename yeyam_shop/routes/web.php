@@ -22,6 +22,7 @@ use App\Http\Controllers\Marketplace\FrontAdsController;
 use App\Http\Controllers\Marketplace\FrontendController;
 use App\Http\Controllers\Marketplace\MenuController;
 use App\Http\Controllers\Marketplace\ProfileController;
+use App\Http\Controllers\Marketplace\SendMessageController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
@@ -497,6 +498,11 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::get('products/{id}/{slug}', [FrontendController::class,'show'])->name('product.view');
 
     //Route::get('products/{id}/{slug}', [FrontendController::class,'show'])->name('ads.show');
+
+    //Message
+    Route::post('/send/message', [SendMessageController::class,'store']);
+
+    Route::get('/messages', [SendMessageController::class,'index'])->middleware('auth');
 });
 
 Route::get('/test', function () {
