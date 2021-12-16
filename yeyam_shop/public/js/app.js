@@ -41933,7 +41933,13 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "chat-body2 clearfix" }, [
-                    _vm._m(1, true),
+                    _c("div", { staticClass: "header clearfix" }, [
+                      _c("strong", { staticClass: "primary-font" }, [
+                        _vm._v(_vm._s(message.user.name)),
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1, true),
+                    ]),
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(message.body))]),
                   ]),
@@ -41964,15 +41970,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header clearfix" }, [
-      _c("strong", [_vm._v("Nom")]),
-      _vm._v(" "),
-      _c("small", { staticClass: "rigth text-muted" }, [
-        _c("span", [
-          _vm._v(
-            "\n                                            date\n                                        "
-          ),
-        ]),
+    return _c("small", { staticClass: "rigth text-muted" }, [
+      _c("span", [
+        _vm._v(
+          "\n                                            date\n                                        "
+        ),
       ]),
     ])
   },
@@ -41989,7 +41991,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "chat-body clearfix" }, [
         _c("div", { staticClass: "header clearfix" }, [
-          _c("strong", { staticClass: "right primary-font" }, [_vm._v("Nom")]),
+          _c("strong", { staticClass: "right primary-font" }, [_vm._v("nom")]),
           _vm._v(" "),
           _c("small", { staticClass: "rigth text-muted" }, [
             _c("span", [
