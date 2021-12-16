@@ -84,6 +84,9 @@ export default {
         axios.get('/marketplace/users').then((response)=>{
             this.users=response.data
         })
+        setInterval(()=>{
+            this.showMessage(this.selectedUserId)
+        },1000)
     },
     methods:{
         showMessage(userId){
