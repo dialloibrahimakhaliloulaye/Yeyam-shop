@@ -503,6 +503,8 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::post('/send/message', [SendMessageController::class,'store']);
 
     Route::get('/messages', [SendMessageController::class,'index'])->middleware('auth');
+
+    Route::get('/users', [SendMessageController::class,'chatWithThisUser']);
 });
 
 Route::get('/test', function () {

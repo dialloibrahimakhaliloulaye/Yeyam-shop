@@ -22,4 +22,17 @@ class SendMessageController extends Controller
     {
         return view('marketplace.message.index');
     }
+
+    public function chatWithThisUser()
+    {
+        $conversations=Message::where('user_id', auth()->id())
+            ->orWhere('receiver_id', auth()->id())->get();
+        $users=$conversations->map(function ($conversations){
+            if ($conversations->user_id===auth()->id()){
+                return $conversations->receiver;
+            }
+            return $conversations->sender;
+        })->unique();
+        return $users;
+    }
 }
