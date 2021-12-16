@@ -6,16 +6,18 @@
         </button>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Discuter avec le vendeur</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Discuter avec {{sellerName}}
+                            {{userId}}{{receiverId}}{{adId}}
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="ecrivez votre message ici"></textarea>
+                        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="ecrivez votre message ici"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -29,5 +31,6 @@
 
 <script>
 export default {
-}
+    props:['sellerName', 'userId', 'receiverId', 'adId'],
+};
 </script>
