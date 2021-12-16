@@ -507,6 +507,8 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::get('/users', [SendMessageController::class,'chatWithThisUser']);
 
     Route::get('/message/user/{id}', [SendMessageController::class,'showMessages']);
+
+    Route::post('/start-conversation', [SendMessageController::class,'startConversation']);
 });
 
 Route::get('/test', function () {
