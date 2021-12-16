@@ -13,7 +13,7 @@
                     <div class="card-header text-centered">
                         <span>Chat</span>
                     </div>
-                    <div class="card-body chat-msg">
+                    <div class="card-body chat-msg" v-chat-scroll>
                         <ul class="chat" v-for="(message,index) in messages" :key="index">
                             <li class="sender clearfix" v-if="message.selfOwned">
                                 <span class="chat-img clearfix mx-2">
@@ -105,37 +105,45 @@ export default {
 };
 </script>
 
-<style scoped>
-.chat{
+<style>
+.chat
+{
     list-style: none;
     margin: 0;
     padding: 0;
 }
-.chat li{
-    margin-bottom: 40px;
+.chat li
+{
+    margin-bottom: 65px;
     padding-bottom: 5px;
-    margin-top: 10px;
-    height: 10px;
+    margin-top: 25px;
     width: 80%;
+    height: 10px;
 }
-.chat li .chat-body p{
+.chat li .chat-body p
+{
     margin: 0;
 }
-.chat-msg{
+.chat-msg
+{
     overflow-y: scroll;
     height: 350px;
 }
-.chat-msg .chat-img{
+.chat-msg .chat-img
+{
     width: 50px;
     height: 50px;
 }
-.chat-msg .img-circle{
+.chat-msg .img-circle
+{
     border-radius: 50%;
 }
-.chat-msg .chat-img{
+.chat-msg .chat-img
+{
     display: inline-block;
 }
-.chat-msg .chat-body{
+.chat-msg .chat-body
+{
     display: inline-block;
     max-width: 80%;
     background-color: #FFC195;
