@@ -11,6 +11,8 @@ class MenuController extends Controller
 {
     public function menu()
     {
+        $advertisement=Advertisement::latest()->get();
+        return view('marketplace.index', compact('advertisement'));
         /*$category=Category::where('id', 10)->first();
 
         $firstAds=Advertisement::where('category_id', $category->id)->orderByDesc('id')->take(4)->get();

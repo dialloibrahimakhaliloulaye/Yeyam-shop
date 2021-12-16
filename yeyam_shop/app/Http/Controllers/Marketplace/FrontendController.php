@@ -7,6 +7,7 @@ use App\Models\Advertisement;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Subsubcategory;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -59,5 +60,13 @@ class FrontendController extends Controller
     {
         $advertisement=Advertisement::where('id', $id)->where('advertisement_slug', $slug)->first();
         return view('marketplace.product.show', compact('advertisement'));
+    }
+
+    //show user ad
+    public function viewUserAds($id)
+    {
+        $advertisement=Advertisement::where('user_id', $id)->paginate(12);
+        $user=User::find($id);
+        return view('marketplace.seller.ads', compact('advertisement', 'user'));
     }
 }
