@@ -464,11 +464,11 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
         return view('marketplace.home');
     });
 
-    Route::get('/index', function () {
+    /*Route::get('/index', function () {
         return view('marketplace.index');
-    });
+    });*/
 
-    Route::get('/', [FrontAdsController::class, 'index']);
+    Route::get('/', [FrontAdsController::class, 'index'])->name('marketplace.index');
 
     Route::get('/ads/create', [AdvertisementController::class, 'create'])->middleware('auth')->name('ads.create');
 

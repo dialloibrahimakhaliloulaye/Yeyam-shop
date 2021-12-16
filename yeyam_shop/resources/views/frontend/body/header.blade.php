@@ -7,15 +7,25 @@
                 <div class="cnt-account">
                     <ul class="list-unstyled">
                         {{--                        <li><a href="#"><i class="icon fa fa-user"></i><strong>Compte</strong></a></li>--}}
-                        <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i><strong>Sauvegarde</strong></a></li>
-                        <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i><strong>Panier</strong></a></li>
-                        <li><a href="{{ route('checkout') }}"><i class="icon fa fa-check"></i><strong>Achats</strong></a></li>
-                        <li><a href="" type="button" data-toggle="modal" data-target="#ordertraking"><i class="icon fa fa-check"></i><strong>Suivre la commande</strong></a></li>
+                        <li><a href="{{ route('wishlist') }}"><i
+                                    class="icon fa fa-heart"></i><strong>Sauvegarde</strong></a></li>
+                        <li><a href="{{ route('mycart') }}"><i
+                                    class="icon fa fa-shopping-cart"></i><strong>Panier</strong></a></li>
+                        <li><a href="{{ route('checkout') }}"><i
+                                    class="icon fa fa-check"></i><strong>Achats</strong></a></li>
+                        <li><a href="" type="button" data-toggle="modal" data-target="#ordertraking"><i
+                                    class="icon fa fa-check"></i><strong>Suivre la commande</strong></a></li>
                         <li>
                             @auth
-                                <a href="{{route('dashboard')}}"><i class="icon fa fa-user"></i><strong>User : {{Auth::user()->name}}</strong></a>
+                                <ul>
+                                    <li><a href="{{route('ads.index')}}"><i class="icon fa fa-user"></i><strong>Compte
+                                            vendeur : {{Auth::user()->name}}</strong></a></li>
+                                    <li><a href="{{route('dashboard')}}"><i class="icon fa fa-user"></i><strong>Compte
+                                            acheteur : {{Auth::user()->name}}</strong></a></li>
+                                </ul>
                             @else
-                                <a href="{{route('login')}}"><i class="icon fa fa-lock"></i><strong>Se connecter / S'inscrire</strong></a>
+                                <a href="{{route('login')}}"><i class="icon fa fa-lock"></i><strong>Se connecter /
+                                        S'inscrire</strong></a>
                             @endauth
                         </li>
                     </ul>
@@ -24,15 +34,16 @@
 
                 <div class="cnt-block">
                     <ul class="list-unstyled list-inline">
-{{--                        <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">--}}
-{{--                                <span class="value">USD </span><b class="caret"></b></a>--}}
-{{--                            <ul class="dropdown-menu">--}}
-{{--                                <li><a href="#">USD</a></li>--}}
-{{--                                <li><a href="#">INR</a></li>--}}
-{{--                                <li><a href="#">GBP</a></li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-                        <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                        {{--                        <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">--}}
+                        {{--                                <span class="value">USD </span><b class="caret"></b></a>--}}
+                        {{--                            <ul class="dropdown-menu">--}}
+                        {{--                                <li><a href="#">USD</a></li>--}}
+                        {{--                                <li><a href="#">INR</a></li>--}}
+                        {{--                                <li><a href="#">GBP</a></li>--}}
+                        {{--                            </ul>--}}
+                        {{--                        </li>--}}
+                        <li class="dropdown dropdown-small"><a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                                               data-toggle="dropdown">
                                 <span class="value">English </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">English</a></li>
@@ -59,10 +70,14 @@
                     $setting = App\Models\SiteSetting::find(1);
                     $categories=\App\Models\Category::orderBy('category_name', 'ASC')->get();
                 @endphp
-                    <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo"> <a href="{{ url('/') }}"> <img src="{{ asset($setting->logo)}}" alt="logo"> </a> </div>
+                <!-- ============================================================= LOGO ============================================================= -->
+                    <div class="logo">
+{{--                        <a href="{{ url('/') }}"> <img src="{{ asset($setting->logo)}}" alt="logo"> </a>--}}
+                        <h3><a href="{{ url('/') }}" style="color: white"><b>Yeyam-shop</b></a></h3>
+                    </div>
                     <!-- /.logo -->
-                    <!-- ============================================================= LOGO : END ============================================================= --> </div>
+                    <!-- ============================================================= LOGO : END ============================================================= -->
+                </div>
                 <!-- /.logo-holder -->
 
                 <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
@@ -72,35 +87,39 @@
                         <form method="post" action="{{ route('product.search') }}">@csrf
                             <div class="control-group">
                                 <ul class="categories-filter animate-dropdown">
-                                    <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
-                                        <ul class="dropdown-menu" role="menu" >
+                                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="category.html">Categories <b class="caret"></b></a>
+                                        <ul class="dropdown-menu" role="menu">
                                             @foreach($categories as $category)
                                                 <li class="menu-header">{{$category->category_name}}</li>
                                             @endforeach
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" onfocus="search_result_show()" onblur="search_result_hide()" id="search"
-                                       name="search" placeholder="Search here..." />
+                                <input class="search-field" onfocus="search_result_show()" onblur="search_result_hide()"
+                                       id="search"
+                                       name="search" placeholder="Search here..."/>
                                 <button class="search-button" type="submit"></button>
                             </div>
                         </form>
                         <div id="searchProducts"></div>
                     </div>
                     <!-- /.search-area -->
-                    <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
+                    <!-- ============================================================= SEARCH AREA : END ============================================================= -->
+                </div>
                 <!-- /.top-search-holder -->
 
                 <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-                    <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                    <div class="dropdown dropdown-cart"><a href="#" class="dropdown-toggle lnk-cart"
+                                                           data-toggle="dropdown">
                             <div class="items-cart-inner">
-                                <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
+                                <div class="basket"><i class="glyphicon glyphicon-shopping-cart"></i></div>
                                 <div class="basket-item-count"><span class="count" id="cartQty"> </span></div>
-                                <div class="total-price-basket"> <span class="lbl">cart -</span>
+                                <div class="total-price-basket"><span class="lbl">cart -</span>
                                     <span class="total-price"> <span class="sign">FCFA</span>
-                                    <span class="value" id="cartSubTotal"> </span> </span> </div>
+                                    <span class="value" id="cartSubTotal"> </span> </span></div>
                             </div>
                         </a>
                         <ul class="dropdown-menu">
@@ -110,11 +129,12 @@
                                 </div>
                                 <!--   // End Mini Cart Start with Ajax -->
                                 <div class="clearfix cart-total">
-                                    <div class="pull-right"> <span class="text">Somme Total :</span>
+                                    <div class="pull-right"><span class="text">Somme Total :</span>
                                         <span class='price' id="cartSubTotal"> </span>
                                     </div>
                                     <div class="clearfix"></div>
-                                    <a href="{{route('checkout')}}" class="btn btn-upper btn-primary btn-block m-t-20"> Commander</a>
+                                    <a href="{{route('checkout')}}" class="btn btn-upper btn-primary btn-block m-t-20">
+                                        Commander</a>
                                 </div>
                                 <!-- /.cart-total-->
 
@@ -124,7 +144,8 @@
                     </div>
                     <!-- /.dropdown-cart -->
 
-                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
+                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
+                </div>
                 <!-- /.top-cart-row -->
             </div>
             <!-- /.row -->
@@ -140,8 +161,10 @@
         <div class="container">
             <div class="yamm navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse"
+                            class="navbar-toggle collapsed" type="button">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span></button>
                 </div>
                 <div class="nav-bg-class">
                     <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
@@ -154,46 +177,52 @@
                                 @endphp
 
                                 @foreach($categories as $category)
-                                <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{$category->category_name}}</a>
-                                    <ul class="dropdown-menu container">
-                                        <li>
-                                            <div class="yamm-content ">
-                                                <div class="row">
-                                                    @php
-                                                        $subcategories=\App\Models\Subcategory::where('category_id', $category->id)->orderBy('subcategory_name', 'ASC')->get();
-                                                    @endphp
-
-                                                    @foreach($subcategories as $subcategory)
-                                                    <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                                                        <a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug ) }}">
-                                                        <h2 class="title">{{$subcategory->subcategory_name}}</h2>
-                                                        </a>
+                                    <li class="dropdown yamm mega-menu"><a href="home.html" data-hover="dropdown"
+                                                                           class="dropdown-toggle"
+                                                                           data-toggle="dropdown">{{$category->category_name}}</a>
+                                        <ul class="dropdown-menu container">
+                                            <li>
+                                                <div class="yamm-content ">
+                                                    <div class="row">
                                                         @php
-                                                            $subsubcategories=\App\Models\Subsubcategory::where('subcategory_id', $subcategory->id)->orderBy('sub_subcategory_name', 'ASC')->get();
+                                                            $subcategories=\App\Models\Subcategory::where('category_id', $category->id)->orderBy('subcategory_name', 'ASC')->get();
                                                         @endphp
 
-                                                        @foreach($subsubcategories as $subsubcategory)
-                                                        <ul class="links">
-                                                            <li><a href="{{ url('subsubcategory/product/'.$subsubcategory->id.'/'.$subsubcategory->sub_subcategory_slug) }}">{{$subsubcategory->sub_subcategory_name}}</a></li>
-                                                        </ul>
-                                                        @endforeach
-                                                    </div>
+                                                        @foreach($subcategories as $subcategory)
+                                                            <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                                                <a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug ) }}">
+                                                                    <h2 class="title">{{$subcategory->subcategory_name}}</h2>
+                                                                </a>
+                                                                @php
+                                                                    $subsubcategories=\App\Models\Subsubcategory::where('subcategory_id', $subcategory->id)->orderBy('sub_subcategory_name', 'ASC')->get();
+                                                                @endphp
+
+                                                                @foreach($subsubcategories as $subsubcategory)
+                                                                    <ul class="links">
+                                                                        <li>
+                                                                            <a href="{{ url('subsubcategory/product/'.$subsubcategory->id.'/'.$subsubcategory->sub_subcategory_slug) }}">{{$subsubcategory->sub_subcategory_name}}</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                @endforeach
+                                                            </div>
                                                     @endforeach
                                                     <!-- /.col -->
 
-                                                    <!-- /.col -->
+                                                        <!-- /.col -->
 
-                                                    <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive"
-                                                                 src="{{asset('frontend/assets/images/banners/top-menu-banner.jpg')}}" alt=""> </div>
-                                                    <!-- /.yamm-content -->
+                                                        <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image">
+                                                            <img class="img-responsive"
+                                                                 src="{{asset('frontend/assets/images/banners/top-menu-banner.jpg')}}"
+                                                                 alt=""></div>
+                                                        <!-- /.yamm-content -->
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 @endforeach
-                                <li> <a href="{{ route('shop.page') }}">SHOP</a> </li>
-                                <li> <a href="">Marketplace</a> </li>
+                                <li><a href="{{ route('shop.page') }}">SHOP</a></li>
+                                <li><a href="{{route('marketplace.index')}}">Marketplace</a></li>
 
                                 <li class="dropdown  navbar-right special-menu">
                                     <a href="#">
@@ -239,9 +268,10 @@
                         @csrf
                         <div class="modal-body">
                             <label>Commande no</label>
-                            <input type="text" name="code" required="" class="form-control" placeholder="Veuillez bien saisir votre num de commande">
+                            <input type="text" name="code" required="" class="form-control"
+                                   placeholder="Veuillez bien saisir votre num de commande">
                         </div>
-                        <button class="btn btn-danger" type="submit" style="margin-left: 17px;"> Voir </button>
+                        <button class="btn btn-danger" type="submit" style="margin-left: 17px;"> Voir</button>
                     </form>
                 </div>
             </div>
@@ -249,9 +279,10 @@
     </div>
     <style>
 
-        .search-area{
+        .search-area {
             position: relative;
         }
+
         #searchProducts {
             position: absolute;
             top: 100%;
@@ -266,10 +297,11 @@
 
 
     <script>
-        function search_result_hide(){
+        function search_result_hide() {
             $("#searchProducts").slideUp();
         }
-        function search_result_show(){
+
+        function search_result_show() {
             $("#searchProducts").slideDown();
         }
     </script>
