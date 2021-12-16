@@ -9,6 +9,12 @@ class Message extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    protected $appends=['selfOwned'];
+
+    public function getSelfOwnedAttribute()
+    {
+        return $this->user_id==auth()->user()->id;
+    }
 
     public function sender()
     {
