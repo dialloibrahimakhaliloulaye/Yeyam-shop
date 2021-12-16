@@ -41003,7 +41003,7 @@ var render = function () {
             },
           ],
           staticClass: "form-control",
-          attrs: { name: "category_id" },
+          attrs: { name: "category_id", required: "" },
           on: {
             change: [
               function ($event) {
@@ -41163,7 +41163,12 @@ var render = function () {
   return _c("div", [
     _c("input", {
       staticClass: "custom-file-upload",
-      attrs: { type: "file", name: "first_image", accept: "image/*" },
+      attrs: {
+        type: "file",
+        name: "first_image",
+        required: "",
+        accept: "image/*",
+      },
       on: { change: _vm.onFileChange },
     }),
     _vm._v(" "),

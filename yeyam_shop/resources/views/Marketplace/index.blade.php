@@ -41,7 +41,7 @@
                     <div class="row">
                         @forelse($firstAds as $firstAd)
                             <div class="col-3">
-                                <a href="{{route('ads.show', [$firstAd->id, $firstAd->advertisement_slug])}}">
+                                <a href="{{route('product.view', [$firstAd->id, $firstAd->advertisement_slug])}}">
                                     <img src="{{Storage::url($firstAd->first_image)}}" class="img-thumbnail"
                                          style="min-height: 150px">
                                 </a>
@@ -59,7 +59,7 @@
                     <div class="row">
                         @forelse($secondAds as $secondAd)
                             <div class="col-3">
-                                <a href="{{route('ads.show', [$secondAd->id, $secondAd->advertisement_slug])}}">
+                                <a href="{{route('product.view', [$secondAd->id, $secondAd->advertisement_slug])}}">
                                     <img src="{{Storage::url($secondAd->first_image)}}" class="img-thumbnail"
                                          style="min-height: 150px">
                                 </a>
