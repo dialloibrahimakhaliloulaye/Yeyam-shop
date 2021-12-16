@@ -5131,6 +5131,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 moment__WEBPACK_IMPORTED_MODULE_0___default().locale('fr');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5164,6 +5174,16 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('fr');
     },
     sendMessage: function sendMessage() {
       var _this3 = this;
+
+      if (this.selectedUserId === '') {
+        alert("Veuillez slectionner l'utilisateur avec qui vous voulez discuter");
+        return;
+      }
+
+      if (this.body === '') {
+        alert("vous n'avez rien saisi");
+        return;
+      }
 
       axios.post('/marketplace/start-conversation', {
         body: this.body,
@@ -9970,7 +9990,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.chat\n{\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat li\n{\n    margin-bottom: 65px;\n    padding-bottom: 5px;\n    margin-top: 25px;\n    width: 80%;\n    height: 10px;\n}\n.chat li .chat-body p\n{\n    margin: 0;\n}\n.chat-msg\n{\n    overflow-y: scroll;\n    height: 350px;\n}\n.chat-msg .chat-img\n{\n    width: 50px;\n    height: 50px;\n}\n.chat-msg .img-circle\n{\n    border-radius: 50%;\n}\n.chat-msg .chat-img\n{\n    display: inline-block;\n}\n.chat-msg .chat-body\n{\n    display: inline-block;\n    max-width: 80%;\n    background-color: #FFC195;\n    border-radius: 12.5px;\n    padding: 15px;\n}\n.chat-msg .chat-body2\n{\n    display: inline-block;\n    max-width: 80%;\n    background-color:#ccc;\n    border-radius: 12.5px;\n    padding: 15px;\n}\n.chat-msg .chat-body strong\n{\n    color: #0169DA;\n}\n.chat-msg .buyer\n{\n    text-align: right ;\n    float: right;\n}\n.chat-msg .buyer p\n{\n    text-align: left ;\n}\n.chat-msg .sender\n{\n    text-align: left ;\n    float: left;\n}\n.chat-msg .left\n{\n    float: left;\n}\n.chat-msg .right\n{\n    float: right;\n}\n.clearfix {\n    clear: both;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.chat {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat li {\n    margin-bottom: 65px;\n    padding-bottom: 5px;\n    margin-top: 25px;\n    width: 80%;\n    height: 10px;\n}\n.chat li .chat-body p {\n    margin: 0;\n}\n.chat-msg {\n    overflow-y: scroll;\n    height: 350px;\n}\n.chat-msg .chat-img {\n    width: 50px;\n    height: 50px;\n}\n.chat-msg .img-circle {\n    border-radius: 50%;\n}\n.chat-msg .chat-img {\n    display: inline-block;\n}\n.chat-msg .chat-body {\n    display: inline-block;\n    max-width: 80%;\n    background-color: #FFC195;\n    border-radius: 12.5px;\n    padding: 15px;\n}\n.chat-msg .chat-body2 {\n    display: inline-block;\n    max-width: 80%;\n    background-color: #ccc;\n    border-radius: 12.5px;\n    padding: 15px;\n}\n.chat-msg .chat-body strong {\n    color: #0169DA;\n}\n.chat-msg .buyer {\n    text-align: right;\n    float: right;\n}\n.chat-msg .buyer p {\n    text-align: left;\n}\n.chat-msg .sender {\n    text-align: left;\n    float: left;\n}\n.chat-msg .left {\n    float: left;\n}\n.chat-msg .right {\n    float: right;\n}\n.clearfix {\n    clear: both;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -63582,6 +63602,23 @@ var render = function () {
         { staticClass: "col-md-2" },
         _vm._l(_vm.users, function (user, index) {
           return _c("p", { key: index }, [
+            user.avatar
+              ? _c("span", [
+                  _c("img", {
+                    staticStyle: { "border-radius": "50%" },
+                    attrs: {
+                      src: "/storage/" + user.avatar.substring(7),
+                      width: "70",
+                    },
+                  }),
+                ])
+              : _c("span", [
+                  _c("img", {
+                    staticStyle: { "border-radius": "50%" },
+                    attrs: { src: "/img/man.jpg", alt: "", width: "70" },
+                  }),
+                ]),
+            _vm._v(" "),
             _c(
               "a",
               {
@@ -63593,13 +63630,7 @@ var render = function () {
                   },
                 },
               },
-              [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(user.name) +
-                    "\n                "
-                ),
-              ]
+              [_c("p", [_vm._v(_vm._s(user.name))])]
             ),
           ])
         }),
@@ -63610,152 +63641,175 @@ var render = function () {
         _c("div", { staticClass: "card" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [{ name: "chat-scroll", rawName: "v-chat-scroll" }],
-              staticClass: "card-body chat-msg",
-            },
-            _vm._l(_vm.messages, function (message, index) {
-              return _c("ul", { key: index, staticClass: "chat" }, [
-                message.selfOwned
-                  ? _c("li", { staticClass: "sender clearfix" }, [
-                      message.user.profile_photo_path
-                        ? _c(
-                            "span",
-                            { staticClass: "chat-img left clearfix mx-2" },
-                            [
-                              _c("img", {
-                                attrs: {
-                                  src:
-                                    "/storage/" +
-                                    message.user.profile_photo_path.substring(
-                                      7
-                                    ),
-                                  width: "50",
-                                },
-                              }),
-                            ]
-                          )
-                        : _c(
-                            "span",
-                            { staticClass: "chat-img left clearfix mx-2" },
-                            [
-                              _c("img", {
-                                attrs: { src: "/img/man.jpg", width: "50" },
-                              }),
-                            ]
-                          ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "chat-body2 clearfix" }, [
-                        _c("div", { staticClass: "header clearfix" }, [
-                          _c("strong", { staticClass: "primary-font" }, [
-                            _vm._v(_vm._s(message.user.name)),
-                          ]),
-                          _vm._v(" "),
-                          _c("small", { staticClass: "rigth text-muted" }, [
-                            _c("span", [
-                              _vm._v(
-                                "\n                                            " +
-                                  _vm._s(
-                                    _vm.moment(message.created_at).format("LLL")
-                                  ) +
-                                  "\n                                        "
-                              ),
-                            ]),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(message.body))]),
-                      ]),
-                    ])
-                  : _c("li", { staticClass: "buyer clearfix" }, [
-                      message.user.profile_photo_path
-                        ? _c(
-                            "span",
-                            { staticClass: "chat-img rigth clearfix mx-2" },
-                            [
-                              _c("img", {
-                                attrs: {
-                                  src:
-                                    "/storage/" +
-                                    message.user.profile_photo_path.substring(
-                                      7
-                                    ),
-                                  width: "50",
-                                },
-                              }),
-                            ]
-                          )
-                        : _c(
-                            "span",
-                            { staticClass: "chat-img rigth clearfix mx-2" },
-                            [
-                              _c("img", {
-                                attrs: { src: "/img/man.jpg", width: "50" },
-                              }),
-                            ]
-                          ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "chat-body clearfix" }, [
-                        _c("div", { staticClass: "header clearfix" }, [
-                          _c("strong", { staticClass: "right primary-font" }, [
-                            _vm._v(_vm._s(message.user.name)),
-                          ]),
-                          _vm._v(" "),
-                          _c("small", { staticClass: "left text-muted" }, [
-                            _c("span", [
-                              _vm._v(
-                                "\n                                            " +
-                                  _vm._s(
-                                    _vm.moment(message.created_at).format("LLL")
-                                  ) +
-                                  "\n                                        "
-                              ),
-                            ]),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        message.ads
-                          ? _c("p", { staticClass: "text-center" }, [
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    href:
-                                      "/marketplace/products/" +
-                                      message.ads.id +
-                                      "/" +
-                                      message.ads.advertisement_slug,
-                                    target: "_blank",
-                                  },
-                                },
+          _vm.selectedUserId
+            ? _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "chat-scroll",
+                      rawName: "v-chat-scroll",
+                      value: { always: false, smooth: true },
+                      expression: "{always: false, smooth: true}",
+                    },
+                  ],
+                  staticClass: "card-body chat-msg",
+                },
+                _vm._l(_vm.messages, function (message, index) {
+                  return _c("ul", { key: index, staticClass: "chat" }, [
+                    message.selfOwned
+                      ? _c("li", { staticClass: "sender clearfix" }, [
+                          message.user.profile_photo_path
+                            ? _c(
+                                "span",
+                                { staticClass: "chat-img left clearfix mx-2" },
                                 [
-                                  _vm._v(
-                                    "\n                                        " +
-                                      _vm._s(message.ads.name) +
-                                      "\n                                        "
-                                  ),
                                   _c("img", {
                                     attrs: {
                                       src:
                                         "/storage/" +
-                                        message.ads.first_image.substring(7),
-                                      width: "120",
+                                        message.user.profile_photo_path.substring(
+                                          7
+                                        ),
+                                      width: "50",
                                     },
                                   }),
                                 ]
+                              )
+                            : _c(
+                                "span",
+                                { staticClass: "chat-img left clearfix mx-2" },
+                                [
+                                  _c("img", {
+                                    attrs: { src: "/img/man.jpg", width: "50" },
+                                  }),
+                                ]
                               ),
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(message.body))]),
-                      ]),
-                    ]),
-              ])
-            }),
-            0
-          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "chat-body2 clearfix" }, [
+                            _c("div", { staticClass: "header clearfix" }, [
+                              _c("strong", { staticClass: "primary-font" }, [
+                                _vm._v(_vm._s(message.user.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("small", { staticClass: "rigth text-muted" }, [
+                                _c("span", [
+                                  _vm._v(
+                                    "\n                                            " +
+                                      _vm._s(
+                                        _vm
+                                          .moment(message.created_at)
+                                          .format("LLL")
+                                      ) +
+                                      "\n                                        "
+                                  ),
+                                ]),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(message.body))]),
+                          ]),
+                        ])
+                      : _c("li", { staticClass: "buyer clearfix" }, [
+                          message.user.profile_photo_path
+                            ? _c(
+                                "span",
+                                { staticClass: "chat-img rigth clearfix mx-2" },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      src:
+                                        "/storage/" +
+                                        message.user.profile_photo_path.substring(
+                                          7
+                                        ),
+                                      width: "50",
+                                    },
+                                  }),
+                                ]
+                              )
+                            : _c(
+                                "span",
+                                { staticClass: "chat-img rigth clearfix mx-2" },
+                                [
+                                  _c("img", {
+                                    attrs: { src: "/img/man.jpg", width: "50" },
+                                  }),
+                                ]
+                              ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "chat-body clearfix" }, [
+                            _c("div", { staticClass: "header clearfix" }, [
+                              _c(
+                                "strong",
+                                { staticClass: "right primary-font" },
+                                [_vm._v(_vm._s(message.user.name))]
+                              ),
+                              _vm._v(" "),
+                              _c("small", { staticClass: "left text-muted" }, [
+                                _c("span", [
+                                  _vm._v(
+                                    "\n                                            " +
+                                      _vm._s(
+                                        _vm
+                                          .moment(message.created_at)
+                                          .format("LLL")
+                                      ) +
+                                      "\n                                        "
+                                  ),
+                                ]),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            message.ads
+                              ? _c("p", { staticClass: "text-center" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href:
+                                          "/marketplace/products/" +
+                                          message.ads.id +
+                                          "/" +
+                                          message.ads.advertisement_slug,
+                                        target: "_blank",
+                                      },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(message.ads.name) +
+                                          "\n                                        "
+                                      ),
+                                      _c("img", {
+                                        attrs: {
+                                          src:
+                                            "/storage/" +
+                                            message.ads.first_image.substring(
+                                              7
+                                            ),
+                                          width: "120",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(message.body))]),
+                          ]),
+                        ]),
+                  ])
+                }),
+                0
+              )
+            : _c("div", { staticStyle: { "min-height": "250px" } }, [
+                _c("p", { staticClass: "text-center" }, [
+                  _vm._v(
+                    "Veuillez slectionner l'utilisateur avec qui vous voulez discuter"
+                  ),
+                ]),
+              ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-footer" }, [
             _c("div", { staticClass: "input-group" }, [
