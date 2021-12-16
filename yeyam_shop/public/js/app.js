@@ -5123,6 +5123,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -42050,11 +42056,32 @@ var render = function () {
               return _c("ul", { key: index, staticClass: "chat" }, [
                 message.selfOwned
                   ? _c("li", { staticClass: "sender clearfix" }, [
-                      _c("span", { staticClass: "chat-img clearfix mx-2" }, [
-                        _vm._v(
-                          "\n                                image\n                            "
-                        ),
-                      ]),
+                      message.user.profile_photo_path
+                        ? _c(
+                            "span",
+                            { staticClass: "chat-img left clearfix mx-2" },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  src:
+                                    "/storage/" +
+                                    message.user.profile_photo_path.substring(
+                                      7
+                                    ),
+                                  width: "50",
+                                },
+                              }),
+                            ]
+                          )
+                        : _c(
+                            "span",
+                            { staticClass: "chat-img left clearfix mx-2" },
+                            [
+                              _c("img", {
+                                attrs: { src: "/img/man.jpg", width: "50" },
+                              }),
+                            ]
+                          ),
                       _vm._v(" "),
                       _c("div", { staticClass: "chat-body2 clearfix" }, [
                         _c("div", { staticClass: "header clearfix" }, [
@@ -42069,15 +42096,32 @@ var render = function () {
                       ]),
                     ])
                   : _c("li", { staticClass: "buyer clearfix" }, [
-                      _c(
-                        "span",
-                        { staticClass: "chat-img rigth clearfix mx-2" },
-                        [
-                          _vm._v(
-                            "\n                                image\n                            "
+                      message.user.profile_photo_path
+                        ? _c(
+                            "span",
+                            { staticClass: "chat-img rigth clearfix mx-2" },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  src:
+                                    "/storage/" +
+                                    message.user.profile_photo_path.substring(
+                                      7
+                                    ),
+                                  width: "50",
+                                },
+                              }),
+                            ]
+                          )
+                        : _c(
+                            "span",
+                            { staticClass: "chat-img rigth clearfix mx-2" },
+                            [
+                              _c("img", {
+                                attrs: { src: "/img/man.jpg", width: "50" },
+                              }),
+                            ]
                           ),
-                        ]
-                      ),
                       _vm._v(" "),
                       _c("div", { staticClass: "chat-body clearfix" }, [
                         _c("div", { staticClass: "header clearfix" }, [
@@ -42204,7 +42248,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("small", { staticClass: "rigth text-muted" }, [
+    return _c("small", { staticClass: "left text-muted" }, [
       _c("span", [
         _vm._v(
           "\n                                            date\n                                        "
