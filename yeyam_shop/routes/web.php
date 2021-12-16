@@ -18,6 +18,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\Marketplace\AdvertisementController;
+use App\Http\Controllers\Marketplace\FrontAdsController;
 use App\Http\Controllers\Marketplace\FrontendController;
 use App\Http\Controllers\Marketplace\MenuController;
 use App\Http\Controllers\Marketplace\ProfileController;
@@ -467,7 +468,7 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
         return view('marketplace.index');
     });
 
-    Route::get('/', [MenuController::class, 'menu']);
+    Route::get('/', [FrontAdsController::class, 'index']);
 
     Route::get('/ads/create', [AdvertisementController::class, 'create'])->middleware('auth')->name('ads.create');
 

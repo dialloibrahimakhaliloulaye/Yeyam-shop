@@ -27,4 +27,14 @@ class Category extends Model
     {
         return $this->hasMany(Advertisement::class);
     }
+
+    //scope
+    public function scopeCategoryMultimedia($query)
+    {
+        return $query->where('category_name', 'Multimedias & Autres')->first();
+    }
+    public function scopeCategoryImmobilier($query)
+    {
+        return $query->where('category_name', 'maison')->first();
+    }
 }
