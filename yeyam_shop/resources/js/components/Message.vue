@@ -3,13 +3,13 @@
         <!-- Button trigger modal -->
         <p v-if="showViewConversationOnSuccess">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#staticBackdrop">
-                Envoyer un message
+                <i class="fas fa-envelope"></i> Envoyer un message
             </button>
         </p>
         <p v-else>
             <a href="/marketplace/messages">
                 <button type="button" class="btn btn-primary">
-                    Voir la discussion
+                    <i class="fas fa-paper-plane"></i> Voir la discussion
                 </button>
             </a>
         </p>
@@ -27,7 +27,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <textarea v-model="body" cols="30" rows="10" class="form-control"
+                        <textarea v-model="body" cols="30" rows="5" class="form-control"
                                   placeholder="ecrivez votre message ici"></textarea>
                         <p v-if="successMessage" style="color: green">Message envoyé</p>
                     </div>

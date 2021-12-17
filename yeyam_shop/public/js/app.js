@@ -63920,21 +63920,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.showViewConversationOnSuccess
-      ? _c("p", [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#staticBackdrop",
-              },
-            },
-            [_vm._v("\n            Envoyer un message\n        ")]
-          ),
-        ])
-      : _c("p", [_vm._m(0)]),
+      ? _c("p", [_vm._m(0)])
+      : _c("p", [_vm._m(1)]),
     _vm._v(" "),
     _c(
       "div",
@@ -63968,7 +63955,7 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(1),
+              _vm._m(2),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
@@ -63984,7 +63971,7 @@ var render = function () {
                 staticClass: "form-control",
                 attrs: {
                   cols: "30",
-                  rows: "10",
+                  rows: "5",
                   placeholder: "ecrivez votre message ici",
                 },
                 domProps: { value: _vm.body },
@@ -64041,11 +64028,34 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-secondary",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#staticBackdrop",
+        },
+      },
+      [
+        _c("i", { staticClass: "fas fa-envelope" }),
+        _vm._v(" Envoyer un message\n        "),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "/marketplace/messages" } }, [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("\n                Voir la discussion\n            ")]
+        [
+          _c("i", { staticClass: "fas fa-paper-plane" }),
+          _vm._v(" Voir la discussion\n            "),
+        ]
       ),
     ])
   },
@@ -64103,7 +64113,10 @@ var render = function () {
                 },
               },
             },
-            [_vm._v("Afficher Téléphone")]
+            [
+              _c("i", { staticClass: "fas fa-phone-volume" }),
+              _vm._v(" Afficher Téléphone"),
+            ]
           )
         : _vm._e(),
     ]),
