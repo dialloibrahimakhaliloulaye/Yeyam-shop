@@ -10,10 +10,10 @@
     <hr style="border: 2px solid green">
     <div class="vertical-menu">
         <a href="">Tableau de bord</a>
-        <a href="{{route('profile')}}" class="{{request()->is('profile')?'active':''}}">Profile</a>
+        <a href="{{route('profile')}}" class="{{request()->is('marketplace/profile')?'active':''}}">Profile</a>
         <a href="{{route('ads.create')}}" class="{{request()->is('marketplace/ads/create')?'active':''}}">Créer des annonces</a>
         <a href="{{route('ads.index')}}" class="{{request()->is('marketplace/ads')?'active':''}}">Annonces publiées</a>
-        <a href="{{route('saved.ad')}}" class="{{request()->is('saved.ad')?'active':''}}">Annonces enregistrées</a>
-        <a href="{{route('messages')}}" class="{{request()->is('messages')?'active':''}}">Messages</a>
+        <a href="{{route('saved.ad')}}" class="{{request()->is('marketplace/saved.ad')?'active':''}}">Annonces enregistrées</a>
+        <a href="{{route('messages')}}" class="{{request()->is('marketplace/messages')?'active':''}}">Messages</a>
     </div>
 </div>
