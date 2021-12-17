@@ -506,7 +506,7 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     //Message
     Route::post('/send/message', [SendMessageController::class,'store']);
 
-    Route::get('/messages', [SendMessageController::class,'index'])->middleware('auth');
+    Route::get('/messages', [SendMessageController::class,'index'])->name('messages')->middleware('auth');
 
     Route::get('/users', [SendMessageController::class,'chatWithThisUser']);
 
@@ -516,6 +516,7 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
 
     //save ad
     Route::post('/ad/save', [SaveAdController::class,'saveAd']);
+    Route::get('/saved-ads', [SaveAdController::class,'getSaveAd'])->name('saved.ad');
 });
 
 Route::get('/test', function () {
