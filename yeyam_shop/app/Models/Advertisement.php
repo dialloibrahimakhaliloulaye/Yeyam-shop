@@ -56,4 +56,10 @@ class Advertisement extends Model
         return $query->where('category_id', $categoryId)->whereNotIn('id', $firstAds->pluck('id')->toArray())
             ->take(4)->get();
     }
+
+    //save ad relationship
+    public function userads()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

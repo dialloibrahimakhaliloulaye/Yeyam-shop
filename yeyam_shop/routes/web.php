@@ -22,6 +22,7 @@ use App\Http\Controllers\Marketplace\FrontAdsController;
 use App\Http\Controllers\Marketplace\FrontendController;
 use App\Http\Controllers\Marketplace\MenuController;
 use App\Http\Controllers\Marketplace\ProfileController;
+use App\Http\Controllers\Marketplace\SaveAdController;
 use App\Http\Controllers\Marketplace\SendMessageController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
@@ -512,6 +513,9 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::get('/message/user/{id}', [SendMessageController::class,'showMessages']);
 
     Route::post('/start-conversation', [SendMessageController::class,'startConversation']);
+
+    //save ad
+    Route::post('/ad/save', [SaveAdController::class,'saveAd']);
 });
 
 Route::get('/test', function () {
