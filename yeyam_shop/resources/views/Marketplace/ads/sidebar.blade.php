@@ -9,7 +9,7 @@
     </div>
     <hr style="border: 2px solid green">
     <div class="vertical-menu">
-        <a href="">Tableau de bord</a>
+        <a href="{{route('ads.index')}}">Tableau de bord</a>
         <a href="{{route('profile')}}" class="{{request()->is('marketplace/profile')?'active':''}}">Profile</a>
         <a href="{{route('ads.create')}}" class="{{request()->is('marketplace/ads/create')?'active':''}}">Créer des annonces</a>
         <a href="{{route('ads.index')}}" class="{{request()->is('marketplace/ads')?'active':''}}">Annonces publiées</a>

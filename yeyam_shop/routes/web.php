@@ -462,9 +462,9 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
         return view('marketplace.auth.login');
     });
 
-    Route::get('/home', function () {
-        return view('marketplace.home');
-    });
+    /*Route::get('/home', function () {
+        return view('marketplace.index');
+    })->name('marketplace.home');*/
 
     /*Route::get('/index', function () {
         return view('marketplace.index');

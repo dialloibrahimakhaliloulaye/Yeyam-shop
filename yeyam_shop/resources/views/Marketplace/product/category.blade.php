@@ -5,12 +5,15 @@
         <div class="row ">
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header text-white text-center" style="background-color: forestgreen;">Filter ::
+                    <div class="card-header text-white text-center" style="background-color: forestgreen;">Filtrer par : :
                     </div>
                     <div class="card-body">
                         @foreach($filterBySubcategories as $filterBySubcategory)
                             <p>
-                                <a href="{{url()->current()}}/{{($filterBySubcategory->slug)??''}}"><b>{{$filterBySubcategory->name??''}}</b></a>
+                                <a href="{{url()->current()}}/{{($filterBySubcategory->subcategory_slug)??''}}">
+                                    <b>{{$filterBySubcategory->subcategory_name??''}}</b>
+                                </a>
+                            <hr style="border: 1px solid green">
                             </p>
                         @endforeach
 

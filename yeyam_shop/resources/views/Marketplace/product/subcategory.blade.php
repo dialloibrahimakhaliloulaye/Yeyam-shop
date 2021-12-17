@@ -11,6 +11,7 @@
                         <p>
                             <a href="{{url()->current()}}/{{($filterByChildcategory->childcategory->sub_subcategory_slug)??''}}">
                                 <b>{{$filterByChildcategory->childcategory->sub_subcategory_name??''}}</b></a>
+                            <hr style="border: 1px solid green">
                         </p>
                         @endforeach
 
