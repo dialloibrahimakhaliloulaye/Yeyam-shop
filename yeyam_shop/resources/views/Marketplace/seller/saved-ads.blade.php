@@ -24,6 +24,12 @@
                             <td>
                                 <a href="{{route('product.view',[$ad->id, $ad->advertisement_slug])}}" target="_blank">{{$ad->name}}</a>
                             </td>
+                            <td>
+                                <form action="{{route('remove.ad')}}" method="post">@csrf
+                                    <input type="hidden" name="adId" value="{{$ad->id}}">
+                                    <button class="btn btn-danger" type="submit">Supprimer</button>
+                                </form>
+                            </td>
                         </tr>
                     @empty
                         <td>Vous n'avez aucune annonce enregistrée</td>

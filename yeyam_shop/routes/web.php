@@ -520,6 +520,8 @@ Route::group(['prefix'=>'marketplace'/*, 'middleware'=>'admin'*/], function (){
     Route::get('/saved-ads', [SaveAdController::class,'getSaveAd'])->name('saved.ad');
 
     Route::get('/ad-pending', [AdvertisementController::class,'pendingAds'])->name('pending.ad')->middleware('auth');
+
+    Route::post('/ad/remove', [SaveAdController::class,'removeAd'])->name('remove.ad');
 });
 
 Route::get('/test', function () {
