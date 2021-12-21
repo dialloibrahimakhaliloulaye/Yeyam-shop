@@ -16,8 +16,8 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('division_id');
-            $table->unsignedBigInteger('district_id');
+            $table->unsignedBigInteger('division_id')->nullable();
+            $table->unsignedBigInteger('district_id')->nullable();
             $table->unsignedBigInteger('state_id')->nullable();
             $table->string('name');
             $table->string('email');
@@ -41,6 +41,7 @@ class CreateOrdersTable extends Migration
             $table->string('delivered_date')->nullable();
             $table->string('cancel_date')->nullable();
             $table->string('return_date')->nullable();
+            $table->string('return_order')->nullable();
             $table->string('return_reason')->nullable();
             $table->string('status');
             $table->timestamps();

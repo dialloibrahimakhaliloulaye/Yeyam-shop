@@ -15,9 +15,9 @@ class CreateShipStatesTable extends Migration
     {
         Schema::create('ship_states', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('division_id');
-            $table->unsignedBigInteger('district_id');
-            $table->string('state_name');
+            $table->unsignedBigInteger('division_id')->nullable();
+            $table->unsignedBigInteger('district_id')->nullable();
+            $table->string('state_name')->nullable();
             $table->timestamps();
         });
     }

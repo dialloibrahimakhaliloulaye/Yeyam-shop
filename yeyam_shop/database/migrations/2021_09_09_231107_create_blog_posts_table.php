@@ -17,10 +17,10 @@ class CreateBlogPostsTable extends Migration
             $table->id();
             $table->integer('category_id');
             $table->integer('user_id')->nullable();
-            $table->string('post_title');
+            $table->string('post_title')->nullable();
             $table->string('post_slug');
-            $table->string('post_image');
-            $table->text('post_details');
+            $table->string('post_image')->nullable();
+            $table->text('post_details')->nullable();
             $table->timestamps();
         });
     }
