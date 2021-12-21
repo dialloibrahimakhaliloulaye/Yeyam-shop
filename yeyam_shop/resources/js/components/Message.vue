@@ -2,13 +2,13 @@
     <div>
         <!-- Button trigger modal -->
         <p v-if="showViewConversationOnSuccess">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#staticBackdrop">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
                 <i class="fas fa-envelope"></i> Envoyer un message
             </button>
         </p>
         <p v-else>
             <a href="/marketplace/messages">
-                <button type="button" class="btn btn-primary">
+                <button type="button" class="btn btn-success">
                     <i class="fas fa-paper-plane"></i> Voir la discussion
                 </button>
             </a>
@@ -55,8 +55,9 @@ export default {
     methods: {
         sendMessage() {
             if (this.body === '') {
-                alert("vous n'avez rien saisi")
-                //return;
+                alert("vous n'avez rien saisi");
+                return;
+            }
                 axios.post('/marketplace/send/message', {
                     body: this.body,
                     receiverId: this.receiverId,
@@ -69,6 +70,5 @@ export default {
                 })
             }
         }
-    }
 };
 </script>

@@ -5,8 +5,13 @@
 
 
 <div class="col-md-2"><br>
-    <img class="card-img-top" style="border-radius: 50%" src="{{ (!empty($user->profile_photo_path))?
-url('upload/user_images/'.$user->profile_photo_path):url('upload/no_image.jpg') }}" height="100%" width="100%"><br><br>
+{{--    <img class="card-img-top" style="border-radius: 50%" src="{{ (!empty($user->profile_photo_path))?url('upload/user_images/'.$user->profile_photo_path):url('upload/no_image.jpg') }}" height="100%" width="100%">--}}
+    @if(!auth()->user()->profile_photo_path)
+        <img src="/img/man.jpg" alt="" class="mx-auto d-block img-thumbnail" height="100%" width="100%">
+    @else
+        <img class="card-img-top" height="100%" width="100%" style="border-radius: 30%" src="{{Storage::url(auth()->user()->profile_photo_path)}}">
+    @endif
+    <br><br>
 
     <ul class="list-group list-group-flush">
         <a href="{{ route('dashboard') }}" class="btn btn-primary btn-sm btn-block">Accueil</a>

@@ -5290,19 +5290,20 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.body === '') {
-        alert("vous n'avez rien saisi"); //return;
-
-        axios.post('/marketplace/send/message', {
-          body: this.body,
-          receiverId: this.receiverId,
-          userId: this.userId,
-          adId: this.adId
-        }).then(function (response) {
-          _this.body = '';
-          _this.successMessage = true;
-          _this.showViewConversationOnSuccess = false;
-        });
+        alert("vous n'avez rien saisi");
+        return;
       }
+
+      axios.post('/marketplace/send/message', {
+        body: this.body,
+        receiverId: this.receiverId,
+        userId: this.userId,
+        adId: this.adId
+      }).then(function (response) {
+        _this.body = '';
+        _this.successMessage = true;
+        _this.showViewConversationOnSuccess = false;
+      });
     }
   }
 });
@@ -64147,7 +64148,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-secondary",
+        staticClass: "btn btn-success",
         attrs: {
           type: "button",
           "data-toggle": "modal",
@@ -64167,7 +64168,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/marketplace/messages" } }, [
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        { staticClass: "btn btn-success", attrs: { type: "button" } },
         [
           _c("i", { staticClass: "fas fa-paper-plane" }),
           _vm._v(" Voir la discussion\n            "),

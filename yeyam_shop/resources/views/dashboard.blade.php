@@ -12,7 +12,11 @@
                         <h3 class="text-center">
                             <span class="text-danger">Bonjour...</span>
                             <strong>{{Auth::user()->name}}</strong>
-                            Bienvenu à Yéyam-shop
+                            Bienvenu à Yéyam-shop... <br><br>
+                            <p>Vous étes dans votre <b>compte Acheteur</b>, commender des produits et services et Yeyam-shop
+                            vous les livre le plus rapide possible.
+                            </p>
+                            <img src="/img/management-bonjour.jpg" style="width: 100%;">
                         </h3>
                     </div>
                 </div>
