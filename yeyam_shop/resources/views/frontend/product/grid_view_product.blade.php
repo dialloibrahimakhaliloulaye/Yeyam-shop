@@ -31,10 +31,10 @@
                     <div class="description"></div>
 
                     @if ($product->discount_price == NULL)
-                        <div class="product-price"> <span class="price"> {{ $product->selling_price }} FCFA</span>   </div>
+                        <div class="product-price"> <span class="price"> {{ $product->getsellingPrice() }} FCFA</span>   </div>
                     @else
                         <div class="product-price"> <span class="price"> {{ $product->discount_price }} FCFA
-                            </span> <span class="price-before-discount"> {{ $product->selling_price }} FCFA</span> </div>
+                            </span> <span class="price-before-discount"> {{ $product->getsellingPrice() }} FCFA</span> </div>
                 @endif
                 <!-- /.product-price -->
                 </div>

@@ -48,9 +48,9 @@ use App\Http\Controllers\Frontend\IndexController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::group(['prefix' => 'admin', 'middleware'=>['admin:admin']], function (){
     Route::get('/login', [AdminController::class, 'loginForm']);

@@ -36,7 +36,7 @@
                                             <td><img src="{{asset($item->product_thambnail)}}" style="width: 60px; height: 50px;"></td>
                                             <td>{{$item->product_name}}</td>
 
-                                            <td>{{ $item->selling_price }} FCFA</td>
+                                            <td>{{ $item->getprice() }} FCFA</td>
                                             <td>{{ $item->product_qty }} Pi</td>
                                             <td>
                                                 @if($item->discount_price == NULL)
