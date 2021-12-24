@@ -63,7 +63,7 @@
                     <img src="/img/man.jpg" width="120">
                 @else
 {{--                    <img src="{{Storage::url($advertisement->user()->profile_photo_path)}}" width="130">--}}
-                    <img src="{{Storage::url(auth()->user()->profile_photo_path)}}" width="130">
+                    <img src="{{Storage::url($advertisement->user()->profile_photo_path??'')}}" width="130">
                 @endif
                 <p><a href="{{route('show.user.ads',[$advertisement->user_id])}}">{{$advertisement->user->name}}</a></p>
                 <p>Adresse du vendeur : <b>{{$advertisement->listing_location}}</b></p>

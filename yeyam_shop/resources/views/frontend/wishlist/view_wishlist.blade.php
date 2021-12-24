@@ -37,6 +37,6 @@
                 </div>			</div><!-- /.row -->
         </div><!-- /.sigin-in-->
         <br>
-        @include('frontend.body.brands')
+{{--        @include('frontend.body.brands')--}}
     </div>
 @endsection

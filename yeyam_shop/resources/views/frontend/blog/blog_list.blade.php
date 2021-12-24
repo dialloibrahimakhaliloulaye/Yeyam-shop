@@ -23,7 +23,7 @@
                 <div class="col-md-9">
                     @foreach($blogpost as $blog)
                     <div class="blog-post  wow fadeInUp">
-                        <a href="blog-details.html"><img class="img-responsive" src="{{ asset($blog->post_image) }}" alt=""></a>
+                        <a href="blog-details.html"><img class="img-responsive" src="{{ asset($blog->post_image) }}" width="600" alt=""></a>
                         <h1><a href="blog-details.html">{{ $blog->post_title }}</a></h1>
 
                         <span class="date-time"> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()  }}</span>
@@ -88,15 +88,9 @@
                             <h3 class="section-title">Tags produits</h3>
                             <div class="sidebar-widget-body outer-top-xs">
                                 <div class="tag-list">
-                                    <a class="item" title="Phone" href="category.html">Phone</a>
-                                    <a class="item active" title="Vest" href="category.html">Vest</a>
+                                    <a class="item" title="Phone" href="category.html">Technologies</a>
+                                    <a class="item active" title="Vest" href="category.html">Intelligence artificielle</a>
                                     <a class="item" title="Smartphone" href="category.html">Smartphone</a>
-                                    <a class="item" title="Furniture" href="category.html">Furniture</a>
-                                    <a class="item" title="T-shirt" href="category.html">T-shirt</a>
-                                    <a class="item" title="Sweatpants" href="category.html">Sweatpants</a>
-                                    <a class="item" title="Sneaker" href="category.html">Sneaker</a>
-                                    <a class="item" title="Toys" href="category.html">Toys</a>
-                                    <a class="item" title="Rose" href="category.html">Rose</a>
                                 </div><!-- /.tag-list -->
                             </div><!-- /.sidebar-widget-body -->
                         </div><!-- /.sidebar-widget -->
@@ -105,5 +99,6 @@
             </div>
         </div>
     </div>
+</div>
 
 @endsection

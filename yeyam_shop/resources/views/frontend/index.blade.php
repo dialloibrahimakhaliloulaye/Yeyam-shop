@@ -159,7 +159,8 @@
 
                                         <div class="big-text fadeInDown-1">{{$slider->title}}</div>
                                         <div class="excerpt fadeInDown-2 hidden-xs"> <span>{{$slider->description}}</span> </div>
-                                        <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
+                                        <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product"
+                                                    class="btn-lg btn btn-uppercase btn-primary shop-now-button">Des produits de qualités qui défient toute concurrence</a> </div>
                                     </div>
                                     <!-- /.caption -->
                                 </div>
@@ -174,51 +175,7 @@
                     <!-- ========================================= SECTION – HERO : END ========================================= -->
 
                     <!-- ============================================== INFO BOXES ============================================== -->
-<!--                    <div class="info-boxes wow fadeInUp">
-                        <div class="info-boxes-inner">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-4 col-lg-4">
-                                    <div class="info-box">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <h4 class="info-box-heading green">money back</h4>
-                                            </div>
-                                        </div>
-                                        <h6 class="text">30 Days Money Back Guarantee</h6>
-                                    </div>
-                                </div>
-                                &lt;!&ndash; .col &ndash;&gt;
 
-                                <div class="hidden-md col-sm-4 col-lg-4">
-                                    <div class="info-box">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <h4 class="info-box-heading green">free shipping</h4>
-                                            </div>
-                                        </div>
-                                        <h6 class="text">Shipping on orders over $99</h6>
-                                    </div>
-                                </div>
-                                &lt;!&ndash; .col &ndash;&gt;
-
-                                <div class="col-md-6 col-sm-4 col-lg-4">
-                                    <div class="info-box">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <h4 class="info-box-heading green">Special Sale</h4>
-                                            </div>
-                                        </div>
-                                        <h6 class="text">Extra $5 off on all items </h6>
-                                    </div>
-                                </div>
-                                &lt;!&ndash; .col &ndash;&gt;
-                            </div>
-                            &lt;!&ndash; /.row &ndash;&gt;
-                        </div>
-                        &lt;!&ndash; /.info-boxes-inner &ndash;&gt;
-
-                    </div>-->
-                    <!-- /.info-boxes -->
                     <!-- ============================================== INFO BOXES : END ============================================== -->
                     <!-- ============================================== SCROLL TABS ============================================== -->
                     <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
@@ -410,25 +367,25 @@
                     <!-- /.scroll-tabs -->
                     <!-- ============================================== SCROLL TABS : END ============================================== -->
                     <!-- ============================================== WIDE PRODUCTS ============================================== -->
-                    <div class="wide-banners wow fadeInUp outer-bottom-xs">
+<!--                    <div class="wide-banners wow fadeInUp outer-bottom-xs">
                         <div class="row">
                             <div class="col-md-7 col-sm-7">
                                 <div class="wide-banner cnt-strip">
                                     <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/home-banner1.jpg')}}" alt=""> </div>
                                 </div>
-                                <!-- /.wide-banner -->
+                                &lt;!&ndash; /.wide-banner &ndash;&gt;
                             </div>
-                            <!-- /.col -->
+                            &lt;!&ndash; /.col &ndash;&gt;
                             <div class="col-md-5 col-sm-5">
                                 <div class="wide-banner cnt-strip">
                                     <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/home-banner2.jpg')}}" alt=""> </div>
                                 </div>
-                                <!-- /.wide-banner -->
+                                &lt;!&ndash; /.wide-banner &ndash;&gt;
                             </div>
-                            <!-- /.col -->
+                            &lt;!&ndash; /.col &ndash;&gt;
                         </div>
-                        <!-- /.row -->
-                    </div>
+                        &lt;!&ndash; /.row &ndash;&gt;
+                    </div>-->
                     <!-- /.wide-banners -->
 
                     <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
@@ -674,29 +631,6 @@
                     <!-- /.section -->
                     <!-- ============================================== SKIP PRODUCT 1 : END ============================================== -->
                     <!-- ============================================== WIDE PRODUCTS ============================================== -->
-<!--                    <div class="wide-banners wow fadeInUp outer-bottom-xs">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="wide-banner cnt-strip">
-                                    <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/home-banner.jpg')}}" alt=""> </div>
-                                    <div class="strip strip-text">
-                                        <div class="strip-inner">
-                                            <h2 class="text-right">New Mens Fashion<br>
-                                                <span class="shopping-needs">Save up to 40% off</span></h2>
-                                        </div>
-                                    </div>
-                                    <div class="new-label">
-                                        <div class="text">NEW</div>
-                                    </div>
-                                    &lt;!&ndash; /.new-label &ndash;&gt;
-                                </div>
-                                &lt;!&ndash; /.wide-banner &ndash;&gt;
-                            </div>
-                            &lt;!&ndash; /.col &ndash;&gt;
-
-                        </div>
-                        &lt;!&ndash; /.row &ndash;&gt;
-                    </div>-->
                     <!-- /.wide-banners -->
                     <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
                     <!-- ============================================== BEST SELLER ============================================== -->
@@ -712,7 +646,7 @@
                                 @foreach($blogpost as $blog)
                                     <div class="blog-post  wow fadeInUp">
                                         <a href="blog-details.html"><img class="img-responsive" src="{{ asset($blog->post_image) }}" alt=""></a>
-                                        <h1><a href="blog-details.html">{{ $blog->post_title }}</a></h1>
+                                        <h4><a href="blog-details.html">{{ $blog->post_title }}</a></h4>
 
                                         <span class="date-time"> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()  }}</span>
 
@@ -740,7 +674,7 @@
             </div>
             <!-- /.row -->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-                @include('frontend.body.brands')
+{{--                @include('frontend.body.brands')--}}
             <!-- /.logo-slider -->
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div>

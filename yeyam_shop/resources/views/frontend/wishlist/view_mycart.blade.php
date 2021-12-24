@@ -59,7 +59,7 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <input type="text" class="form-control unicase-form-control text-input" placeholder="You Coupon.." id="coupon_name">
+                                    <input type="text" class="form-control unicase-form-control text-input" placeholder="Your Coupon.." id="coupon_name">
                                 </div>
                                 <div class="clearfix pull-right">
                                     <button type="submit" class="btn-upper btn btn-primary" onclick="applyCoupon()">APPLIQUER LE COUPON</button>
@@ -89,7 +89,7 @@
             </div><!-- /.row -->
         </div><!-- /.sigin-in-->
         <br>
-        @include('frontend.body.brands')
+{{--        @include('frontend.body.brands')--}}
     </div>
 
 @endsection
